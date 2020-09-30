@@ -1,6 +1,7 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from "@angular/core";
 import { BabywatchService } from "../babywatch.service";
-import { MatSnackBar, MatDialog } from "@angular/material";
+import { MatDialog } from "@angular/material/dialog";
 import { DeleteTimelineDialogComponent } from "../delete-timeline-dialog/delete-timeline-dialog.component";
 
 @Component({

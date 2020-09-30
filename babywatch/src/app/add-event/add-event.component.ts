@@ -4,7 +4,7 @@ import {
   timelineEventTypes,
   TimelineEventType
 } from "../babywatch.service";
-import { MatBottomSheetRef } from "@angular/material";
+import { MatBottomSheetRef } from "@angular/material/bottom-sheet";
 
 @Component({
   selector: "bw-add-event",

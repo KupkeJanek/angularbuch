@@ -1,6 +1,6 @@
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Component, OnInit } from "@angular/core";
 import { BabywatchService } from "../babywatch.service";
-import { MatBottomSheet } from "@angular/material";
 import { AddEventComponent } from "../add-event/add-event.component";
 
 @Component({
