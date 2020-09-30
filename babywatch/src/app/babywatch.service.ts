@@ -1,11 +1,12 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from '@angular/core';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class BabywatchService {
-  babyName: string = "";
+  babyName: string = '';
   private _timeline: TimelineEvent[] = [];
+
   constructor() {
     this.generateFakeEvents();
   }
@@ -51,19 +52,19 @@ export interface TimelineEventType {
 
 export const timelineEventTypes: TimelineEventType[] = [
   {
-    name: "sleep",
-    title: "hat geschlafen"
+    name: 'sleep',
+    title: 'hat geschlafen'
   },
   {
-    name: "diaper",
-    title: "hat in die Windel gemacht"
+    name: 'diaper',
+    title: 'hat in die Windel gemacht'
   },
   {
-    name: "feed",
-    title: "hat getrunken"
+    name: 'feed',
+    title: 'hat getrunken'
   },
   {
-    name: "bath",
-    title: "wurde gebaded"
+    name: 'bath',
+    title: 'wurde gebaded'
   }
 ];

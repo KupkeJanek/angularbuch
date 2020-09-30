@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DeleteTimelineDialogComponent } from './delete-timeline-dialog.component';
+import {DeleteTimelineDialogComponent} from './delete-timeline-dialog.component';
 
 describe('DeleteTimelineDialogComponent', () => {
   let component: DeleteTimelineDialogComponent;
@@ -8,9 +8,9 @@ describe('DeleteTimelineDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteTimelineDialogComponent ]
+      declarations: [DeleteTimelineDialogComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
