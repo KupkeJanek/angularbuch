@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "outDir": "dist",
+    "lib": [ "es6", "dom" ],
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "noEmitOnError": false
+
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "skipMetadataEmit" : true
+  },
+  "exclude": [
+  ]
+}

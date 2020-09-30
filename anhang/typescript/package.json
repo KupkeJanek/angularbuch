@@ -1,0 +1,24 @@
+{
+  "name": "typescript-examples",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rm -f ./*.js; rm -f ./*.js.map",
+    "typescript": "./node_modules/.bin/tsc",
+    "typescript-watch": "./node_modules/.bin/tsc --watch",
+    "live-server": "./node_modules/.bin/live-server .",
+    "start": "concurrent \"npm run typescript-watch\" \"npm run live-server\" "
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^2.2.31",
+    "@types/lodash": "0.0.29",
+    "concurrently": "1.0.0",
+    "live-server": "0.9.0",
+    "typescript": "^3.1.0"
+  },
+  "dependencies": {
+    "lodash": "^4.7.0",
+    "requirejs": "^2.2.0",
+    "systemjs": "^0.19.25"
+  }
+}

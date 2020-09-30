@@ -1,0 +1,35 @@
+h1 {
+    text-align:left;
+    padding-left:20px;
+}
+#content {
+    margin-top: 30px;
+}
+#nav {
+    height: 40px;
+    position: relative;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: inline;
+    position: absolute;
+    bottom: 2px;
+}
+
+li {
+    display: inline
+}
+.right {
+    float: right;
+    display: inline-block;
+}
+
+.main {
+    width: 800px;
+}
+
+.header {
+    font-size: xx-large;
+}

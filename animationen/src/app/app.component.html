@@ -1,0 +1,41 @@
+<div class="container">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Animationen</a>
+      </div>
+      <div class="collapse navbar-collapse" id="mynavbar">
+
+        <ul class="nav navbar-nav">
+          <li routerLinkActive="active">
+            <a routerLink='/basics' class="link">Grundlagen</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink='/autocalc' class="link">Automatische Style-Berechnung</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink='/keyframes' class="link">Keyframes</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink='/groups' class="link">Groups und Sequences</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink='/querying' class="link">Querying</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink='/staggering' class="link">Staggering</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+
+</div>

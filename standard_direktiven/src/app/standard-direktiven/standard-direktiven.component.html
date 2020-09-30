@@ -1,0 +1,198 @@
+<!-- ========================== NgIf =================================== -->
+
+<h1>NgIf</h1>
+
+<h2>NgIf über boolsche Variable</h2>
+<div *ngIf="showDiv">
+  Sichtbar wenn die boolsche Variable showDiv wahr ist
+</div>
+<button (click)="showDiv = !showDiv">
+  DIV ein-/ausblenden
+</button>
+
+<h2>NgIf über Ausdruck</h2>
+<div *ngIf="x > 5">
+  Sichtbar wenn die Variable x größer als 5 ist
+</div>
+<input type="text" [value]="x" (input)="x = $event.target.value">
+
+<h2>NgIf über Stringvergleich</h2>
+<div *ngIf="display === 'true'">
+  Sichtbar wenn die Stringvariable display den Wert 'true' hat
+</div>
+<h2>NgIf über Methodenaufruf</h2>
+<div *ngIf="calculateVisibility()">
+  Sichtbar wenn die Methode calculateVisibility true liefert
+</div>
+
+<h2>NgIf mit Else-Zweig </h2>
+<div *ngIf="x > 5;else smaller_5_template">
+  Sichtbar wenn die Variable x größer als 5 ist
+</div>
+
+<ng-template #smaller_5_template>
+  Sichtbar wenn die Variable kleiner oder gleich 5 ist
+</ng-template>
+
+
+<!-- ========================== NgSwitch =================================== -->
+
+<h1>NgSwitch</h1>
+
+<button (click)="myVariable = myVariable + 1">Variable hochzählen {{myVariable}}</button>
+
+<h2>NgSwitch über den Wert der Variablen</h2>
+
+<div [ngSwitch]="myVariable">
+  <div *ngSwitchCase="1"> Die Variable hat den Wert 1</div>
+  <div *ngSwitchCase="2"> Die Variable hat den Wert 2</div>
+  <div *ngSwitchDefault> Die Variable hat einen anderen Wert</div>
+</div>
+
+<h2>NgSwitch über einen Ausdruck</h2>
+<div [ngSwitch]="myVariable > 1">
+  <div *ngSwitchCase="true"> Die Variable ist größer als 1</div>
+  <div *ngSwitchCase="false"> Die Variable ist kleiner oder gleich 1</div>
+</div>
+
+
+
+<!-- ========================== NgClass =================================== -->
+
+<h1>NgClass</h1>
+
+<h2>NgClass Verwendung mit Objekt-literalen</h2>
+
+<div class="message" [ngClass]="{'alert' : isAlert, 'bordered': showBorder()}">
+  Ich bin eine Meldung
+</div>
+
+<button (click)="isAlert = !isAlert">
+  Alarm ein / ausschalten
+</button>
+
+<button (click)="bordered = !bordered">
+  Rahmen ein / ausschalten
+</button>
+
+<h2>NgClass Verwendung mit  Listen / Arrays</h2>
+
+<div class="message" [ngClass]="'alert'">
+  Ich bin ein Alarm
+</div>
+
+<div class="message" [ngClass]="message.cssClasses">
+  {{message.text}}
+</div>
+
+<!-- ========================== NgStyle =================================== -->
+
+<h1>NgStyle</h1>
+
+<div [ngStyle]="{'font-style' : fontStyle, 'font-size': fontSize + 'px'}">
+  Ich bin ein gestylter Text
+</div>
+
+<div>Aktueller Style: {{fontStyle}}, aktuelle Schriftgröße: {{fontSize}}</div><br>
+
+<button (click)="fontStyle = (fontStyle === 'italic') ? 'normal' : 'italic'">
+  Fontstyle verändern
+</button>
+<button (click)="fontSize = fontSize+1">
+  Schrift vergrößern
+</button>
+
+<h1>NgFor</h1>
+
+<h2>Einfaches NgFor</h2>
+<ul>
+  <li *ngFor="let friend of friends">
+    {{friend}}
+  </li>
+</ul>
+
+<h2>NgFor mit Index</h2>
+<ul>
+  <li *ngFor="let friend of friends; let i = index">
+    {{i + 1}} {{friend}}
+  </li>
+</ul>
+
+<h2>NgFor mit odd / even Eigenschaft </h2>
+
+<table>
+  <thead>
+  <th>City</th>
+  <th>Country</th>
+  <th>Population</th>
+  </thead>
+  <tr *ngFor="let city of cities; let isEven=even; let isOdd=odd"
+      [ngClass]="{'row-even': isEven, 'row-odd': isOdd}">
+
+    <td>{{city.name}}</td>
+    <td>{{city.country}}</td>
+    <td>{{city.population}}</td>
+  </tr>
+</table>
+
+<h2>NgFor mit last-Eigenschaft </h2>
+
+<div *ngFor="let friend of friends; let isLast=last">
+  <span>{{friend}}</span>
+  <hr *ngIf="!isLast"/>
+</div>
+<input #friend type="text">
+<button (click)="addFriend(friend.value)">Add Friend</button>
+
+<h2>NgFor ohne trackBy-Funktion</h2>
+<table>
+  <thead>
+  <th>Player</th>
+  <th>Score</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let player of players" class="fade-in">
+    <td>{{player.name}}</td>
+    <td>{{player.score}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>NgFor mit trackBy-Funktion </h2>
+
+<table>
+  <thead>
+  <th>Player</th>
+  <th>Score</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let player of players; trackBy: playerTrackBy"
+       class="fade-in">
+    <td>{{player.name}}</td>
+    <td class="fade-in">{{player.score}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
+<ul *ngFor="let value of doubleNumbers">
+  <li>{{value}}</li>
+</ul>
+
+
+<!-- ========================== NgNonBindable =================================== -->
+<h1>NgNonBindable</h1>
+
+<h2>Interpolation</h2>
+<div ngNonBindable>
+  Zur Interpolation von Variablen können Sie doppelte geschweifte Klammern
+  verwenden. Der Ausdruck:
+  <pre> {{title}} </pre>
+  würde also den Wert der title-Variablen an dieser Stelle darstellen.
+</div>
+<h2>Property-Bindings</h2>
+<div ngNonBindable>
+  Property-Bindings werden über eckige Klammern definiert. Der Ausdruck:
+  <pre>&lt;input type="text" [value]="title"&gt; </pre>
+  bindet somit den Wert der Variablen an die value-Property des Input-Feldes.
+</div>

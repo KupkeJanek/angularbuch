@@ -1,0 +1,19 @@
+
+<h1>Button Chooser Demo</h1>
+<form novalidate (ngSubmit)="register(form.value)" #form="ngForm" class="blue-form">
+  <label>Welchen Library-Ansatz bevorzugen Sie?</label>
+  <ch-button-chooser [choices]="choices"
+    name="answer"[(ngModel)]="answer">
+  </ch-button-chooser>
+</form>
+
+<div>Antwort: {{answer}}</div>
+
+<h1>Button-Chooser per WebComponent einbinden</h1>
+
+<ch-button-chooser-component [choices]="choices"
+                             (valueChanged)="valueChanged($event.detail)">
+</ch-button-chooser-component>
+
+<div>Antwort aus der WebComponent: {{answerFromWebComponent}}</div>
+

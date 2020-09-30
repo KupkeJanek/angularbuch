@@ -1,0 +1,29 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Klassen</title>
+</head>
+
+<body>
+<h1>Klassen</h1>
+
+<div id="content"></div>
+
+<script src="lib/helper.js"></script>
+<script src="node_modules/requirejs/require.js"></script>
+<script src="node_modules/systemjs/dist/system-csp-production.js"></script>
+<script>
+  var config = {
+    "defaultJSExtensions": true,
+    map: {
+      'lodash': 'node_modules/lodash'
+    },
+    packages: {
+      'lodash': {main: 'lodash.js', defaultExtension: 'js'}
+    }
+  };
+  System.config(config);
+  System.import("dist/use-geo.js");
+</script>
+</body>
+</html>

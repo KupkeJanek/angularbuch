@@ -1,0 +1,59 @@
+body {
+    font-family: Helvetica;
+    margin: 20px;
+}
+
+div {
+    paddings: 5px;
+    margin: 5px;
+}
+
+
+.bordered {
+    border: 2px solid;
+}
+
+table {
+    border-spacing: 0px;
+}
+
+label {
+    font-weight: 700;
+    margin-right: 20px;
+    font-size: smaller;
+}
+
+input {
+    margin-top: 13px;
+    width: 300px;
+}
+
+.search-result > span.title {
+    padding: 8px;
+    font-size: 14px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.search-result > span.artist {
+    padding-left: 8px;
+    font-size: 11px;
+    color: gray;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.search-result > img {
+    font-size: larger;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.search-result {
+    padding: 6px;
+    margin: 2px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    vertical-align: top;
+    background-color: #f1f1f1
+}

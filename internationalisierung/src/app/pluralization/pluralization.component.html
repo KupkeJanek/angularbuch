@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-4">
+    <input class="form-control" i18n-placeholder placeholder="Aufgabe hinzufügen..." (keyup.Enter)="todos.push(newTodo.value); newTodo.value = ''" #newTodo>
+
+    <app-todo-item  *ngFor="let todo of todos"
+                    [todo]="todo"
+                    (completed)="completeTodo($event)">
+    </app-todo-item>
+
+    <!--
+        <p class="bg-primary"> {{todos.length | i18nPlural:todoTextsMapping}}</p>
+
+        <h4>Zählung mit eigener Kategorisierung</h4>
+        -->
+    <ch-todo-counter [count]="todos.length"></ch-todo-counter>
+
+  </div>
+</div>
+

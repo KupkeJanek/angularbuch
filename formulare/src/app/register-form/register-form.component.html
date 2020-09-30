@@ -1,0 +1,25 @@
+<form novalidate (ngSubmit)="register(form.value)" #form="ngForm">
+  <div class="form-group">
+    <label>Geschlecht*</label>
+    <pjm-button-chooser [choices]="genderChoices" name="gender"
+     [(ngModel)]="user.gender"
+     #gender="ngModel"></pjm-button-chooser>
+  </div>
+  <div class="form-group">
+    <label>Vorname</label>
+    <input type="text" class="form-control"
+           name="firstName" [(ngModel)]="user.firstName"
+           #title="ngModel" required/>
+  </div>
+  <div class="form-group">
+    <label>Nachname</label>
+    <input type="text" class="form-control"
+           name="lastName" [(ngModel)]="user.lastName"
+           #title="ngModel" required/>
+  </div>
+  <button type="submit" class="btn btn-default"
+          [disabled]="!form.valid">
+    Registrieren
+  </button>
+</form>
+<pre>{{user | json}}</pre>

@@ -1,0 +1,19 @@
+$button-color: #0fc50f!default;
+
+.button-chooser {
+    width: 100%;
+    display: flex;
+}
+.active {
+    background: darken($button-color, 10%)
+}
+span {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+button {
+    background: $button-color;
+    color: white;
+    width: 95%;
+    margin: 10px 10px 0px 0px ;
+}

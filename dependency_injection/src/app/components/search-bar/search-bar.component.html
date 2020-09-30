@@ -1,0 +1,3 @@
+<label>Suche</label>
+<input type="text" #query (keyup.enter)="search(query.value)" />
+<button (click)="search(query.value)">Suchen</button>

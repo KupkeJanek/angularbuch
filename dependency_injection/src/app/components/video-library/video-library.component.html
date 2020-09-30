@@ -1,0 +1,6 @@
+<h3>Video Bibliothek</h3>
+<ch-search-bar #searchBar></ch-search-bar>
+<div class="search-result" *ngFor="let result of searchBar.results">
+  <img src={{result.Poster}}>
+  <span class="title">{{result.Title}}</span>
+</div>

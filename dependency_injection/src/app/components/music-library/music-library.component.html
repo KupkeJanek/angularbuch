@@ -1,0 +1,7 @@
+<h3>Musik Bibliothek</h3>
+<ch-search-bar #bar></ch-search-bar>
+<div class="search-result" *ngFor="let result of bar.results">
+  <img src={{result.img}}>
+  <span class="title">{{result.title}} ({{result.releaseYear}})</span> <br>
+  <span class="artist">{{result.artist}}</span>
+</div>

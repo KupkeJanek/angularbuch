@@ -1,0 +1,17 @@
+
+
+ body {
+     padding: 6px;
+     font-family: monospace;
+     #font-family: Helvetica;
+
+    #text-align: center;
+     color: white;
+     background: black;
+     white-space: pre;
+
+ }
+.color {
+    padding: 1rem;
+    color: black;
+}

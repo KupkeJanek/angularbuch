@@ -1,0 +1,25 @@
+<h1>Mein Angular 2 Blog</h1>
+
+<app-blog-entry *ngFor="let entry of entries" [entry]="entry"></app-blog-entry>
+
+<h2>Neuen Blogeintrag erstellen</h2>
+<div class="form">
+
+  <div class="control">
+    <label for="title">Titel:</label>
+    <input type="text" id="title" #title value="Katzen funktionieren immer..."/>
+  </div>
+  <div class="control">
+    <label for="title">Bild URL:</label>
+    <input type="text" id="image" #image value="http://lorempixel.com/400/250/cats"/>
+  </div>
+  <div class="control">
+    <label for="text">Text:</label>
+    <textarea id="text" cols="20" rows="3" #text>Dies ist ein Blogartikel mit einem völlig zufällig ausgewählten Katzenbild.</textarea>
+  </div>
+  <div>
+    <button (click)="createBlogEntry(title.value, image.value, text.value)">
+      Blogeintrag anlegen
+    </button>
+  </div>
+</div>

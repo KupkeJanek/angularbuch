@@ -1,0 +1,60 @@
+div {
+    paddings: 5px;
+    margin: 5px;
+}
+
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+
+.message {
+    padding: 5px;
+}
+
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+
+.alert {
+    color: #D8000C;
+    background-color: #FFBABA;
+}
+
+.bordered {
+    border: 2px solid;
+}
+
+table {
+    border-spacing: 0px;
+}
+
+th {
+    text-align: left;
+    background-color: #CCC;
+}
+
+td,th {
+    min-width: 120px;
+    padding: 6px;
+}
+
+.row-even {
+    background-color: #f1f1f1;
+}
+
+.row-odd {
+    background-color: #CCC;
+}
+
+label {
+    font-weight: 700;
+    margin-right: 20px;
+    font-size: smaller;
+}
+
+input {
+    margin-top: 13px;
+    width: 300px;
+}

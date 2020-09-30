@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Internationalisierung</title>
+  <script>
+    var browserLanguage = (navigator.languages && navigator.languages[0]) ||
+      navigator.browserLanguage ||
+      navigator.userLanguage ||
+      navigator.systemLanguage;
+
+    var supportedLanguages = ['de', 'fr'];
+    var locale = 'de';
+    if (supportedLanguages.includes(browserLanguage)) {
+      locale = browserLanguage
+    }
+    document.write('<meta http-equiv=Refresh content="0;url=/' + locale + '/">');
+  </script>
+</head>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ButtonChooserWebcomponent</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <my-first-angular-element></my-first-angular-element>
+
+  <ch-button-chooser-component id="first-chooser" choices-string="yes, no"></ch-button-chooser-component>
+<ch-button-chooser-component id="second-chooser"></ch-button-chooser-component>
+</body>
+<script>
+
+  var element = document.createElement('my-first-angular-element');
+  document.body.appendChild(element);
+
+  var chooser = document.getElementById('first-chooser');
+//  chooser.choices = ['yes', 'no!!'];
+  chooser.addEventListener("valueChanged", function(e) { console.log(e) });
+
+  var chooser2 = document.getElementById('second-chooser');
+  chooser2.choices = ['Herr', 'Frau'];
+  chooser2.addEventListener("valueChanged", function(e) { console.log(e) });
+
+</script>
+</html>

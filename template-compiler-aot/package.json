@@ -1,0 +1,63 @@
+{
+  "name": "blog-app",
+  "version": "1.0.0",
+  "description": "Blog Applikation",
+  "watch": {
+    "copy:html": "./app/**/*.html"
+  },
+  "scripts": {
+    "start": "npm run aot && npm run bundle && live-server ",
+    "tsc": "./node_modules/.bin/tsc",
+    "aot": "ngc -p ./tsconfig-aot.json",
+    "bundle": "rollup -c ./rollup.config.js",
+    "build": "npm run aot && npm run bundle",
+    "tsc:w": "tsc --watch",
+    "app:watch": "onchange \"./app/**/*.*\" -v -- npm run build",
+    "minify": "uglifyjs build/bundle_.js --screw-ie8 --compress --mangle --output build/bundle.min.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/animations": "~7.0.0",
+    "@angular/common": "~7.0.0",
+    "@angular/compiler": "~7.0.0",
+    "@angular/core": "~7.0.0",
+    "@angular/forms": "~7.0.0",
+    "@angular/http": "~7.0.0",
+    "@angular/platform-browser": "~7.0.0",
+    "@angular/platform-browser-dynamic": "~7.0.0",
+    "@angular/router": "~7.0.0",
+    "@angular/compiler-cli": "~7.0.0",
+    "@angular/platform-server": "~7.0.0",
+    "bootstrap": "^3.3.6",
+    "core-js": "^2.5.4",
+    "rxjs": "^6.3.3",
+    "socket.io-client": "^1.7.4",
+    "zone.js": "^0.8.26"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "canonical-path": "0.0.2",
+    "concurrently": "^2.2.0",
+    "copyfiles": "^1.0.0",
+    "http-server": "^0.9.0",
+    "live-server": "^1.1.0",
+    "lodash": "^4.11.1",
+    "npm-watch": "^0.1.6",
+    "onchange": "^3.0.2",
+    "rimraf": "^2.5.2",
+    "rollup": "^0.65.2",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-babel-minify": "^6.0.0",
+    "rollup-plugin-commonjs": "^5.0.4",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "tslint": "^3.7.4",
+    "typescript": "~3.1.1",
+    "typings": "^1.0.4",
+    "uglify": "^0.1.5"
+  },
+  "repository": {}
+}

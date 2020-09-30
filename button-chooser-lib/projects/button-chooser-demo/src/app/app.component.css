@@ -1,0 +1,12 @@
+div {
+  padding-top: 8px;
+}
+
+::ng-deep .blue-form .button-chooser__button {
+  background: blue;
+}
+
+::ng-deep .blue-form .button-chooser__button--active {
+  background: darkblue;
+}
+
