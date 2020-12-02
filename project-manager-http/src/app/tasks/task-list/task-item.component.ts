@@ -1,4 +1,4 @@
-import {Component, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter} from '@angular/core';
 import {Task} from '../../models/model-interfaces';
 
 @Component({
@@ -7,18 +7,18 @@ import {Task} from '../../models/model-interfaces';
   styleUrls: ['./task-item.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   inputs: ['task', 'selected'],
-  outputs: ['taskSelected' , 'taskDelete'],
+  outputs: ['taskSelected', 'taskDelete'],
 })
 export class TaskItemComponent {
 
   selected: boolean;
   task: Task;
 
-  taskSelected  = new EventEmitter();
+  taskSelected = new EventEmitter();
   taskDelete = new EventEmitter();
 
   select() {
-    this.taskSelected.emit(this.task.id)
+    this.taskSelected.emit(this.task.id);
   }
 
   delete() {

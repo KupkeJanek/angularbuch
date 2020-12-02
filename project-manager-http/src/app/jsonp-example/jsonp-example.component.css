@@ -1,12 +1,12 @@
 .results {
-    padding-top: 25px;
+  padding-top: 25px;
 }
 
 .results > div {
-    float: left;
-    padding: 5px;
+  float: left;
+  padding: 5px;
 }
 
 .results img {
-    height: 159px;
+  height: 159px;
 }

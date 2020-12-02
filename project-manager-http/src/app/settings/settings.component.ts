@@ -28,6 +28,7 @@ export class SettingsComponent {
       this.titleService.setTitle(title);
     }
   }
+
   ngOnDestroy() {
     this.titleService.setTitle(this.originalTitle);
   }

@@ -1,5 +1,4 @@
-
-import { NotFoundComponent } from './not-found.component';
+import {NotFoundComponent} from './not-found.component';
 
 describe('Component: NotFound', () => {
   it('should create an instance', () => {

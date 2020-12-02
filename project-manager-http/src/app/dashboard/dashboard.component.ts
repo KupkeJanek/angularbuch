@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
 import {Title} from '@angular/platform-browser';
 
 
@@ -12,6 +11,7 @@ import {Title} from '@angular/platform-browser';
 export class DashboardComponent {
 
   title: string;
+
   constructor(private titleService: Title) {
   }
 
@@ -23,6 +23,7 @@ export class DashboardComponent {
       this.titleService.setTitle(this.title);
     }
   }
+
   ngOnDestroy() {
     this.titleService.setTitle(this.originalTitle);
   }

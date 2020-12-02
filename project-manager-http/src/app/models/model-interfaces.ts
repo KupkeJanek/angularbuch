@@ -1,10 +1,12 @@
 export interface Tag {
   label: string;
 }
+
 export interface User {
   name?: string;
   email?: string;
 }
+
 export class Task {
   id: number;
   title?: string;
@@ -49,9 +51,9 @@ export const stateTexts = {
   'COMPLETED': 'Abgeschlossen'
 };
 
-export const statesAsObjects  = [{ name: 'BACKLOG', text: 'Backlog'},
-  { name: 'IN_PROGRESS', text: 'In Bearbeitung'},
-  { name: 'TEST', text: 'Test'},
-  { name: 'COMPLETED', text: 'Abgeschlossen'}];
+export const statesAsObjects = [{name: 'BACKLOG', text: 'Backlog'},
+  {name: 'IN_PROGRESS', text: 'In Bearbeitung'},
+  {name: 'TEST', text: 'Test'},
+  {name: 'COMPLETED', text: 'Abgeschlossen'}];
 
 

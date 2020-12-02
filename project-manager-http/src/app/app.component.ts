@@ -1,9 +1,5 @@
 import {Component, Inject, OnInit, Optional} from '@angular/core';
-import {
-  Router,
-  NavigationEnd,
-  ActivatedRoute,
-} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router,} from '@angular/router';
 import {LoginService} from './services/login-service/login-service';
 import {Title} from '@angular/platform-browser';
 import {filter} from 'rxjs/internal/operators';
@@ -39,7 +35,7 @@ export class AppComponent implements OnInit {
     let title = this.defaultTitle;
     let route = this.activatedRoute;
     // firstChild gibt die Haupt-Kindroute der übergebenen Route zurück
-    while(state.firstChild) {
+    while (state.firstChild) {
       state = state.firstChild;
       title = route.snapshot.data['title'] || title;
     }

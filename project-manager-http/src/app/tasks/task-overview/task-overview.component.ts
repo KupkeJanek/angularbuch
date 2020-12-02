@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import * as model from '../../models/model-interfaces';
 import {Task} from '../../models/model-interfaces';
 import {TaskService} from '../../services/task-service/task.service';
-import * as model from '../../models/model-interfaces';
 
 
 @Component({
@@ -24,9 +24,9 @@ export class TaskOverviewComponent {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-        this.taskService.getTask(params['id']).subscribe(task => {
-          this.task = task;
-        });
+      this.taskService.getTask(params['id']).subscribe(task => {
+        this.task = task;
+      });
     });
   }
 }

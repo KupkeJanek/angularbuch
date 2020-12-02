@@ -1,14 +1,15 @@
 import {Component, Input} from '@angular/core';
-import {NgForm, FormGroup} from '@angular/forms';
+import {FormGroup, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'show-error',
   template: `
     <div *ngIf='errorMessages' class='alert alert-danger'>
-        <div *ngFor='let errorMessage of errorMessages'>
-            {{errorMessage}}
-        </div>
-    </div>` })
+      <div *ngFor='let errorMessage of errorMessages'>
+        {{errorMessage}}
+      </div>
+    </div>`
+})
 export class ShowErrorComponent {
 
   @Input('path') controlPath;

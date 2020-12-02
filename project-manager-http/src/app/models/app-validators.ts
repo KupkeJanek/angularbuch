@@ -1,19 +1,15 @@
 import {Directive} from '@angular/core';
-import {
-  FormGroup,
-  AbstractControl,
-  NG_VALIDATORS,
-} from '@angular/forms';
+import {AbstractControl, FormGroup, NG_VALIDATORS,} from '@angular/forms';
 
 
-export function ifNotBacklogThenAssignee(controlGroup: FormGroup): {[key: string]: boolean} {
+export function ifNotBacklogThenAssignee(controlGroup: FormGroup): { [key: string]: boolean } {
   const assigneeName = controlGroup.get('assignee/name');
   const state = controlGroup.get('state');
   if (!assigneeName || !state) {
     return;
   }
   if ((state.value && state.value !== 'BACKLOG') &&
-      (!assigneeName.value || assigneeName.value === '')) {
+    (!assigneeName.value || assigneeName.value === '')) {
     return {'assigneeRequired': true};
   }
   return null;
@@ -31,16 +27,18 @@ export function asyncIfNotBacklogThenAssignee(control): Promise<any> {
 @Directive({
   selector: '[ifNotBacklogThenAssignee]',
   providers: [
-    {provide: NG_VALIDATORS,
-     useExisting: IfNotBacklogThenAssigneeValidator, multi: true}]
+    {
+      provide: NG_VALIDATORS,
+      useExisting: IfNotBacklogThenAssigneeValidator, multi: true
+    }]
 })
 export class IfNotBacklogThenAssigneeValidator {
 
-  validate(formGroup: FormGroup): {[key: string]: any} {
+  validate(formGroup: FormGroup): { [key: string]: any } {
     const nameControl = formGroup.get('assignee/name');
     const stateControl = formGroup.get('state');
     if (!nameControl || !stateControl ||
-        stateControl.value === 'BACKLOG') {
+      stateControl.value === 'BACKLOG') {
       return null;
     }
     if (!nameControl.value || nameControl.value === '') {
@@ -58,7 +56,7 @@ export class IfNotBacklogThenAssigneeValidator {
   }]
 })
 export class EmailValidator {
-  validate(control: AbstractControl): {[key: string]: any} {
+  validate(control: AbstractControl): { [key: string]: any } {
     const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     if (!control.value || control.value === '' || re.test(control.value)) {
       return null;
@@ -68,7 +66,7 @@ export class EmailValidator {
   }
 }
 
-export function emailValidator(control): {[key: string]: any} {
+export function emailValidator(control): { [key: string]: any } {
   const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
   if (!control.value || control.value === '' || re.test(control.value)) {
     return null;

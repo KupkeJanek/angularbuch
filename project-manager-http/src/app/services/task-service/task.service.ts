@@ -5,27 +5,28 @@ import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common
 import {map} from 'rxjs/operators';
 
 const BASE_URL = 'http://localhost:3000/api/tasks/';
+
 @Injectable()
 export class TaskService {
 
   constructor(private http: HttpClient) {
   }
 
-    checkTasks(): Observable<HttpHeaders> {
-        return this.http.head('http://localhost:3000/api/tasks', {
-                observe: 'response',
-                responseType: 'text'
-        }).pipe(map(response => response.headers));
-    }
+  checkTasks(): Observable<HttpHeaders> {
+    return this.http.head('http://localhost:3000/api/tasks', {
+      observe: 'response',
+      responseType: 'text'
+    }).pipe(map(response => response.headers));
+  }
 
 
-    loadAllTasks(): Observable<Task[]> {
+  loadAllTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(BASE_URL);
   }
 
   loadTasksWithFullResponse(): Observable<HttpResponse<Task[]>> {
     const params = new HttpParams().append('_limit', '100');
-    return this.http.get<Task[]>(BASE_URL, { observe: 'response', params: params});
+    return this.http.get<Task[]>(BASE_URL, {observe: 'response', params: params});
   }
 
   getTask(id: number | string): Observable<Task> {
@@ -38,14 +39,14 @@ export class TaskService {
 
   createTaskLong(task: Task): Observable<Task> {
     const headers = new HttpHeaders()
-        .append('Content-Type', 'application/json');
+      .append('Content-Type', 'application/json');
     return this.http.post<Task>(BASE_URL, JSON.stringify(task), {
       headers: headers
     });
   }
 
   updateTask(task: Task): Observable<Task> {
-      return this.http.put<Task>(BASE_URL + task.id, task);
+    return this.http.put<Task>(BASE_URL + task.id, task);
   }
 
 
@@ -58,7 +59,7 @@ export class TaskService {
   saveTask(task: Task) {
     const method = task.id ? 'PUT' : 'POST';
     return this.http.request<Task>(method, BASE_URL + (task.id || ''), {
-        body: task
+      body: task
     });
   }
 
@@ -74,10 +75,10 @@ export class TaskService {
             sort: string = 'id',
             order: string = 'ASC'): Observable<Task[]> {
     const searchParams = new HttpParams()
-        .append('q', query)
-        .append('_sort', sort)
-        .append('_limit', '100')
-        .append('_order', order);
+      .append('q', query)
+      .append('_sort', sort)
+      .append('_limit', '100')
+      .append('_order', order);
     return this.http.get<Task[]>(BASE_URL, {params: searchParams});
   }
 

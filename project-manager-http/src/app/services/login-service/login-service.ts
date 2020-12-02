@@ -6,8 +6,8 @@ const CURRENT_USER = 'currentUser';
 export class LoginService {
 
   USERS = [
-    {name: 'admin', password: 'admin', rights: ['edit_tasks', 'change_settings'] },
-    {name: 'user', password: 'secret', rights: ['edit_tasks'] }
+    {name: 'admin', password: 'admin', rights: ['edit_tasks', 'change_settings']},
+    {name: 'user', password: 'secret', rights: ['edit_tasks']}
   ];
 
   constructor(@Optional() @Inject('AUTH_ENABLED') private authEnabled = false) {

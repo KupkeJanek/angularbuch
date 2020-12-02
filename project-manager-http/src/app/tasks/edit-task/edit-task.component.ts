@@ -1,12 +1,12 @@
-import {ViewChild, Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {NgForm} from '@angular/forms';
-import {Task, createInitialTask} from '../../models/model-interfaces';
+import * as model from '../../models/model-interfaces';
+import {createInitialTask, Task} from '../../models/model-interfaces';
 import {TaskService} from '../../services/task-service/task.service';
 import {Subscription} from 'rxjs';
-import * as model from '../../models/model-interfaces';
 import {filter, map, mergeMap} from 'rxjs/internal/operators';
 
 

@@ -18,6 +18,7 @@ li {
   float: right;
   width: 300px;
 }
+
 .left {
   float: left;
   width: calc(100% - 300px);

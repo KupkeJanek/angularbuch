@@ -4,7 +4,7 @@ import {Location} from '@angular/common';
 import {FormControl} from '@angular/forms';
 import {Task} from '../../models/model-interfaces';
 import {TaskService} from '../../services/task-service/task.service';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Observable, of} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {catchError} from 'rxjs/internal/operators';
@@ -29,7 +29,7 @@ export class TaskListComponent implements OnInit {
   private errorHandler = (error) => {
     console.log('Es ist ein Fehler aufgetreten', error);
     return of([]);
-  }
+  };
 
 
   constructor(private taskService: TaskService,
@@ -44,7 +44,7 @@ export class TaskListComponent implements OnInit {
     const t: Task = {id: 1};
 
     this.taskService.checkTasks().subscribe((headers) => {
-       console.log('Die Größe des Inhalts beträgt', headers.get('Content-Length'));
+      console.log('Die Größe des Inhalts beträgt', headers.get('Content-Length'));
     });
 
     // 1.Version: Verwendung von http in der Komponente
@@ -54,7 +54,7 @@ export class TaskListComponent implements OnInit {
           this.tasks = tasks;
         },
         (error: HttpErrorResponse) => {
-        console.log(error);
+          console.log(error);
           switch (error.status) {
             case 404:
               console.log('Der Endpunkt wurde nicht gefunden', error);
@@ -69,8 +69,8 @@ export class TaskListComponent implements OnInit {
 
 
     this.taskService.loadAllTasks().subscribe((tasks) => {
-        this.tasks = tasks;
-      });
+      this.tasks = tasks;
+    });
 
     this.tasks$ = this.taskService.loadAllTasks();
 
@@ -90,9 +90,9 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(task: Task) {
-  //  this.taskService.updateState(task.id, 'COMPLETED').subscribe(_ => {
-  //    console.log(_);
-  //  });
+    //  this.taskService.updateState(task.id, 'COMPLETED').subscribe(_ => {
+    //    console.log(_);
+    //  });
     this.taskService.deleteTask(task).subscribe(_ => {
       this.findTasks(this.searchTerm.value);
     });
