@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject} from 'rxjs/internal/Subject';
-import {Observable} from 'rxjs/internal/Observable';
+import {Subject, Observable} from 'rxjs';
 import {AnimationEvent} from '@angular/animations';
 
 @Injectable({
