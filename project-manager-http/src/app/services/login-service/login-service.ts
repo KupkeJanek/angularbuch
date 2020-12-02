@@ -1,7 +1,8 @@
-import {Inject, Optional} from '@angular/core'
+import {Inject, Injectable, Optional} from '@angular/core';
 
 const CURRENT_USER = 'currentUser';
 
+@Injectable()
 export class LoginService {
 
   USERS = [
@@ -9,7 +10,7 @@ export class LoginService {
     {name: 'user', password: 'secret', rights: ['edit_tasks'] }
   ];
 
-  constructor(@Optional() @Inject('AUTH_ENABLED') @Optional() private authEnabled = false) {
+  constructor(@Optional() @Inject('AUTH_ENABLED') private authEnabled = false) {
   }
 
   login(name, password) {
