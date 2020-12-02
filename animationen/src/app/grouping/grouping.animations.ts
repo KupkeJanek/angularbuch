@@ -1,12 +1,4 @@
-import {
-  trigger,
-  animate,
-  style,
-  transition,
-  sequence,
-  group,
-  state
-} from '@angular/animations';
+import {animate, group, sequence, state, style, transition, trigger} from '@angular/animations';
 
 
 export function zoomInOut(triggerName: string) {

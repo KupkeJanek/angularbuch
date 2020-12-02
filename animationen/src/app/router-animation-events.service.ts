@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {Subject, Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
 import {AnimationEvent} from '@angular/animations';
 
 @Injectable({
@@ -7,13 +7,13 @@ import {AnimationEvent} from '@angular/animations';
 })
 export class RouterAnimationEventsService {
 
-    private animationEvents$ = new Subject<AnimationEvent>();
+  private animationEvents$ = new Subject<AnimationEvent>();
 
-    dispatchEvent(event: AnimationEvent) {
-      this.animationEvents$.next(event);
-    }
+  dispatchEvent(event: AnimationEvent) {
+    this.animationEvents$.next(event);
+  }
 
-    listenForEvents(): Observable<AnimationEvent> {
-      return this.animationEvents$.asObservable();
-    }
+  listenForEvents(): Observable<AnimationEvent> {
+    return this.animationEvents$.asObservable();
+  }
 }

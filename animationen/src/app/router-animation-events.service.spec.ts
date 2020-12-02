@@ -1,6 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { RouterAnimationEventsService } from './router-animation-events.service';
+import {RouterAnimationEventsService} from './router-animation-events.service';
 
 describe('RouterAnimationEventsService', () => {
   beforeEach(() => {

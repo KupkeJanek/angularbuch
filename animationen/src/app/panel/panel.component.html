@@ -2,7 +2,7 @@
   <div class="header" (click)="togglePanel()">
     <span *ngIf="!hasHeader()">{{title}}</span>
     <ng-content *ngIf="hasHeader()" select="panel-header"></ng-content>
-    <span class="arrow">{{ open ?  '&#9660;' : '&#9668;'}}</span>
+    <span class="arrow">{{ open ? '&#9660;' : '&#9668;'}}</span>
   </div>
   <div class="content-box" [@active]="open ? 'open' : 'closed'">
     <div class="body">
@@ -10,9 +10,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 
 <!--

@@ -11,19 +11,20 @@ export class AutoCalculationComponent {
 
   @ViewChild(PanelComponent) firstPanel: PanelComponent;
 
-constructor(private routerAnimationEventsService: RouterAnimationEventsService) {
-  this.routerAnimationEventsService.listenForEvents()
-      .pipe( filter(event => event.phaseName === 'done'))
+  constructor(private routerAnimationEventsService: RouterAnimationEventsService) {
+    this.routerAnimationEventsService.listenForEvents()
+      .pipe(filter(event => event.phaseName === 'done'))
       .subscribe(event => {
-          this.firstPanel.open = true;
-  });
-}
-/*
-  @HostListener('@routingAnimation.done', ['$event']) onDone(event) {
-    if (event.fromState === 'void') {
-      this.firstPanel.open = true;
-      this.changeDetector.detectChanges();
-    }
+        this.firstPanel.open = true;
+      });
   }
-  */
+
+  /*
+    @HostListener('@routingAnimation.done', ['$event']) onDone(event) {
+      if (event.fromState === 'void') {
+        this.firstPanel.open = true;
+        this.changeDetector.detectChanges();
+      }
+    }
+    */
 }

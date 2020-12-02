@@ -1,13 +1,6 @@
-import {
-  Directive,
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ContentChild,
-} from '@angular/core';
+import {Component, ContentChild, Directive, EventEmitter, Input, Output,} from '@angular/core';
 
-import {trigger, style, animate, state, transition} from '@angular/animations'
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Directive({selector: 'ch-panel-header'})
 export class PanelHeaderDirective {

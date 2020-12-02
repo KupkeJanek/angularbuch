@@ -1,7 +1,7 @@
 <div class="tabs">
   <ul>
     <li *ngFor="let tab of tabs"
-         (click)="activate(tab)">
+        (click)="activate(tab)">
       <a>{{tab.title}}</a>
       <div class="tab-line"
            [@tabState]="tab.active ? 'active' : 'inactive'"
@@ -11,6 +11,6 @@
     </li>
   </ul>
   <div class="tabs-container">
-      <ng-content></ng-content>
+    <ng-content></ng-content>
   </div>
 </div>

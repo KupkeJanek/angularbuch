@@ -1,5 +1,6 @@
-import {PanelComponent} from "./panel.component";
-import {ContentChildren, QueryList, Input, Directive} from "@angular/core";
+import {PanelComponent} from './panel.component';
+import {ContentChildren, Directive, Input, QueryList} from '@angular/core';
+
 @Directive({
   selector: 'ch-accordion, [chAccordion]',
   exportAs: 'accordion'
@@ -7,7 +8,7 @@ import {ContentChildren, QueryList, Input, Directive} from "@angular/core";
 export class Accordion {
   @Input() onlyOneOpen;
 
-  @ContentChildren(PanelComponent) panels:QueryList<PanelComponent>;
+  @ContentChildren(PanelComponent) panels: QueryList<PanelComponent>;
 
   ngAfterContentInit() {
     for (const panel of this.panels.toArray()) {
@@ -30,7 +31,7 @@ export class Accordion {
 
 
   closeAll() {
-    console.log(this.panels.toArray())
+    console.log(this.panels.toArray());
     for (const panel of this.panels.toArray()) {
       panel.open = false;
     }

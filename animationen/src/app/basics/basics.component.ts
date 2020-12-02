@@ -1,4 +1,4 @@
-import {Component, OnInit, ChangeDetectorRef, HostBinding} from '@angular/core';
+import {ChangeDetectorRef, Component} from '@angular/core';
 
 @Component({
   animations: [],
@@ -12,8 +12,8 @@ export class BasicsComponent {
   created = Math.random();
 
   constructor(private changeDetector: ChangeDetectorRef) {
-    console.log('constructor')
-    console.log(this.created)
+    console.log('constructor');
+    console.log(this.created);
   }
 
 }

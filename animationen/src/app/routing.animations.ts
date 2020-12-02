@@ -1,10 +1,4 @@
-import {
-  trigger,
-  animate,
-  style,
-  transition,
-  keyframes, query, group
-} from '@angular/animations';
+import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 
 export function animateRoute2(name) {
   return trigger(name, [

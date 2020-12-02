@@ -1,6 +1,6 @@
 <div class="button-bar">
-<button class="btn btn-default" (click)="loadTodos()">Todos laden</button>
-<button class="btn btn-default" (click)="clearTodos()">Alle Todos löschen</button>
+  <button class="btn btn-default" (click)="loadTodos()">Todos laden</button>
+  <button class="btn btn-default" (click)="clearTodos()">Alle Todos löschen</button>
 </div>
 
 <div class="todo-list">
@@ -10,10 +10,10 @@
         <button class="btn btn-default" type="button" (click)="addTodo(todoInput.value); todoInput.value = ''">Todo hinzufügen</button>
       </span>
   </div>
-   <div [@listAnimation]="todos?.length">
-     <app-todo-item *ngFor="let todo of todos"
-                    [todo]="todo"
-                    (completed)="completeTodo($event)">
-     </app-todo-item>
-   </div>
+  <div [@listAnimation]="todos?.length">
+    <app-todo-item *ngFor="let todo of todos"
+                   [todo]="todo"
+                   (completed)="completeTodo($event)">
+    </app-todo-item>
+  </div>
 </div>

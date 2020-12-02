@@ -1,5 +1,5 @@
-import {Component, ContentChildren, QueryList, AfterContentInit, Input} from '@angular/core';
-import {trigger, style, animate, state, transition, AnimationEvent} from '@angular/animations';
+import {AfterContentInit, Component, ContentChildren, Input, QueryList} from '@angular/core';
+import {animate, AnimationEvent, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'ch-tab',
@@ -65,6 +65,7 @@ export class TabsComponent implements AfterContentInit {
     }
     tab.active = true;
   }
+
   animationStarted(event: AnimationEvent) {
     console.log(`Animating from ${event.fromState} to ${event.toState}`);
   }
