@@ -1,6 +1,6 @@
 
 import {FormsModule} from '@angular/forms';
-import {TestBed, fakeAsync, tick, async, discardPeriodicTasks} from '@angular/core/testing';
+import {TestBed, fakeAsync, tick, async, discardPeriodicTasks, waitForAsync} from '@angular/core/testing';
 import {TemplateDrivenFormComponent} from './template-driven-form.component';
 import {TaskService} from '../services/task-service/task.service';
 import {UserService} from '../services/user.service';
@@ -68,7 +68,7 @@ describe('Template driven form', () => {
     });
   }));
 
-  xit('should show no error for valid email adresses', async(() => {
+  xit('should show no error for valid email adresses', waitForAsync(() => {
     const fixture = TestBed.createComponent(TemplateDrivenFormComponent);
     fixture.autoDetectChanges(true);
     fixture.whenStable().then(() => {

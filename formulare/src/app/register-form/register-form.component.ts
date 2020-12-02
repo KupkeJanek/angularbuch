@@ -9,7 +9,8 @@ export class RegisterFormComponent implements OnInit {
 
   genderChoices = ['Herr', 'Frau'];
 
-  user: any = {};
+  user: any = {
+  };
 
   constructor() { }
 

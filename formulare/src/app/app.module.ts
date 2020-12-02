@@ -1,16 +1,11 @@
-import { RegisterFormComponent } from './register-form/register-form.component';
+import {RegisterFormComponent} from './register-form/register-form.component';
 import {NgModule} from '@angular/core';
 
 
 import {AppComponent} from './app.component';
-import {TaskService} from './services/task-service/task.service';
-import {LoginService} from './services/login-service/login-service';
 import {ShowErrorComponent} from './show-error/show-error.component';
 import {APPLICATION_VALIDATORS} from './models/app-validators';
 import {BrowserModule} from '@angular/platform-browser';
-import {UserService} from './services/user.service';
-import {QuestionsService} from './services/questions.service';
-import {TABS_DIRECTIVES} from './tabs/tabs.component';
 import {FirstFormTwoWayComponent} from './first-form-two-way/first-form-two-way.component';
 import {FirstFormOneWayComponent} from './first-form-one-way/first-form-one-way.component';
 import {GeneratedFormComponent} from './generated-form/generated-form.component';
