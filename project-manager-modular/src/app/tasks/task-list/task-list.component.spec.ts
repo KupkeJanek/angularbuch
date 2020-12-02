@@ -2,7 +2,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
-import {TestBed, inject} from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 import {TaskItemComponent} from './task-item.component';
 import {TaskListComponent} from './task-list.component';
 import {ReactiveFormsModule} from '@angular/forms';

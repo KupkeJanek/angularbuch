@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
+import * as model from '../../shared/models/model-interfaces';
 import {Task} from '../../shared/models/model-interfaces';
 import {TaskService} from '../../shared/task-service/task.service';
-import * as model from '../../shared/models/model-interfaces';
 
 @Component({
   templateUrl: './task-overview.component.html',
@@ -24,9 +24,9 @@ export class TaskOverviewComponent {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-        this.taskService.getTask(params['id']).subscribe(task => {
-          this.task = task;
-        });
+      this.taskService.getTask(params['id']).subscribe(task => {
+        this.task = task;
+      });
     });
   }
 
@@ -37,7 +37,7 @@ export class TaskOverviewComponent {
         this.showSuccessLabel = true;
         setTimeout(() => {
           this.showSuccessLabel = false;
-        }, 2000)
+        }, 2000);
       });
   }
 }

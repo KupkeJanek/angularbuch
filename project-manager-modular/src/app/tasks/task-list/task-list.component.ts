@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 
 import {FormControl} from '@angular/forms';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {merge, Observable} from 'rxjs';
-import {debounceTime, tap, switchMap} from 'rxjs/operators';
+import {debounceTime, switchMap, tap} from 'rxjs/operators';
 import {distinctUntilChanged, map} from 'rxjs/internal/operators';
 import {TaskService} from '../../shared/task-service/task.service';
 import {Task} from '../../shared/models/model-interfaces';
@@ -49,7 +49,7 @@ export class TaskListComponent implements OnInit {
     merge(paramsStream, searchTermStream)
       .pipe(
         distinctUntilChanged(),
-        switchMap(query =>  this.taskService.findTasks(query)))
+        switchMap(query => this.taskService.findTasks(query)))
       .subscribe();
   }
 
@@ -60,7 +60,7 @@ export class TaskListComponent implements OnInit {
 
   selectTask(taskId: string | number) {
     this.selectedTaskId = taskId;
-    this.router.navigate([ {outlets: {'right': [ 'overview' , taskId]}}], {relativeTo: this.route});
+    this.router.navigate([{outlets: {'right': ['overview', taskId]}}], {relativeTo: this.route});
   }
 
   findTasks(queryString: string) {

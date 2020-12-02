@@ -1,5 +1,5 @@
 export class ServerSideStorage {
-    data: any = {};
+  data: any = {};
 
 
 }

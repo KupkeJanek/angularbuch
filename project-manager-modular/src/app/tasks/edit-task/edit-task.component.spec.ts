@@ -1,19 +1,18 @@
-import {TaskService} from '../../services/task-service/task.service';
 
 import {RouterTestingModule} from '@angular/router/testing';
 
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {BehaviorSubject} from 'rxjs';
 
-import {TestBed, inject} from '@angular/core/testing';
+import {fakeAsync, inject, TestBed, tick} from '@angular/core/testing';
 import {EditTaskComponent} from './edit-task.component';
-import {ShowErrorComponent} from '../../show-error/show-error.component';
-import {APPLICATION_VALIDATORS} from '../../models/app-validators';
 import {ActivatedRoute, Router} from '@angular/router';
-import {fakeAsync, tick} from '@angular/core/testing/fake_async';
 import {Title} from '@angular/platform-browser';
 import {Component} from '@angular/core';
-import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {MockTaskService} from '../../mocks/mock-task-service';
+import {ShowErrorComponent} from '../../shared/show-error/show-error.component';
+import {APPLICATION_VALIDATORS} from '../../shared/models/app-validators';
+import {TaskService} from '../../shared/task-service/task.service';
 
 @Component({
   template: '<router-outlet></router-outlet>'
@@ -26,8 +25,8 @@ describe('EditTask Component', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule, RouterTestingModule.withRoutes([
-        {path: 'new', component: EditTaskComponent},
-        {path: 'edit/:id', component: EditTaskComponent}
+          {path: 'new', component: EditTaskComponent},
+          {path: 'edit/:id', component: EditTaskComponent}
         ],
       )],
       declarations: [EditTaskComponent, ShowErrorComponent, APPLICATION_VALIDATORS, TestComponent],
@@ -45,7 +44,7 @@ describe('EditTask Component', () => {
 
   it('should load the correct task in Edit-Mode', fakeAsync(() => {
     const fixture = TestBed.createComponent(EditTaskComponent);
-    const route = TestBed.get(ActivatedRoute);
+    const route = TestBed.inject(ActivatedRoute);
     (<any>route.params).next({id: '42'});
 
     const element = fixture.nativeElement;
@@ -68,19 +67,23 @@ describe('EditTask Component', () => {
 
 
   it('should load the correct task (with router)', fakeAsync(() => {
-    const fixture = TestBed.createComponent(TestComponent);
-    const router = TestBed.get(Router);
-    router.navigateByUrl('edit/42');
-
     const spy = spyOn(taskService, 'getTask');
     const fakeTask = {title: 'Task1', assignee: {name: 'John'}};
     spy.and.returnValue(new BehaviorSubject(fakeTask));
+
+    const fixture = TestBed.createComponent(TestComponent);
+    const router = TestBed.get(Router);
+
+    router.navigateByUrl('edit/42');
+
     fixture.whenStable().then(() => {
-      tick();
+      fixture.detectChanges();
       expect(spy).toHaveBeenCalledWith('42');
+      tick();
       const titleInput = fixture.nativeElement.querySelector('#title');
       expect(titleInput.value).toBe(fakeTask.title);
     });
+
   }));
 
   it('should work without passing URL-Parameter', fakeAsync(() => {

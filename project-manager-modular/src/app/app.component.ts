@@ -1,9 +1,5 @@
 import {Component, Inject, OnInit, Optional} from '@angular/core';
-import {
-  Router,
-  NavigationEnd,
-  ActivatedRoute,
-} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router,} from '@angular/router';
 import {LoginService} from './services/login-service/login-service';
 import {Title} from '@angular/platform-browser';
 import {AUTH_ENABLED} from './app.tokens';

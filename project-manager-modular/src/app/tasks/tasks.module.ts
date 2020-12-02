@@ -5,7 +5,7 @@ import {SharedModule} from '../shared/shared-module';
 
 @NgModule({
   imports: [ReactiveFormsModule, SharedModule, tasksRouting],
-  declarations: [ tasksRoutingComponents ],
+  declarations: [tasksRoutingComponents],
 })
 export class TasksModule {
 }

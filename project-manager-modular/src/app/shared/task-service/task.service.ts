@@ -1,6 +1,6 @@
-import {Injectable, Inject} from '@angular/core';
-import {Observable, BehaviorSubject, fromEvent} from 'rxjs';
-import {LOAD, ADD, EDIT, REMOVE, TaskStore} from '../stores/index';
+import {Inject, Injectable} from '@angular/core';
+import {BehaviorSubject, fromEvent, Observable} from 'rxjs';
+import {ADD, EDIT, LOAD, REMOVE, TaskStore} from '../stores/index';
 import {SOCKET_IO} from '../../app.tokens';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {tap} from 'rxjs/internal/operators';
@@ -60,11 +60,12 @@ export class TaskService {
       tap(savedTask => {
         this.tasksChanged.next(savedTask);
         const actionType = task.id ? EDIT : ADD;
-        const action = {type : actionType, data: savedTask};
+        const action = {type: actionType, data: savedTask};
         this.taskStore.dispatch(action);
         this.socket.emit('broadcast_task', action);
       }));
   }
+
   deleteTask(task: Task) {
     return this.http.delete(BASE_URL + task.id).pipe(
       tap(_ => {

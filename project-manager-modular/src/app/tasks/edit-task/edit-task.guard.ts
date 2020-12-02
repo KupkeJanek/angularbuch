@@ -11,7 +11,7 @@ export class EditTaskGuard implements CanDeactivate<EditTaskComponent> {
   canDeactivate(component: EditTaskComponent,
                 route: ActivatedRouteSnapshot,
                 router: RouterStateSnapshot)
-                                       : Observable<boolean> | boolean {
+    : Observable<boolean> | boolean {
     return component.canDeactivate();
   }
 }
