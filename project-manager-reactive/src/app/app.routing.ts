@@ -27,7 +27,7 @@ export const appRoutes: Routes = [
   {path: '**', redirectTo: '/404'}, // immer als letztes konfigurieren - erste Route die matched wird angesteuert
 ];
 
-export const appRouting = RouterModule.forRoot(appRoutes);
+export const appRouting = RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' });
 
 export const routingComponents = [DashboardComponent, SettingsComponent, AboutComponent, LoginComponent, NotFoundComponent,
   RxDemoComponent,  ...tasksRoutingComponents];
