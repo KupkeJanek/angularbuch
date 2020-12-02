@@ -6,8 +6,7 @@ import {Task} from '../../models/model-interfaces';
 import {TaskService} from '../../services/task-service/task.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import {merge, Observable} from 'rxjs';
-import {debounceTime, tap, switchMap} from 'rxjs/operators';
-import {distinctUntilChanged, map, mergeMap} from 'rxjs/internal/operators';
+import {debounceTime, tap, switchMap, distinctUntilChanged, map, mergeMap} from 'rxjs/operators';
 
 @Component({
   selector: 'task-list',

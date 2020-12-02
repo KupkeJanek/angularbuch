@@ -4,7 +4,7 @@ import {Observable, BehaviorSubject, fromEvent} from 'rxjs';
 import {LOAD, ADD, EDIT, REMOVE, TaskStore} from '../stores/index';
 import {SOCKET_IO} from '../../app.tokens';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {tap} from 'rxjs/internal/operators';
+import {tap} from 'rxjs/operators';
 
 const BASE_URL = `http://localhost:3000/api/tasks/`;
 
