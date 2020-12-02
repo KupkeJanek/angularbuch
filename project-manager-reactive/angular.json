@@ -24,13 +24,13 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/jquery-ui-bundle/jquery-ui.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/assets/css/jquery-ui.css",
+              "src/assets/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js",
-              "node_modules/jquery-ui-bundle/jquery-ui.js"
+              "src/assets/js/jquery.js",
+              "src/assets/js/bootstrap.js",
+              "src/assets/js/jquery-ui.js"
             ]
           },
           "configurations": {
