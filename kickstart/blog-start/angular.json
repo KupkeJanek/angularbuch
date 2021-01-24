@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sprachkern": {
+    "blog-start": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sprachkern",
+            "outputPath": "dist/blog-start",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -26,8 +26,6 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/jquery-ui-bundle/jquery-ui.js"
             ]
           },
           "configurations": {
@@ -53,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sprachkern:build"
+            "browserTarget": "blog-start:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sprachkern:build:production"
+              "browserTarget": "blog-start:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sprachkern:build"
+            "browserTarget": "blog-start:build"
           }
         },
         "test": {
@@ -98,7 +96,7 @@
         }
       }
     },
-    "sprachkern-e2e": {
+    "blog-start-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -106,7 +104,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sprachkern:serve"
+            "devServerTarget": "blog-start:serve"
           }
         },
         "lint": {
@@ -121,5 +119,5 @@
       }
     }
   },
-  "defaultProject": "sprachkern"
+  "defaultProject": "blog-start"
 }
