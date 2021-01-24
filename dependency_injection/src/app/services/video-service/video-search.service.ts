@@ -16,7 +16,7 @@ export class VideoSearchService implements SearchService {
   }
 
   search(keyword): any[] {
-    return this.videos.filter((video) => video.Title.startsWith(keyword));
+    return this.videos.filter((video) => video.Title.includes(keyword));
   }
 
 }
