@@ -1,15 +1,12 @@
-import {ViewChild, Component, OnInit, OnDestroy} from '@angular/core';
-import {Title, Meta} from '@angular/platform-browser';
-import {
-  Router,
-  ActivatedRoute,
-} from '@angular/router';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute, Router,} from '@angular/router';
 import {Location} from '@angular/common';
 import {NgForm} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import * as model from '../../shared/models/model-interfaces';
-import {filter, map, mergeMap} from 'rxjs/operators';
 import {createInitialTask, Task} from '../../shared/models/model-interfaces';
+import {filter, map, mergeMap} from 'rxjs/operators';
 import {TaskService} from '../../shared/task-service/task.service';
 
 
@@ -28,12 +25,10 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(
-    private title: Title,
-    private meta: Meta,
     private route: ActivatedRoute,
     private taskService: TaskService,
     private router: Router,
-
+    private titleService: Title,
     private location: Location) {
   }
 
@@ -44,11 +39,6 @@ export class EditTaskComponent implements OnInit, OnDestroy {
       mergeMap(id => this.taskService.getTask(id)))
       .subscribe(task => {
         this.task = task;
-        this.title.setTitle(task.title);
-        this.meta.addTag({name: 'description', content: task.description});
-        this.meta.addTag({name: 'twitter:title', content: task.title});
-        this.meta.addTag({name: 'twitter:title', content: task.title});
-        this.meta.addTag({name: 'twitter:description', content: task.description});
       });
   }
 

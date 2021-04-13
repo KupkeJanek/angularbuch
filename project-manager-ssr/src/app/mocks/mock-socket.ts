@@ -1,7 +1,8 @@
 class MockSocket {
-  emit(action, data) { }
+  emit(action, data) {
+  }
 }
 
 export function mockIO(): any {
-    return new MockSocket();
+  return new MockSocket();
 }

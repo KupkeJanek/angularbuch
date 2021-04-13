@@ -2,7 +2,6 @@ var jsonServer = require('json-server');
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var bodyParser = require('body-parser');
 
-const PORT = process.env.PORT || 3000;
 
 // Returns an Express server
 var server = jsonServer.create();
@@ -58,9 +57,7 @@ router.render = function (req, res, next) {
   res.jsonp(res.locals.data);
 };
 
-server.listen(PORT, () => {
-  console.log(`Projects-Server listening on http://localhost:${PORT}`)
-});
+server.listen(3000);
 
 if (secured) {
 

@@ -1,7 +1,18 @@
 {
   "tasks": [
+     {
+      "id": 1,
+      "title": "Neues Entwickler-Team zusammenstellen",
+      "description": "Das ist wirklich sehr dringend. Bitte so schnell wie möglich darum kümmern...",
+      "tags": [],
+      "state": "BACKLOG",
+      "assignee": {
+        "name": "Christoph Höller",
+        "email": ""
+      }
+    },
     {
-      "id": 3,
+      "id": 2,
       "title": "Ersten Prototyp mit Angular entwickeln",
       "description": "Der Prototyp soll zeigen, wie Routing und HTTP-Anbindung umgesetzt werden können.",
       "tags": [],
@@ -10,17 +21,6 @@
         "name": "Christoph Höller",
         "email": ""
       }
-    },
-    {
-      "id": 4,
-      "title": "Präsentation vorbereiten...",
-      "description": "Nicht länger als 15 Minuten... ",
-      "tags": [],
-      "assignee": {
-        "name": "John Doe",
-        "email": "john@doe.com"
-      },
-      "state": "BACKLOG"
     },
     {
       "title": "Test der Websocket-Funktionalität",

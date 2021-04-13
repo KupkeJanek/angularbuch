@@ -1,9 +1,5 @@
-import {Directive, forwardRef} from '@angular/core';
-import {
-  FormControl,
-  AbstractControl,
-  NG_VALIDATORS
-} from '@angular/forms';
+import {Directive} from '@angular/core';
+import {AbstractControl, FormControl, NG_VALIDATORS} from '@angular/forms';
 
 export function asyncIfNotBacklogThenAssignee(control): Promise<any> {
   const promise = new Promise((resolve, reject) => {
@@ -14,7 +10,7 @@ export function asyncIfNotBacklogThenAssignee(control): Promise<any> {
   return promise;
 }
 
-export function ifNotBacklogThanAssignee(formGroup: FormControl): {[key: string]: any} {
+export function ifNotBacklogThanAssignee(formGroup: FormControl): { [key: string]: any } {
   const nameControl = formGroup.get('assignee.name');
   const stateControl = formGroup.get('state');
   if (!nameControl || !stateControl) {
@@ -37,7 +33,7 @@ export function ifNotBacklogThanAssignee(formGroup: FormControl): {[key: string]
 })
 export class IfNotBacklogThanAssigneeValidatorDirective {
 
-  public validate(formGroup: AbstractControl): {[key: string]: any} {
+  public validate(formGroup: AbstractControl): { [key: string]: any } {
     const nameControl = formGroup.get('assignee.name');
     const stateControl = formGroup.get('state');
     if (!nameControl || !stateControl) {
@@ -59,7 +55,7 @@ export class IfNotBacklogThanAssigneeValidatorDirective {
   }]
 })
 export class EmailValidatorDirective {
-  validate(control: AbstractControl): {[key: string]: any} {
+  validate(control: AbstractControl): { [key: string]: any } {
     const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     if (!control.value || control.value === '' || re.test(control.value)) {
       return null;
@@ -68,6 +64,29 @@ export class EmailValidatorDirective {
     }
   }
 }
+
+export function emailValidator(control): { [key: string]: any } {
+  return new EmailValidatorDirective().validate(control);
+}
+
+export function emailValidator2(control): { [key: string]: any } {
+  const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+  if (!control.value || control.value === '' || re.test(control.value)) {
+    return null;
+  } else {
+    return {'invalidEMail': true};
+  }
+}
+
+@Directive({
+  selector: '[emailValidator]',
+  providers: [
+    {provide: NG_VALIDATORS, useValue: emailValidator, multi: true}
+  ]
+})
+export class EmailValidatorWithFunctionDirective {
+}
+
 
 export const APPLICATION_VALIDATORS = [IfNotBacklogThanAssigneeValidatorDirective,
   EmailValidatorDirective];

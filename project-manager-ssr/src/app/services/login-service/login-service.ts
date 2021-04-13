@@ -1,9 +1,10 @@
-import {Inject, Optional} from '@angular/core';
+import {Inject, Injectable, Optional} from '@angular/core';
 import {AUTH_ENABLED} from '../../app.tokens';
 import { ServerSideStorage } from './server-side-storage';
 
 const CURRENT_USER = 'currentUser';
 
+@Injectable()
 export class LoginService {
 
 

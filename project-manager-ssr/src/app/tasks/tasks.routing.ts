@@ -1,4 +1,4 @@
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {TaskListComponent} from './task-list/task-list.component';
 import {EditTaskComponent} from './edit-task/edit-task.component';
 import {EditTaskGuard} from './edit-task/edit-task.guard';

@@ -1,6 +1,5 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {NgForm} from '@angular/forms';
 import {Title} from '@angular/platform-browser';
 
 @Component({
@@ -8,7 +7,7 @@ import {Title} from '@angular/platform-browser';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })
-export class SettingsComponent implements OnInit, OnDestroy {
+export class SettingsComponent {
 
   originalTitle: string;
 
@@ -30,6 +29,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.titleService.setTitle(title);
     }
   }
+
   ngOnDestroy() {
     this.titleService.setTitle(this.originalTitle);
   }

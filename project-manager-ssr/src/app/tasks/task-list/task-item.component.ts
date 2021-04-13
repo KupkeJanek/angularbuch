@@ -1,4 +1,4 @@
-import {Component, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter} from '@angular/core';
 import {Router} from '@angular/router';
 import {Task} from '../../shared/models/model-interfaces';
 
@@ -8,7 +8,7 @@ import {Task} from '../../shared/models/model-interfaces';
   styleUrls: ['./task-item.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   inputs: ['task', 'selected'],
-  outputs: ['taskSelected' , 'taskDelete'],
+  outputs: ['taskSelected', 'taskDelete'],
 })
 export class TaskItemComponent {
 
@@ -17,14 +17,15 @@ export class TaskItemComponent {
 
   checkCounter = 0;
 
-  taskSelected  = new EventEmitter();
+  taskSelected = new EventEmitter();
   taskDelete = new EventEmitter();
 
   constructor(private router: Router) {
 
   }
+
   select() {
-    this.taskSelected.emit(this.task.id)
+    this.taskSelected.emit(this.task.id);
   }
 
   delete() {
@@ -33,6 +34,6 @@ export class TaskItemComponent {
 
   ngAfterViewChecked() {
     //var taskId = (this.task ? this.task.id : '');
-   // console.log(`Task ${taskId} checked ${++this.checkCounter} times`)
+    // console.log(`Task ${taskId} checked ${++this.checkCounter} times`)
   }
 }

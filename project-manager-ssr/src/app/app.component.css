@@ -16,9 +16,10 @@ li {
 
 #right {
   float: right;
-  width: 300px;
+  width: 400px;
 }
+
 #left {
   float: left;
-  width: calc(100% - 300px);
+  width: calc(100% - 400px);
 }

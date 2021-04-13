@@ -1,4 +1,4 @@
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject} from 'rxjs';
 
 export const LOAD = 'LOAD';
 export const ADD = 'ADD';
@@ -7,6 +7,7 @@ export const REMOVE = 'REMOVE';
 
 
 type Id = string | number;
+
 interface Identifiable {
   id?: Id;
 }
@@ -29,7 +30,7 @@ export class Store<T extends Identifiable> {
       case EDIT:
         return items.map(task => {
           var editedTask = action.data;
-          if (task.id !== editedTask.id){
+          if (task.id !== editedTask.id) {
             return task;
           }
           return editedTask;

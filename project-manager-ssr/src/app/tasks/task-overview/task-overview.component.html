@@ -24,7 +24,8 @@
       </div>
       <div class="col-xs-12">
         <h4>Status</h4>
-        <select class="form-control" name="state" [ngModel]="task.state" (ngModelChange)="task.state = $event; saveTask()" >
+        <select class="form-control" name="state" [ngModel]="task.state"
+                (ngModelChange)="task.state = $event; saveTask()">
           <optgroup *ngFor="let group of model.stateGroups" [label]="group.label">
             <option *ngFor="let state of group.states" [value]="state">
               {{model.stateTexts[state]}}

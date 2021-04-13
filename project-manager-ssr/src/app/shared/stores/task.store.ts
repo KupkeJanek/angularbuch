@@ -28,7 +28,7 @@ export class TaskStore {
       case EDIT:
         return tasks.map(task => {
           const editedTask = action.data;
-          if (task.id !== editedTask.id){
+          if (task.id !== editedTask.id) {
             return task;
           }
           return editedTask;

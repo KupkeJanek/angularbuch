@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
-import {Title, BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser';
+import {BrowserModule, BrowserTransferStateModule, Title} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {LoginService} from './services/login-service/login.service';
+import {LoginService} from './services/login-service/login-service';
 import {appRouting, routingComponents} from './app.routing';
 import * as io from 'socket.io-client';
-import {SOCKET_IO, AUTH_ENABLED} from './app.tokens';
+import {AUTH_ENABLED, SOCKET_IO} from './app.tokens';
 import {environment} from '../environments/environment';
 import {mockIO} from './mocks/mock-socket';
 import {SharedModule} from './shared/shared-module';
@@ -17,14 +17,11 @@ export function socketIoFactory() {
   return io;
 }
 
-const enableAuthentication = false; // !environment.e2eMode;
+const enableAuthentication = !environment.e2eMode;
 
 @NgModule({
-  imports: [
-    BrowserModule.withServerTransition({appId: 'pjm'}),
-    BrowserTransferStateModule,
-    SharedModule.forRoot(),
-    appRouting],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }),     BrowserTransferStateModule,
+  SharedModule.forRoot(), appRouting],
   providers: [LoginService,
     Title,
     {provide: AUTH_ENABLED, useValue: enableAuthentication},
@@ -33,4 +30,5 @@ const enableAuthentication = false; // !environment.e2eMode;
   declarations: [AppComponent, routingComponents],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

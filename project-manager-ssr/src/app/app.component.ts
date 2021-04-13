@@ -1,10 +1,6 @@
 import {Component, Inject, OnInit, Optional} from '@angular/core';
-import {
-  Router,
-  NavigationEnd,
-  ActivatedRoute,
-} from '@angular/router';
-import {LoginService} from './services/login-service/login.service';
+import {ActivatedRoute, NavigationEnd, Router,} from '@angular/router';
+import {LoginService} from './services/login-service/login-service';
 import {Title} from '@angular/platform-browser';
 import {AUTH_ENABLED} from './app.tokens';
 import {filter} from 'rxjs/internal/operators';
@@ -13,7 +9,7 @@ import {Task} from './shared/models/model-interfaces';
 import {AbstractCacheService} from './shared/cache/abstract-cache.service';
 
 @Component({
-  selector: 'pjm-root',
+  selector: 'ch-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css']
 })
