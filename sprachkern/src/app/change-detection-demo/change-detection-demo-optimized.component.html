@@ -1,0 +1,22 @@
+<h2>Meine Kontakte</h2>
+<ch-contact-list-optimized [contacts]="contacts"
+               (onSelect)="contactSelected($event)">
+</ch-contact-list-optimized>
+<ch-contact-counter [contacts]="contactsObservable" ></ch-contact-counter>
+<h3>Kontakt bearbeiten</h3>
+<form>
+  <label>Name</label>
+  <input type="text" name="name" [(ngModel)]="contactName">
+  <label>Anschrift</label>
+  <input type="text" name="address" [(ngModel)]="contactAddress">
+  <button (click)="editContact()">Speichern</button>
+  <button (click)="createContact()">Neu anlegen</button>
+</form>
+
+<h2>Anwendungs-Logs</h2>
+<button (click)="viewer.refresh()">Refresh</button>
+<button (click)="viewer.start()">Start</button>
+<button (click)="viewer.pause()">Pause</button>
+
+<ch-log-viewer #viewer [logs]="logs"></ch-log-viewer>
+

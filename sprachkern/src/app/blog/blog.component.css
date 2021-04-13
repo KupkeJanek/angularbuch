@@ -1,0 +1,101 @@
+img.small {
+    max-width: 100px;
+    max-height: 25px;
+    margin-top: -17px;
+}
+
+.summary-title > span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.summary-image {
+    min-width: 80px;
+}
+
+.summary-image, .summary-title {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.preview {
+    border: 1px solid lightgrey;
+    height: 150px;
+    overflow: hidden;
+}
+
+.preview > img {
+    width: 100%;
+}
+
+.left {
+    width: 330px;
+    padding-right: 15px;
+
+}
+.right {
+    flex-grow: 1;
+
+}
+
+
+.custom-form{
+    width: 600px;
+    background: #FFFFFF;
+}
+
+.custom-form input[type="text"],
+.custom-form input[type="date"],
+.custom-form input[type="datetime"],
+.custom-form input[type="email"],
+.custom-form input[type="number"],
+.custom-form input[type="search"],
+.custom-form input[type="time"],
+.custom-form input[type="url"],
+.custom-form input[type="password"],
+.custom-form textarea,
+.custom-form select
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #cecece;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+.custom-form textarea{
+    resize:vertical;
+    overflow: hidden;
+    height: 150px;
+    border: 1px solid #cecece;
+
+}
+button,
+.custom-form input[type="button"],
+.custom-form input[type="submit"]{
+
+    background-color: white;
+    border: 1px solid lightgrey;
+    display: inline-block;
+    cursor: pointer;
+    color: gray;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    float: right;
+    margin-top: 13px;
+}

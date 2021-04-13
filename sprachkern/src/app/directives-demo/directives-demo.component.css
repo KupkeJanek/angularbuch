@@ -1,0 +1,14 @@
+label {
+    width: 100px;
+}
+
+p {
+    padding: 5px;
+}
+
+.ui-draggable-handle {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: cadetblue;
+}

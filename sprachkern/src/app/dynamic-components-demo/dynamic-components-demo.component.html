@@ -1,0 +1,53 @@
+<div class="circle-container" #container></div>
+
+<!--
+<template #timePickerTemplate>
+  <ch-time-picker></ch-time-picker>
+</template>
+-->
+<div>
+    <h4>Repeater-Direktive</h4>
+    <input type="number" [(ngModel)]="repeatCnt"> <br><br>
+    <div *chRepeater="repeatCnt">
+        <i>Ich werde wiederholt!</i>
+    </div>
+
+    <!-- Langschreibweise
+    <template [chRepeater]="repeatCnt">
+      <div>
+        <i>Ich werde wiederholt!</i>
+      </div>
+    </template>
+
+    -->
+</div>
+<hr>
+<div>
+    <h4>Todo-Liste</h4>
+
+    <div #todoContainer></div>
+
+    <ng-template #todoTemplate let-todo="todoParam">
+        <div [ngStyle]="{'text-decoration': todo.done ? 'line-through' : ''}">
+            <b>{{todo.text}}</b>
+        </div>
+    </ng-template>
+</div>
+<br/><br/>
+
+<hr>
+<h4>Ng Component Outlet</h4>
+
+<div *ngComponentOutlet="circleComponent"></div>
+<br>
+
+<div *ngComponentOutlet="geoComponent"></div>
+<br>
+<button class="btn" (click)="changeGeoComponent()">Geo-Komponente umschalten</button>
+<hr>
+<div *ngComponentOutlet="dialogComponent;
+                         injector: dialogInjector;">
+</div>
+
+<hr>
+

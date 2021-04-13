@@ -1,0 +1,17 @@
+ul
+{
+    list-style-type: none;
+}
+li {
+    font-size: smaller;
+    font-family: monospace;
+}
+
+.logs {
+    height: 300px;
+    border: solid;
+    border-color: lightgrey;
+    border-radius: 2px;
+    overflow:hidden;
+    overflow-y:scroll;
+}

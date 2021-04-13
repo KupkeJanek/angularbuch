@@ -1,0 +1,21 @@
+<div class="form" *ngIf="!customTemplate">
+  <div class="control">
+    <label for="title">Titel:</label>
+    <input type="text" id="title" #title/>
+  </div>
+  <div class="control">
+    <label for="title">Bild-URL:</label>
+    <input type="text" id="image" #image/>
+  </div>
+  <div class="control">
+    <label for="text">Text:</label>
+    <textarea id="text" cols="20" rows="3" #text></textarea>
+  </div>
+  <div>
+    <button (click)="createBlogEntry(title.value, image.value, text.value)">
+      Blog-Eintrag anlegen
+    </button>
+  </div>
+</div>
+
+<ng-template [ngTemplateOutlet]="customTemplate"></ng-template>

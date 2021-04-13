@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Border Directive</h2>
+        <div>
+            <p chBorder="2">
+                Ich habe einen Rahmen mit einer Breite von 2 Pixeln.
+            </p>
+        </div>
+        <div>
+            <p [chBorder]="borderWidth">
+                Ich habe einen Rahmen mit einer dynamischen Breite.
+            </p>
+            <button class="btn" (click)="borderWidth = borderWidth + 1">
+                Rahmen verbreitern
+            </button>
+            <p>Breite des Rahmens: {{borderWidth}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Lower Case Directive</h2>
+        <p>
+            <label>E-Mail: </label>
+            <input class="form-control" type="text" #email chLowerCase/>
+        </p>
+        <button class="btn" (click)="submit(email.value)">Anmelden</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Draggable</h2>
+        <span chDragMe>Beweg mich</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Slider-Demo</h2>
+        <div chSlider [(value)]="sliderValue"></div>
+        <br/>
+        <input class="form-control" [(ngModel)]="sliderValue"/>
+        <p>Der aktuelle Wert des Sliders ist: {{sliderValue}}</p>
+    </div>
+</div>

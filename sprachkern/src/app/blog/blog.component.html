@@ -1,0 +1,53 @@
+<div>
+  <h2>Blog mit Standard-Layout</h2>
+  <ch-blog-list [entries]="entries"></ch-blog-list>
+
+  <h2>Neuen Blog-Eintrag anlegen</h2>
+  <ch-blog-form (entryCreated)="entries.push($event)"></ch-blog-form>
+</div>
+
+
+<h2>Blog mit eigenem Eintrags-Layout</h2>
+
+<ch-blog-list [entries]="entries">
+  <ng-template let-entry #entryTemplate>
+    <div class="entry-minimal">
+      <div class="summary-image">
+        <img [src]="entry?.image" [alt]="entry?.title" class="small"/>
+      </div>
+      <div class="summary-title">
+        <span>{{entry?.title}}</span>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #additionalMarkup>
+    <div>Insgesamt: {{entries.length}} Einträge</div>
+  </ng-template>
+</ch-blog-list>
+
+<h2>Neuen Blog-Eintrag anlegen</h2>
+<ch-blog-form (entryCreated)="entries.push($event)" #form>
+  <ng-template>
+    <div class="custom-form">
+      <form>
+        <div class="form-container">
+          <div class="left">
+            <input type="text" #title placeholder="Titel" />
+            <textarea #text placeholder="Text">Abstrakte Bilder sind immer dann sinnvoll, wenn Sie nicht genau wissen, was Sie sonst über Ihrem Blog-Artikel darstellen sollen.</textarea>
+          </div>
+          <div class="right">
+            <input type="url" #image placeholder="Bild" value="http://lorempixel.com/200/200/abstract"/>
+            <div class="preview">
+              <img [src]="image.value">
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="pull-right" style="margin-bottom: 30px" (click)="form.createBlogEntry(title.value, image.value, text.value)">
+            Blog-Eintrag anlegen
+          </button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+</ch-blog-form>

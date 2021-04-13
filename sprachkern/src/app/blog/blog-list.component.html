@@ -1,0 +1,9 @@
+<div *ngIf="hasCustomTemplate == false">
+  <ch-blog-entry [entry]="entry" *ngFor="let entry of entries"></ch-blog-entry>
+</div>
+<div *ngIf="hasCustomTemplate">
+  <ng-template ngFor [ngForOf]="entries" [ngForTemplate]="entryTemplate">
+  </ng-template>
+</div>
+
+<ng-template [ngTemplateOutlet]="additionalMarkup"></ng-template>

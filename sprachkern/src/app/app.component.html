@@ -1,0 +1,54 @@
+<h1>Beispiele des Kernkapitels</h1>
+
+<div class="row">
+  <ch-tabs>
+    <ch-tab title="Timepicker">
+      <ch-calendar></ch-calendar>
+    </ch-tab>
+    <ch-tab title="Bindings & Micro-Syntax">
+      <ch-basic-operations></ch-basic-operations>
+    </ch-tab>
+    <ch-tab title="Panels">
+      <ch-panel-demo></ch-panel-demo>
+    </ch-tab>
+    <ch-tab title="Tabs">
+      <ch-tabs-demo></ch-tabs-demo>
+    </ch-tab>
+    <ch-tab title="Direktiven">
+      <ch-directives-demo></ch-directives-demo>
+    </ch-tab>
+    <ch-tab title="Styling">
+      <ch-styling-demo></ch-styling-demo>
+    </ch-tab>
+
+    <ch-tab #t title="Lebenszyklus">
+      <div *ngIf="t.active">
+        <ch-lifecycle-demo></ch-lifecycle-demo>
+      </div>
+    </ch-tab>
+    <ch-tab title="TemplateRef">
+      <ch-blog></ch-blog>
+    </ch-tab>
+    <ch-tab title="ViewContainerRef">
+      <ch-dynamic-components-demo></ch-dynamic-components-demo>
+    </ch-tab>
+
+    <ch-tab #tabcd title="Change Detection">
+      <div *ngIf="tabcd.active">
+        <ch-change-detection-demo></ch-change-detection-demo>
+      </div>
+    </ch-tab>
+    <ch-tab #tab title="Change Detection (optimiert)">
+      <div *ngIf="tab.active">
+        <ch-change-detection-demo-optimized></ch-change-detection-demo-optimized>
+      </div>
+    </ch-tab>
+
+  </ch-tabs>
+</div>
+
+<!--
+<div>
+    <ch-basic-operations></ch-basic-operations>
+</div>
+-->

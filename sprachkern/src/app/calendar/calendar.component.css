@@ -1,0 +1,9 @@
+.calendar {
+padding: 30px;
+    min-height: 400px;
+}
+
+.row {
+    display: block;
+    clear: both;
+}
