@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"node projects-server/server.js db=projects-server/db.json\" \"ng serve\" ",
+    "start:client": "concurrently \"node projects-server/server.js db=projects-server/db.json\" \"ng serve\" ",
     "starte2e": "concurrently \"node projects-server/server.js db=projects-server/test.json\" \"ng serve\" ",
     "build": "ng build",
     "test": "ng test",

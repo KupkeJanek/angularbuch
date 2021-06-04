@@ -15,6 +15,7 @@ import {environment} from '../environments/environment';
 import {mockIO} from './mocks/mock-socket';
 import {TaskItemComponent} from './tasks/task-list/task-item.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 export function socketIoFactory() {
   if (environment.e2eMode) {
@@ -30,7 +31,13 @@ const enableAuthentication = !environment.e2eMode;
     FormsModule,
     ReactiveFormsModule,
     appRouting,
-    HttpClientModule],
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })],
   providers: [
     Title,
     {provide: AUTH_ENABLED, useValue: enableAuthentication},
