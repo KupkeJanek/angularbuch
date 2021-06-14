@@ -11,6 +11,8 @@
     "install-server": "npm install --prefix ./projects-server ./projects-server",
     "e2e-screenshots": "protractor ./protractor-html-reporter.conf.js",
     "e2e": "concurrently \"node projects-server/server.js db=projects-server/test.json\" \"ng e2e\" ",
+    "cypress": "concurrently \"node projects-server/server.js db=projects-server/test.json\"  \"ng serve\" \"cypress open\" ",
+    "cypress:ci": "concurrently \"node projects-server/server.js db=projects-server/test.json\" \"cypress run\" ",
     "postinstall": "npm run install-server"
   },
   "private": true,

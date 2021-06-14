@@ -1,0 +1,19 @@
+{
+  "$schema": "https://on.cypress.io/cypress.schema.json",
+   "supportFile": "cypress/support/index.ts",
+   "numTestsKeptInMemory": 0,
+   "reporter": "junit",
+   "modifyObstructiveCode": false,
+   "foo": "bar",
+   "chromeWebSecurity": false,
+   "reporterOptions": {
+     "mochaFile": "reporter/cypress-test-results.[hash].xml",
+     "toConsole": false
+   },
+   "video": true,
+   "screenshotOnRunFailure": true,
+   "viewportHeight": 1080,
+   "viewportWidth": 1920,
+   "defaultCommandTimeout": 10000,
+   "blockHosts": ["*google-analytics.com", "*googletagmanager.com"]
+ }

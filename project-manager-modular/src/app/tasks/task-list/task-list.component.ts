@@ -11,7 +11,7 @@ import {Task} from '../../shared/models/model-interfaces';
 import {AbstractCacheService} from '../../shared/cache/abstract-cache.service';
 
 @Component({
-  selector: 'ch-task-list',
+  selector: 'pjm-task-list',
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css']
 })

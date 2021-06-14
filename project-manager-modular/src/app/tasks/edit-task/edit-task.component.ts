@@ -72,6 +72,8 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   }
 
   canDeactivate(): boolean {
+    console.log('CAN DEACTIVATE')
+
     if (this.saved || !this.form.dirty) {
       return true;
     }
