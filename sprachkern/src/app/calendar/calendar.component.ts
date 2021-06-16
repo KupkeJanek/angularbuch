@@ -1,5 +1,6 @@
-import {Component, ViewChild, AfterViewInit} from '@angular/core';
+import {Component, ViewChild, AfterViewInit, QueryList, ViewChildren} from '@angular/core';
 import {TimePickerComponent} from '../time-picker/time-picker.component';
+import {Time} from '../time-picker/time.model';
 
 
 @Component({
@@ -10,8 +11,7 @@ import {TimePickerComponent} from '../time-picker/time-picker.component';
 export class CalendarComponent implements AfterViewInit {
   calendarEntry: any;
 
-  // @ViewChildren(TimePicker) timePickers: QueryList<TimePicker>;
-  // timePicker: TimePicker;
+   @ViewChildren(TimePickerComponent) timePickers: QueryList<TimePickerComponent>;
 
   //@ViewChild(TimePickerComponent) timePicker: TimePickerComponent;
   @ViewChild('timepicker') timePicker: TimePickerComponent;
@@ -27,7 +27,7 @@ export class CalendarComponent implements AfterViewInit {
   }
 
   /* ohne Verwendung des Two-Way Databindings: */
-  onTimeChanged(time){
+  onTimeChanged(time: string){
     console.log("Time changed: ", time);
     this.calendarEntry.startTime = time;
   }

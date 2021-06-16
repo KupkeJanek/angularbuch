@@ -1,4 +1,5 @@
-import {Component, Input, Output, EventEmitter, OnChanges, ViewEncapsulation} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnChanges, ViewEncapsulation, SimpleChanges} from '@angular/core';
+import {Time} from './time.model';
 
 @Component({
   selector: 'ch-time-picker',
@@ -8,27 +9,31 @@ import {Component, Input, Output, EventEmitter, OnChanges, ViewEncapsulation} fr
    encapsulation: ViewEncapsulation.ShadowDom // bitte nur einkommentieren wenn Sie einen WebComponents-kompatiblen Browser (z.B. Chrome) verwenden!
 })
 export class TimePickerComponent implements OnChanges {
-  time: any;
-  maxValues= {
+  time: Time = {
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  };
+  maxValues: Time = {
     hours: 23,
     minutes: 59,
     seconds: 59
   };
 
-  @Input('time') private timeString = '';
-  @Output('timeChange') changeEvent = new EventEmitter();
+  @Input('time') timeString: string = '';
+  @Output('timeChange') changeEvent: EventEmitter<any> = new EventEmitter<string>();
 
   constructor() {
     this.reset();
   }
 
-  incrementTime(field: string) {
+  incrementTime(field: keyof Time) {
     const maxValue = this.maxValues[field];
     this.time[field] = (this.time[field] + 1) % (maxValue + 1);
     this.emitTimeChange();
   }
 
-  private reset() {
+  reset() {
     this.time = {
       hours: 0,
       minutes: 0,
@@ -38,7 +43,7 @@ export class TimePickerComponent implements OnChanges {
   }
 
   /*ngOnInit() bei einmaliger Initialisierung*/
-  ngOnChanges(changes) {
+  ngOnChanges(changes: SimpleChanges) {
     const parts = this.timeString.split(':');
     if (parts.length === 3) {
       this.time = {
@@ -53,14 +58,15 @@ export class TimePickerComponent implements OnChanges {
     return this.time.hours;
   }
 
-  changeTime(field: string, inputValue) {
+  changeTime(field: keyof Time, event: Event) {
+    const inputValue = (event.target as HTMLInputElement).valueAsNumber;
     let value = Math.max(inputValue, 0);
     value = Math.min(value, this.maxValues[field]);
     this.time[field] = value;
     this.emitTimeChange();
   }
 
-  decrementTime(field: string) {
+  decrementTime(field: keyof Time) {
     if (this.time[field] === 0) {
       this.time[field] = this.maxValues[field];
     } else {
@@ -73,7 +79,7 @@ export class TimePickerComponent implements OnChanges {
     this.changeEvent.emit(this.getTime());
   }
 
-  fillUpZeros(value) {
+  fillUpZeros(value: number) {
     return `0${value}`.slice(-2);
   }
 

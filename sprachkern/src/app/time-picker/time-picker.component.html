@@ -2,7 +2,7 @@
   <div class="col" id="hours">
     <button on-click="incrementTime('hours')"> +</button>
     <input [value]="time?.hours"
-           (change)="changeTime('hours', $event.target.value)"
+           (change)="changeTime('hours', $event)"
            (keydown.arrowup)="incrementTime('hours'); $event.preventDefault()"
            (keydown.arrowdown)="decrementTime('hours'); $event.preventDefault()"
            (keydown.tab)="minutes.focus(); $event.preventDefault()"
@@ -13,7 +13,7 @@
     <button (click)="incrementTime('minutes')"> +</button>
     <input ref-minutes
            [value]="time?.minutes"
-           (change)="changeTime('minutes', $event.target.value)"
+           (change)="changeTime('minutes', $event)"
            (keydown.arrowup)="incrementTime('minutes'); $event.preventDefault()"
            (keydown.arrowdown)="decrementTime('minutes'); $event.preventDefault()"
            (keydown.tab)="seconds.focus(); $event.preventDefault()"
@@ -25,7 +25,7 @@
 
     <input #seconds
            [value]="time?.seconds"
-           (change)="changeTime('seconds', $event.target.value)"
+           (change)="changeTime('seconds', $event)"
            (keydown.arrowup)="incrementTime('seconds'); $event.preventDefault()"
            (keydown.arrowdown)="decrementTime('seconds'); $event.preventDefault()"
            (keydown.tab)="seconds.focus(); $event.preventDefault()"

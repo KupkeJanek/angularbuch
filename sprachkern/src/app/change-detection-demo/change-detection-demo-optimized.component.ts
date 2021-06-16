@@ -75,7 +75,7 @@ export class ContactListOptimizedComponent {
   @Input() contacts: Contact[];
   @Output('onSelect') selectEmitter = new EventEmitter();
 
-  contactSelected(selected) {
+  contactSelected(selected: Contact) {
     this.selectEmitter.emit(selected);
   }
 }
@@ -96,8 +96,8 @@ export class ChangeDetectionMainOptimizedComponent implements OnInit {
   contactAddress: string;
 
   selectedContact: Contact;
-  contactsObservable = new ReplaySubject();
-  logs = [];
+  contactsObservable = new ReplaySubject<Contact[]>();
+  logs: string[] = [];
 
   ngOnInit() {
     let counter = 0;
@@ -108,7 +108,7 @@ export class ChangeDetectionMainOptimizedComponent implements OnInit {
     this.contactsObservable.next(this.contacts);
   }
 
-  contactSelected(selected) {
+  contactSelected(selected: Contact) {
     console.log('Contact selected', selected);
     this.selectedContact = selected;
     this.contactName = selected.name;

@@ -32,7 +32,6 @@ export class ContactEntryComponent implements OnChanges, AfterViewChecked {
   }
 }
 
-
 @Component({
   selector: 'ch-contact-list',
   template: `
@@ -48,7 +47,7 @@ export class ContactListComponent {
   @Input() contacts: Contact[];
   @Output('onSelect') selectEmitter = new EventEmitter();
 
-  contactSelected(selected) {
+  contactSelected(selected: Contact) {
     this.selectEmitter.emit(selected);
   }
 }
@@ -68,7 +67,7 @@ export class ChangeDetectionMainComponent {
   contactName: string;
   contactAddress: string;
 
-  selectedContact: Contact;
+  selectedContact: Contact | null;
 
   constructor() {}
 
@@ -78,12 +77,11 @@ export class ChangeDetectionMainComponent {
     this.contactAddress = selected.address;
   }
 
-  editContact(name: string, address: string) {
+  editContact() {
     if (this.selectedContact) {
       this.selectedContact.name = this.contactName;
       this.selectedContact.address = this.contactAddress;
     }
-   // this.resetFormFields();
     this.selectedContact = null;
     console.log('Contact successfully saved');
   }

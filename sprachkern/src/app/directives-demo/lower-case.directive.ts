@@ -6,8 +6,8 @@ import {HostListener, HostBinding, Directive} from '@angular/core';
 export class LowerCaseDirective {
   @HostBinding() value = '';
 
-  @HostListener('change', ['$event']) onChange($event) {
-    this.value = $event.target.value.toLowerCase();
+  @HostListener('change', ['$event']) onChange($event: Event) {
+    this.value = ($event.target as HTMLInputElement).value.toLowerCase();
   }
 }
 
@@ -20,7 +20,7 @@ export class LowerCaseDirective {
 })
 export class LowerCaseCanonicalDirective {
   value = '';
-  onChange($event) {
-    this.value = $event.target.value.toLowerCase();
+  onChange($event: Event) {
+    this.value =  ($event.target as HTMLInputElement).value.toLowerCase();
   }
 }

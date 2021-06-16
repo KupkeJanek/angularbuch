@@ -8,7 +8,7 @@ import {Component, ContentChildren, Input, QueryList, AfterContentInit} from '@a
 })
 export class TabComponent {
   active: boolean;
-  @Input() title;
+  @Input() title = '';
   constructor() {
     this.active = false;
   }
@@ -26,10 +26,10 @@ export class TabsComponent implements AfterContentInit {
     this.tabs.first.active = true;
   }
 
-  activate(tab_) {
+  activate(component: TabComponent) {
     for (const tab of this.tabs.toArray()) {
       tab.active = false;
     }
-    tab_.active = true;
+    component.active = true;
   }
 }

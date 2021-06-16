@@ -3,7 +3,7 @@ import { OnInit, OnChanges, OnDestroy, DoCheck } from '@angular/core';
 import { AfterViewInit, AfterViewChecked } from '@angular/core';
 import { AfterContentInit, AfterContentChecked } from '@angular/core';
 
-function logChangeDetection(entry) {
+function logChangeDetection(entry: string) {
   //console.debug(entry);
 }
 
@@ -14,8 +14,8 @@ function logChangeDetection(entry) {
              <span>Text: {{text}}</span>`,
 })
 export class ViewChildComponent implements OnChanges, OnInit, AfterViewChecked, AfterContentChecked {
-  @Input() public text;
-  @Input() public greeting;
+  @Input() public text: string;
+  @Input() public greeting: Greeting;
 
   private previousGreetingText = '';
 
@@ -30,8 +30,8 @@ export class ViewChildComponent implements OnChanges, OnInit, AfterViewChecked, 
 
   ngOnChanges(changes: SimpleChanges) {
     console.log('ViewChild ngOnChanges: ', changes);
-    console.log('Previous Text: ', changes['text'].previousValue);
-    console.log('New Value: ', changes['text'].currentValue);
+    console.log('Previous Text: ', changes.text.previousValue);
+    console.log('New Value: ', changes.text.currentValue);
   }
 
   ngAfterViewChecked() {
@@ -48,7 +48,6 @@ export class ViewChildComponent implements OnChanges, OnInit, AfterViewChecked, 
       console.log('New greeting text: ', this.greeting.text);
     }
   }
-
 }
 
 @Component({
@@ -71,16 +70,16 @@ export class ContentChildComponent implements AfterViewChecked, AfterContentChec
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<h2>LifeCycle-Demo</h2>
              <ch-view-child [text]='text' [greeting]="greeting"></ch-view-child> <br>
-             <input type='text' [(ngModel)]='text' (input)="textChanged($event.target.value)"/>
+             <input type='text' [(ngModel)]='text' (input)="textChanged($event)"/>
              <ng-content></ng-content>`
 })
 export class LifecycleMainComponent implements AfterContentInit, AfterViewInit, OnDestroy, AfterViewChecked, AfterContentChecked, OnInit {
-  @ViewChild(ViewChildComponent) viewChild;
-  @ContentChild(ContentChildComponent) contentChild;
+  @ViewChild(ViewChildComponent) viewChild: ViewChildComponent;
+  @ContentChild(ContentChildComponent) contentChild: ContentChildComponent;
 
   text = 'Hello Lifecycle';
 
-  greeting = {
+  greeting: Greeting = {
     text: this.text
   };
 
@@ -92,11 +91,11 @@ export class LifecycleMainComponent implements AfterContentInit, AfterViewInit, 
     this.logChildren('ngOnInit');
   }
 
-  textChanged(text) {
-    this.greeting.text = text;
+  textChanged(event: Event) {
+    this.greeting.text = (event.target as HTMLInputElement).value;
   }
 
-  logChildren(callback) {
+  logChildren(callback: string) {
     console.log(`---${callback}---`);
     console.log('ViewChild:', this.viewChild);
     console.log('ContentChild:', this.contentChild);
@@ -105,6 +104,7 @@ export class LifecycleMainComponent implements AfterContentInit, AfterViewInit, 
   ngAfterViewInit() {
     this.logChildren('ngAfterViewInit');
   }
+
   ngAfterContentInit() {
     this.logChildren('ngAfterContentInit');
   }
@@ -130,6 +130,10 @@ export class LifecycleMainComponent implements AfterContentInit, AfterViewInit, 
             `
 })
 export class LifecycleDemoComponent {
+}
+
+interface Greeting {
+  text: string;
 }
 
 export const LIFECYLE_DIRECTIVES = [LifecycleDemoComponent, LifecycleMainComponent, ContentChildComponent, ViewChildComponent];

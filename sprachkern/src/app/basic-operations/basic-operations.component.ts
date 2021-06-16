@@ -10,6 +10,8 @@ export class BasicOperationsComponent {
 
   values = [1,2,3];
 
+  isVisible = true;
+
   temperature: number;
   constructor() {
     this.temperature = 200;

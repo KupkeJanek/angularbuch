@@ -21,7 +21,7 @@ export class PanelHeaderDirective {
 export class PanelComponent {
 
   open = true;
-  @Input() title;
+  @Input() title = '';
   @Output() panelToggled = new EventEmitter();
   @ContentChild(PanelHeaderDirective) panelHeader: PanelHeaderDirective;
 

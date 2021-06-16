@@ -1,15 +1,14 @@
 import {
-    Component,
-    AfterViewInit,
-    Input,
-    ViewChild,
-    AfterContentInit,
-    OnDestroy,
-    Inject,
-    Injector,
-    ComponentRef
+  AfterViewInit,
+  Component,
+  ComponentFactory,
+  ComponentFactoryResolver, ElementRef,
+  Injector,
+  Input,
+  OnDestroy, TemplateRef,
+  ViewChild,
+  ViewContainerRef
 } from '@angular/core';
-import {ViewContainerRef, ComponentFactory, ComponentFactoryResolver} from '@angular/core';
 
 @Component({
   selector: 'ch-circle',
@@ -49,9 +48,9 @@ export class SquareComponent {
 }
 
 export class DialogConfig {
-  title: string;
-  text: string;
-  confirmFunction: Function;
+  title: string = '';
+  text: string = '';
+  confirmFunction: Function = () => {};
 }
 
 @Component({
@@ -79,10 +78,10 @@ export class DynamicDialogComponent  {
   styleUrls: ['./dynamic-components-demo.component.css']
 })
 export class DynamicComponentsDemoComponent implements AfterViewInit {
-  @ViewChild('container', {read: ViewContainerRef, static: true}) container;
+  @ViewChild('container', {read: ViewContainerRef, static: true}) container: ViewContainerRef;
 
-  @ViewChild('todoContainer', {read: ViewContainerRef, static: false}) todoContainer;
-  @ViewChild('todoTemplate') todoTemplate;
+  @ViewChild('todoContainer', {read: ViewContainerRef, static: false}) todoContainer: ViewContainerRef;
+  @ViewChild('todoTemplate') todoTemplate: TemplateRef<any>;
 
   circleComponent = CircleComponent;
   geoComponent: any = CircleComponent;
@@ -115,7 +114,7 @@ export class DynamicComponentsDemoComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.container.createComponent(this.circleFactory);
+      this.container?.createComponent(this.circleFactory);
       this.container.createComponent(this.circleFactory);
       this.addCircle('white');
 
@@ -126,7 +125,7 @@ export class DynamicComponentsDemoComponent implements AfterViewInit {
 
       this.container.remove(this.container.length - 1); // letzten Kreis löschen
 
-      this.todoContainer.createEmbeddedView(this.todoTemplate, {
+      this.todoContainer?.createEmbeddedView(this.todoTemplate, {
         todoParam: {
           text: 'Aufräumen',
           done: true
@@ -141,9 +140,11 @@ export class DynamicComponentsDemoComponent implements AfterViewInit {
     return circleRef;
   }
 
-  moveCircle(oldIndex, newIndex) {
+  moveCircle(oldIndex: number, newIndex: number) {
     const viewRef = this.container.get(oldIndex);
-    this.container.move(viewRef, newIndex);
+    if (viewRef) {
+      this.container.move(viewRef, newIndex);
+    }
   }
 
   changeGeoComponent() {

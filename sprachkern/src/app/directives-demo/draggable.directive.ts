@@ -1,6 +1,6 @@
 import {Directive, ElementRef, OnInit} from '@angular/core';
 
-declare var jQuery;
+declare var jQuery: any;
 
 @Directive({
   selector: '[chDragMe]'

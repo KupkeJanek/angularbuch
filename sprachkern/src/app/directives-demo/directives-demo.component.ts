@@ -12,7 +12,7 @@ export class DirectivesDemoComponent {
   constructor() {
   }
 
-  submit(email) {
+  submit(email: string) {
     console.log('Die E-Mail Adresse lautet', email);
   }
 

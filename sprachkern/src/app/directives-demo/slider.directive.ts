@@ -12,7 +12,7 @@ export class SliderDirective implements OnChanges {
 
   constructor(private elementRef: ElementRef) {
     this.sliderRef = jQuery(this.elementRef.nativeElement).slider({
-      slide: (event, ui) => {
+      slide: (event: any, ui: any) => {
         // console.log(ui.value); // Einkommentierung um Werte in der Console zu loggen
         this.valueChange.emit(ui.value);
       }
