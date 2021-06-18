@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   numberInProgress: number;
   numberInProgress$: Observable<number>;
 
-  constructor(@Optional() @Inject(AUTH_ENABLED) public authEnabled,
+  constructor(@Optional() @Inject(AUTH_ENABLED) public authEnabled: boolean,
               public loginService: LoginService,
               private activatedRoute: ActivatedRoute,
               private router: Router,

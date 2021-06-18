@@ -7,6 +7,7 @@ import {
   bufferCount, bufferTime, delay, filter, map, mergeMap, retry, retryWhen, take,
   tap
 } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
 
 @Component({
   templateUrl: 'rxdemo.component.html',
@@ -18,14 +19,14 @@ export class RxDemoComponent implements OnInit, OnDestroy {
 
   observableRangeOutput: any[] = [];
 
-  intervalOutput: any[] = [];
+  intervalOutput: string[] = [];
   filteredIntervalOutput: any[] = [];
   bufferedIntervalOutput: any[] = [];
 
   rangeObservable: Observable<number>;
 
   behaviorSubject = new BehaviorSubject('initial');
-  behaviorSubjectOutput = [];
+  behaviorSubjectOutput: string[] = [];
 
   bufferedCountOutput: any[] = [];
   subscription: Subscription;
@@ -33,12 +34,12 @@ export class RxDemoComponent implements OnInit, OnDestroy {
 
   // Subjects:
   subject = new Subject();
-  subjectOutput = [];
+  subjectOutput: string[] = [];
 
   constructor() {
 
     // Erfolgreiches observable
-    const observable = Observable.create((observer: Observer<number>) => {
+    const observable = new Observable((observer: Observer<number>) => {
       observer.next(1);
       observer.next(2);
       observer.next(3);
@@ -59,7 +60,7 @@ export class RxDemoComponent implements OnInit, OnDestroy {
 
     console.log('----- Observable mit zufälligem Fehler ----');
 
-    const observableWithRandomError = Observable.create((observer) => {
+    const observableWithRandomError = new Observable((observer: Observer<number>) => {
       observer.next(1);
       observer.next(2);
       if (Math.random() > 0.3) {
@@ -83,7 +84,7 @@ export class RxDemoComponent implements OnInit, OnDestroy {
 
     console.log('----- Verzögertes Retry ----');
 
-    const observableDelayedRetry = Observable.create((observer) => {
+    const observableDelayedRetry = new Observable((observer) => {
       observer.next(1);
       observer.next(2);
       if (Math.random() > 0.3) {
@@ -109,7 +110,7 @@ export class RxDemoComponent implements OnInit, OnDestroy {
 
     console.log('----- 3 mal verzögertes Retry ----');
 
-    const obsIncrementalRetry = Observable.create((observer) => {
+    const obsIncrementalRetry = new Observable((observer) => {
       observer.next(1);
       observer.next(2);
       if (Math.random() > 0.02) {
@@ -156,12 +157,10 @@ export class RxDemoComponent implements OnInit, OnDestroy {
 
     range(1, 3).subscribe(this.createOutputSubscriber(this.observableRangeOutput));
 
-
     merge(
       range(1, 2),
       range(5, 2)
     ).subscribe((value) => console.log('merged: ', value));
-
 
     // Operatoren
 
@@ -200,7 +199,7 @@ export class RxDemoComponent implements OnInit, OnDestroy {
     subject.next('value3');
   }
 
-  randomValues = Observable.create((observer) => {
+  randomValues = new Observable((observer: Observer<number>) => {
     const int = setInterval(() => {
       observer.next(Math.random());
     }, 1000);
@@ -240,17 +239,19 @@ export class RxDemoComponent implements OnInit, OnDestroy {
     });
 
     const square = document.getElementById('square');
-    fromEvent(square, '')
-      .subscribe((e: any) => {
-        console.log(`X: ${e.x},Y: ${e.y}`);
-      });
+    if (square) {
+      fromEvent(square, '')
+        .subscribe((e: any) => {
+          console.log(`X: ${e.x},Y: ${e.y}`);
+        });
+    }
   }
 
   ngOnDestroy() {
     this.dateSubscription.unsubscribe();
   }
 
-  createOutputSubscriber(output) {
+  createOutputSubscriber(output: string[]) {
     return Subscriber.create((value) => {
         output.push(`new value: ${value}`);
       },

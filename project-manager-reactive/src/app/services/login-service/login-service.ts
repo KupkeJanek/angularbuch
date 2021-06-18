@@ -16,12 +16,13 @@ export class LoginService {
   constructor(@Optional() @Inject(AUTH_ENABLED) public authEnabled = false) {
   }
 
-  login(name, password) {
-    const [user] = this.USERS.filter(user => user.name === name);
+  login(name: string, password: string) {
+    const user = this.USERS.find(u => u.name === name);
     if (user && user.password === password) {
       localStorage.setItem(CURRENT_USER, JSON.stringify(user));
       return true;
     }
+    return false;
   }
 
   logout() {

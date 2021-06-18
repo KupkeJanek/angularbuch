@@ -5,6 +5,7 @@ import {LOAD, ADD, EDIT, REMOVE, TaskStore} from '../stores/index';
 import {SOCKET_IO} from '../../app.tokens';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
+import { Action } from '../stores/action';
 
 const BASE_URL = `http://localhost:3000/api/tasks/`;
 
@@ -20,13 +21,13 @@ export class TaskService {
   tasks$: Observable<Task[]>;
     tasksChanged = new BehaviorSubject({});
     constructor(private http: HttpClient, private taskStore: TaskStore,
-              @Inject(SOCKET_IO) socketIO) {
+              @Inject(SOCKET_IO) socketIO: any) {
 
     this.tasks$ = taskStore.items$;
     this.socket = socketIO(WEB_SOCKET_URL);
     fromEvent(this.socket, 'task_saved')
       .subscribe((action) => {
-        this.taskStore.dispatch(action);
+        this.taskStore.dispatch(action as Action);
       });
   }
 

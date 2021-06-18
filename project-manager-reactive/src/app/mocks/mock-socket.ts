@@ -1,10 +1,10 @@
 export class MockSocket {
-  emit(action, data) {
+  emit(action: any, data: any) {
   }
-  addEventListener(l) {
+  addEventListener(l: any) {
 
   }
-  removeEventListener(l) {
+  removeEventListener(l: any) {
 
   }
 }

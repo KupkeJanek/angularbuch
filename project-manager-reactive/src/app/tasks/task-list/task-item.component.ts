@@ -31,9 +31,5 @@ export class TaskItemComponent {
     this.taskDelete.emit(this.task);
   }
 
-  ngAfterViewChecked() {
-    //var taskId = (this.task ? this.task.id : '');
-   // console.log(`Task ${taskId} checked ${++this.checkCounter} times`)
-  }
 }
 

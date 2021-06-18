@@ -15,7 +15,7 @@ import {debounceTime, tap, switchMap, distinctUntilChanged, map, mergeMap} from 
 })
 export class TaskListComponent implements OnInit {
 
-  selectedTaskId: string | number = null;
+  selectedTaskId: string | number | null = null;
 
   tasks$: Observable<Task[]>;
 
@@ -53,7 +53,7 @@ export class TaskListComponent implements OnInit {
   }
 
 
-  deleteTask(task) {
+  deleteTask(task: Task) {
     this.taskService.deleteTask(task).subscribe();
   }
 

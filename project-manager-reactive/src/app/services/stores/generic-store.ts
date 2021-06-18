@@ -1,4 +1,5 @@
 import {BehaviorSubject} from "rxjs";
+import { Action } from './action';
 
 export const LOAD = 'LOAD';
 export const ADD = 'ADD';
@@ -12,15 +13,15 @@ interface Identifiable {
 }
 
 export class Store<T extends Identifiable> {
-  items_ = [];
+  items_: T[] = [];
   items$ = new BehaviorSubject<T[]>([]);
 
-  dispatch(action) {
+  dispatch(action: Action) {
     this.items_ = this._reduce(this.items_, action);
     this.items$.next(this.items_);
   }
 
-  _reduce(items: T[], action) {
+  _reduce(items: T[], action: Action) {
     switch (action.type) {
       case LOAD:
         return [...action.data];
@@ -28,8 +29,8 @@ export class Store<T extends Identifiable> {
         return [...items, action.data];
       case EDIT:
         return items.map(task => {
-          var editedTask = action.data;
-          if (task.id !== editedTask.id){
+          const editedTask = action.data;
+          if (task.id !== editedTask.id) {
             return task;
           }
           return editedTask;

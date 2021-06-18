@@ -5,7 +5,7 @@ import {
   NG_VALIDATORS
 } from '@angular/forms';
 
-export function asyncIfNotBacklogThenAssignee(control): Promise<any> {
+export function asyncIfNotBacklogThenAssignee(control: FormControl): Promise<any> {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(ifNotBacklogThanAssignee(control));
@@ -14,7 +14,7 @@ export function asyncIfNotBacklogThenAssignee(control): Promise<any> {
   return promise;
 }
 
-export function ifNotBacklogThanAssignee(formGroup: FormControl): {[key: string]: any} {
+export function ifNotBacklogThanAssignee(formGroup: FormControl): {[key: string]: any } | null {
   const nameControl = formGroup.get('assignee.name');
   const stateControl = formGroup.get('state');
   if (!nameControl || !stateControl) {
@@ -37,7 +37,7 @@ export function ifNotBacklogThanAssignee(formGroup: FormControl): {[key: string]
 })
 export class IfNotBacklogThanAssigneeValidatorDirective {
 
-  public validate(formGroup: AbstractControl): {[key: string]: any} {
+  public validate(formGroup: AbstractControl): {[key: string]: any} | null {
     const nameControl = formGroup.get('assignee.name');
     const stateControl = formGroup.get('state');
     if (!nameControl || !stateControl) {
@@ -59,7 +59,7 @@ export class IfNotBacklogThanAssigneeValidatorDirective {
   }]
 })
 export class EmailValidatorDirective {
-  validate(control: AbstractControl): {[key: string]: any} {
+  validate(control: AbstractControl): {[key: string]: any} | null {
     const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     if (!control.value || control.value === '' || re.test(control.value)) {
       return null;
@@ -69,11 +69,11 @@ export class EmailValidatorDirective {
   }
 }
 
-export function emailValidator(control): {[key: string]: any} {
+export function emailValidator(control: FormControl): {[key: string]: any} | null {
   return new EmailValidatorDirective().validate(control);
 }
 
-export function emailValidator2(control): {[key: string]: any} {
+export function emailValidator2(control: FormControl): {[key: string]: any} | null {
   const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
   if (!control.value || control.value === '' || re.test(control.value)) {
     return null;

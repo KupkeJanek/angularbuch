@@ -47,12 +47,12 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   }
 
   addTag() {
-    this.task.tags.push({label: ''});
+    this.task.tags?.push({label: ''});
     return false;
   }
 
   removeTag(i: number) {
-    this.task.tags.splice(i, 1);
+    this.task.tags?.splice(i, 1);
     return false;
   }
 

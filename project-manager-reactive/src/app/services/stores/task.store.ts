@@ -1,6 +1,7 @@
 import {BehaviorSubject} from 'rxjs';
 import {Task} from '../../models/model-interfaces';
 import {Injectable} from '@angular/core';
+import { Action } from './action';
 
 export const LOAD = 'LOAD';
 export const ADD = 'ADD';
@@ -14,12 +15,12 @@ export class TaskStore {
   private tasks: Task[] = [];
   items$ = new BehaviorSubject<Task[]>([]);
 
-  dispatch(action) {
+  dispatch(action: Action) {
     this.tasks = this._reduce(this.tasks, action);
     this.items$.next(this.tasks);
   }
 
-  _reduce(tasks: Task[], action) {
+  _reduce(tasks: Task[], action: Action) {
     switch (action.type) {
       case LOAD:
         return [...action.data];
