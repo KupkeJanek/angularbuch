@@ -9,7 +9,7 @@ export class BorderDirective implements OnChanges{
   constructor(private elementRef: ElementRef,
               private renderer: Renderer2) {
   }
-  ngOnChanges(change: any) {
+  ngOnChanges() {
     this.renderer.setStyle(this.elementRef.nativeElement,
       'border',
       `solid ${this.chBorder}px`);

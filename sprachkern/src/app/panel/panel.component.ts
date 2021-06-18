@@ -22,7 +22,7 @@ export class PanelComponent {
 
   open = true;
   @Input() title = '';
-  @Output() panelToggled = new EventEmitter();
+  @Output() panelToggled = new EventEmitter<PanelComponent>();
   @ContentChild(PanelHeaderDirective) panelHeader: PanelHeaderDirective;
 
   togglePanel() {

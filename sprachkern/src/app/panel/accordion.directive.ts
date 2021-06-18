@@ -5,13 +5,13 @@ import {ContentChildren, QueryList, Input, Directive, AfterContentInit} from '@a
   exportAs: 'accordion'
 })
 export class AccordionDirective implements AfterContentInit {
-  @Input() onlyOneOpen = true;
+  @Input() onlyOneOpen = false;
 
   @ContentChildren(PanelComponent) panels: QueryList<PanelComponent>;
 
   ngAfterContentInit() {
     console.log('INIT ACCORDION', this.panels?.toArray());
-    this.panels?.forEach((panel) => {
+    this.panels.forEach((panel) => {
       panel.open = false;
       panel.panelToggled.subscribe(tmpPanel => {
         if (tmpPanel.open && this.onlyOneOpen) {
