@@ -1,0 +1,25 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { TimePickerComponent } from '../time-picker.component.ts';
+import * as stories from "./time-picker-mdx.stories.ts";
+import { moduleMetadata } from '@storybook/angular';
+
+<Meta
+  title={"TimePicker MDX Doumentation"}
+  component={TimePickerComponent}
+  decorators={[stories.TimePickerDecorators]}
+  argTypes={{
+    time: { control: "text", defaultValue:  "12:45:12"},
+  }}/>
+
+# Time Picker Component
+
+Mit Hilfe der Time Picker Komponente können Sie auf einfach Art und Weise eine Uhrzeit auswählen
+
+## Gültige Werte
+
+<Story story={stories.Simple} height="200px" />
+
+
+<ArgsTable of={TimePickerComponent} />
+
+

@@ -70,7 +70,8 @@ import { AwesomeUploaderComponent } from './awesome-uploader/awesome-uploader.co
     ComponentOutletDemoComponent,
     StylingDemoComponent,
     AwesomeUploaderComponent
-
+  ], exports: [
+    TimePickerComponent
   ]})
 export class AppModule {
 }

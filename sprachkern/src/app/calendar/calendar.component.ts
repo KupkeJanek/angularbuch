@@ -2,7 +2,6 @@ import {Component, ViewChild, AfterViewInit, QueryList, ViewChildren} from '@ang
 import {TimePickerComponent} from '../time-picker/time-picker.component';
 import {Time} from '../time-picker/time.model';
 
-
 @Component({
   selector: 'ch-calendar',
   templateUrl: 'calendar.component.html',
