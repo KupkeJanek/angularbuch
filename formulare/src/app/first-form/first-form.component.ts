@@ -7,9 +7,9 @@ import { NgForm, FormGroup} from '@angular/forms';
 })
 export class FirstFormComponent implements AfterViewInit, OnInit {
 
-  @ViewChild(NgForm) private ngForm: NgForm;
+  @ViewChild(NgForm) private ngForm!: NgForm;
 
-  private form: FormGroup;
+  private form!: FormGroup;
 
   ngOnInit() {
     this.form = this.ngForm.form;

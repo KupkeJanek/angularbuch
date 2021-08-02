@@ -15,7 +15,7 @@ export class TemplateDrivenFormComponentClasses {
 
   task: Task = new Task();
 
-  @ViewChild(NgForm) ngForm: NgForm;
+  @ViewChild(NgForm) ngForm!: NgForm;
 
   constructor(private taskService: TaskService) {
   }

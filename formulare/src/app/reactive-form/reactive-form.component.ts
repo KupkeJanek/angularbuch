@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {FormGroup, FormArray, FormControl, FormBuilder, Validators} from '@angular/forms';
-import {Task, createInitialTask} from '../models/model-interfaces';
+import {FormGroup, FormArray, FormControl, FormBuilder, Validators, NgControl, AbstractControl} from '@angular/forms';
+import {Task, createInitialTask, Tag} from '../models/model-interfaces';
 import * as model from '../models/model-interfaces';
 import {ifNotBacklogThanAssignee,  emailValidator, UserExistsValidatorDirective} from '../models/app-validators';
 import {TaskService} from '../services/task-service/task.service';
@@ -96,13 +96,15 @@ this.taskForm2 = new FormGroup({
 
   loadTask(id: number) {
     const task = this.taskService.getTask(id);
-    this.adjustTagsArray(task.tags);
+    if (task.tags) {
+      this.adjustTagsArray(task.tags);
+    }
     this.taskForm.patchValue(task);
     this.task = task;
     return false;
   }
 
-  private adjustTagsArray(tags: any[]) {
+  private adjustTagsArray(tags: Tag[]) {
     const tagCount = tags ? tags.length : 0;
     while (tagCount > this.tagsArray.controls.length) {
       this.addTag();
@@ -112,14 +114,14 @@ this.taskForm2 = new FormGroup({
     }
   }
 
-  userExistsValidator = (control) => {
+  userExistsValidator = (control: AbstractControl) => {
     return this.userService.checkUserExists(control.value).pipe(
       map(checkResult => {
         return (checkResult === false) ? {userNotFound: true} : null;
       }));
   }
 
-  userExistsValidatorReused = (control) => {
+  userExistsValidatorReused = (control: AbstractControl) => {
     const validator = new UserExistsValidatorDirective(this.userService);
     return validator.validate(control);
   }

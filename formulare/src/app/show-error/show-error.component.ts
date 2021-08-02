@@ -11,14 +11,14 @@ import {NgForm, FormGroup, FormGroupDirective} from '@angular/forms';
     </div>` })
 export class ShowErrorComponent {
 
-  @Input('path') path;
+  @Input('path') path = '';
   @Input('text') displayName = '';
 
   constructor(@Optional()  private ngForm: NgForm,
               @Optional() private formGroup: FormGroupDirective) {
   }
 
-  get errorMessages(): string[] {
+  get errorMessages(): string[] | null {
     let form: FormGroup;
     if (this.ngForm) {
       form = this.ngForm.form;

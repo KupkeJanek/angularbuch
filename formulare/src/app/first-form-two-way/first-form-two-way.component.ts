@@ -7,7 +7,7 @@ import {NgForm} from '@angular/forms';
 })
 export class FirstFormTwoWayComponent {
 
-  @ViewChild(NgForm) ngForm: NgForm;
+  @ViewChild(NgForm) ngForm!: NgForm;
 
   task: any = {
     title: 'Neues Entwickler-Team zusammenstellen',

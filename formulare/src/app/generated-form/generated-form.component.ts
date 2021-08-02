@@ -8,10 +8,10 @@ import {QuestionsService, Question} from '../services/questions.service';
   templateUrl: 'generated-form.component.html'
 })
 export class GeneratedFormComponent implements OnInit {
-  answerSummary: any[];
+  answerSummary: any[] = [];
   showSummary = false;
   questionsForm: FormGroup;
-  questions: Question[];
+  questions: Question[] = [];
   constructor(private questionService: QuestionsService) {
     this.questionsForm = new FormGroup({});
   }

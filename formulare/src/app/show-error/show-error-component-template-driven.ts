@@ -1,24 +1,26 @@
-import {Component, Input, Optional} from '@angular/core';
-import {NgForm, FormGroup, FormGroupDirective} from '@angular/forms';
+import {Component, Input} from '@angular/core';
+import {FormGroup, NgForm} from '@angular/forms';
 
 
 @Component({
   selector: 'pjm-show-error',
   template: `
     <div *ngIf="errorMessages" class="alert alert-danger">
-      <div *ngFor="let errorMessage of errorMessages">                  
-        {{errorMessage}}                         
-      </div>                          
-    </div>`})
+      <div *ngFor="let errorMessage of errorMessages">
+        {{errorMessage}}
+      </div>
+    </div>`
+})
 export class ShowErrorComponent {
-  @Input('path') controlPath;
+  @Input('path') controlPath = '';
   @Input('text') displayName = '';
 
-  constructor(private ngForm:NgForm) { }
+  constructor(private ngForm: NgForm) {
+  }
 
-  get errorMessages():string[] {
+  get errorMessages(): string[] | null {
     const messages = [];
-    const form:FormGroup = this.ngForm.form;
+    const form: FormGroup = this.ngForm.form;
     const control = form.get(this.controlPath);
     if (!control || !(control.touched) || !control.errors) {
       return null;

@@ -27,7 +27,7 @@ export class Task {
     this.id = data.id || null;
     this.title = data.title;
     this.description = data.description;
-    this.tags = (data.tags || []).map((tag) => new Tag(tag.label));
+    this.tags = (data.tags || []).map((tag: any) => new Tag(tag.label));
     this.favorite = data.favorite;
     this.state = data.state;
     this.assignee = new User(data.assignee);

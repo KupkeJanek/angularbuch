@@ -39,7 +39,7 @@ export class QuestionsService {
     return this.questions;
   }
 
-  saveAnswers(answers) {
+  saveAnswers(answers: any) {
     console.log('Saving answers... ', answers);
   }
 

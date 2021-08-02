@@ -15,18 +15,18 @@ export class TemplateDrivenFormComponent {
 
   task: Task = createInitialTask();
 
-  @ViewChild(NgForm) ngForm: NgForm;
+  @ViewChild(NgForm) ngForm!: NgForm;
 
   constructor(private taskService: TaskService) {
   }
 
   addTag() {
-    this.task.tags.push({label: ''});
+    this.task.tags?.push({label: ''});
     return false;
   }
 
   removeTag(i: number) {
-    this.task.tags.splice(i, 1);
+    this.task.tags?.splice(i, 1);
     return false;
   }
 

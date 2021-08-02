@@ -14,7 +14,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
     }]
 })
 export class ButtonChooserComponent implements ControlValueAccessor  {
-  @Input() choices: string[];
+  @Input() choices!: string[];
 
   private value: any;
   private propagateChange = Function.prototype;

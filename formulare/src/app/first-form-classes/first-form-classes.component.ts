@@ -6,7 +6,7 @@ import {Task} from '../models/model-classes';
   templateUrl: 'first-form-classes.component.html',
 })
 export class FirstFormClassesComponent {
-  task: Task;
+  task: Task | undefined;
   saveTask(value: any) {
     this.task = new Task(value);
     console.log(this.task);

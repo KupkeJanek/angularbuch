@@ -1,4 +1,4 @@
-import {Component, ContentChildren, Input, AfterContentInit} from '@angular/core';
+import {Component, ContentChildren, Input, AfterContentInit, QueryList} from '@angular/core';
 
 @Component({
   selector: 'ch-tab',
@@ -7,7 +7,7 @@ import {Component, ContentChildren, Input, AfterContentInit} from '@angular/core
              </div>`
 })
 export class TabComponent {
-  @Input() title;
+  @Input() title = '';
   active: boolean;
   constructor() {
     this.active = false;
@@ -30,13 +30,13 @@ export class TabComponent {
 })
 export class TabsComponent implements AfterContentInit {
 
-  @ContentChildren(TabComponent) tabs;
+  @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
 
   ngAfterContentInit() {
     this.tabs.first.active = true;
   }
 
-  activate(tab) {
+  activate(tab: TabComponent) {
     for (const tab_ of this.tabs.toArray()) {
       tab_.active = false;
     }
