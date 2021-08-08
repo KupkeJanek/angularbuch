@@ -49,10 +49,10 @@ export class RxDemoComponent implements OnInit, OnDestroy {
   randomValuesSub!: Subscription;
   randomValue = 0;
 
+  randomValuesSubject$ = new Subject<number>();
 
   sub1!: Subscription;
   sub2!: Subscription;
-
 
   constructor() {
 
@@ -215,9 +215,25 @@ export class RxDemoComponent implements OnInit, OnDestroy {
       console.log(`subscriber2: ${value}`);
     });
     subject.next('value3');
+
+    const i = setInterval(() => {
+      this.randomValuesSubject$.next(Math.random());
+    }, 1000);
+
+    this.sub1 = this.randomValuesSubject$.subscribe((value) => {
+      console.log(`Subscription 1: ${value}`);
+    });
+
+    this.sub2 = this.randomValuesSubject$.subscribe((value) => {
+      console.log(`Subscription 2: ${value}`);
+    });
+
+
+
+
   }
 
-  randomValues = new Observable((observer: Observer<number>) => {
+  randomValues$ = new Observable((observer: Observer<number>) => {
     const int = setInterval(() => {
       observer.next(Math.random());
     }, 1000);
@@ -237,11 +253,11 @@ export class RxDemoComponent implements OnInit, OnDestroy {
         this.currentDate = value;
       });
 
-    this.sub1 = this.randomValues.subscribe((value) => {
+    this.sub1 = this.randomValues$.subscribe((value) => {
       console.log(`Subscription 1: ${value}`);
     });
 
-    this.sub2 = this.randomValues.subscribe((value) => {
+    this.sub2 = this.randomValues$.subscribe((value) => {
       console.log(`Subscription 2: ${value}`);
     });
 
@@ -330,7 +346,7 @@ export class RxDemoComponent implements OnInit, OnDestroy {
   }
 
   startRandomValuesObservable() {
-    this.randomValuesSub = this.randomValues.subscribe((value) => {
+    this.randomValuesSub = this.randomValues$.subscribe((value) => {
       this.randomValue = value;
     });
   }

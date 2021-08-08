@@ -40,15 +40,14 @@ export class AppComponent implements OnInit {
         this.setBrowserTitle();
       });
 
-    this.numberInProgress$ = this.taskService.tasks$.pipe(
+    this.numberInProgress$ = this.taskService.selectTasks().pipe(
       map(tasks => tasks.filter(task => task.state === 'IN_PROGRESS').length)
     );
 
-    this.taskService.tasks$.subscribe((tasks) => {
+    this.taskService.selectTasks().subscribe((tasks) => {
       this.numberInProgress = tasks.filter(
         (task: Task) => task.state === 'IN_PROGRESS').length;
     });
-
   }
 
   setBrowserTitle() {

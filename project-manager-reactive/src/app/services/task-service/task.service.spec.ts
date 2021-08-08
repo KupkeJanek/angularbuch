@@ -5,6 +5,7 @@ import {TaskStore} from '../stores/task.store';
 import {SOCKET_IO} from '../../app.tokens';
 import {mockIO} from '../../mocks/mock-socket';
 import {HttpClient} from '@angular/common/http';
+import { Task } from '../../models/model-interfaces';
 
 
 describe('Task-Service', () => {
@@ -26,7 +27,7 @@ describe('Task-Service', () => {
     httpTestingController = TestBed.get(HttpTestingController);
   });
 
-  const saveTask = (task, expectedUrl = null, expectedMethod = null) => {
+  const saveTask = (task: Task, expectedUrl?: string, expectedMethod?: string) => {
     taskService.saveTask(task).subscribe();
     const request = httpTestingController.expectOne({
         url: expectedUrl,

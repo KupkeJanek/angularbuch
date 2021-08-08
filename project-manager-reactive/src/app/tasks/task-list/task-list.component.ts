@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Location} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
-import {FormControl} from '@angular/forms';
-import {Task} from '../../models/model-interfaces';
-import {TaskService} from '../../services/task-service/task.service';
-import {Router, ActivatedRoute} from '@angular/router';
-import {merge, Observable} from 'rxjs';
-import {debounceTime, tap, switchMap, distinctUntilChanged, map, mergeMap} from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { Task } from '../../models/model-interfaces';
+import { TaskService } from '../../services/task-service/task.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { merge, Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'task-list',
@@ -28,14 +28,13 @@ export class TaskListComponent implements OnInit {
   }
 
   ngOnInit() {
-
+/*
     this.tasks$ = this.searchTerm.valueChanges.pipe(
       debounceTime(400),
       mergeMap(query => this.taskService.findTasks(query)),
       tap(tasks => console.log('Tasks:', tasks)));
-
-
-    this.tasks$ = this.taskService.tasks$;
+*/
+    this.tasks$ = this.taskService.selectTasks();
 
     const paramsStream = this.route.queryParams
       .pipe(
@@ -47,9 +46,9 @@ export class TaskListComponent implements OnInit {
       tap(query => this.adjustBrowserUrl(query)));
 
     merge(paramsStream, searchTermStream).pipe(
-        distinctUntilChanged(),
-        switchMap(query =>  this.taskService.findTasks(query)))
-      .subscribe();
+      distinctUntilChanged(),
+      switchMap(query => this.taskService.findTasks(query)))
+    .subscribe();
   }
 
 
@@ -59,13 +58,13 @@ export class TaskListComponent implements OnInit {
 
   selectTask(taskId: string | number) {
     this.selectedTaskId = taskId;
-    this.router.navigate([ {outlets: {'right': [ 'overview' , taskId]}}], {relativeTo: this.route});
+    this.router.navigate([{outlets: {'right': ['overview', taskId]}}], {relativeTo: this.route});
   }
 
   findTasks(queryString: string) {
-   // jetzt über type-ahead gelöst
-   // this.tasks$ = this.taskService.findTasks(queryString);
-   // this.adjustBrowserUrl(queryString);
+    // jetzt über type-ahead gelöst
+    // this.tasks$ = this.taskService.findTasks(queryString);
+    // this.adjustBrowserUrl(queryString);
   }
 
   adjustBrowserUrl(queryString = '') {

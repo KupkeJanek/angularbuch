@@ -38,7 +38,7 @@ describe('EditTask Component', () => {
   });
 
   let taskService: TaskService;
-  beforeEach(inject([TaskService], (_taskService) => {
+  beforeEach(inject([TaskService], (_taskService: TaskService) => {
     taskService = _taskService;
   }));
 

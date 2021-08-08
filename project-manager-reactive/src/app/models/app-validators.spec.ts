@@ -2,7 +2,7 @@ import {EmailValidatorDirective} from './app-validators';
 
 
 describe('EMail-Validator', () => {
-  let validator = null;
+  let validator!: EmailValidatorDirective;
   beforeEach(() => {
     validator = new EmailValidatorDirective();
   });
@@ -12,10 +12,10 @@ describe('EMail-Validator', () => {
     const result = validator.validate(control);
     expect(result).toBe(null);
   });
-  it('should not accept invalid email addresses', () => {
+  fit('should not accept invalid email addresses', () => {
     const control = <any> {value: 'foobar.com'};
     const result = validator.validate(control);
-    expect(result['invalidEMail']).toBeTruthy();
+    expect(result?.invalidEMail).toBeTruthy();
   });
   it('should accept empty email addresses', () => {
     const control = <any> {value: ''};

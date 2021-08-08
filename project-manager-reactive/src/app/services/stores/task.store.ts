@@ -1,4 +1,4 @@
-import {BehaviorSubject} from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import {Task} from '../../models/model-interfaces';
 import {Injectable} from '@angular/core';
 import { Action } from './action';
@@ -13,7 +13,11 @@ export const REMOVE = 'REMOVE';
 })
 export class TaskStore {
   private tasks: Task[] = [];
-  items$ = new BehaviorSubject<Task[]>([]);
+  private items$ = new BehaviorSubject<Task[]>([]);
+
+  selectItems(): Observable<Task[]> {
+    return this.items$.asObservable();
+  }
 
   dispatch(action: Action) {
     this.tasks = this._reduce(this.tasks, action);

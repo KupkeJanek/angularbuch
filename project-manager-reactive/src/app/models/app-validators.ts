@@ -64,7 +64,7 @@ export class EmailValidatorDirective {
     if (!control.value || control.value === '' || re.test(control.value)) {
       return null;
     } else {
-      return {'invalidEMail': true};
+      return {invalidEMail: true};
     }
   }
 }
