@@ -12,6 +12,8 @@ export class PipesDemoComponent {
 
   currentDate = new Date();
 
+  price: number = 3.99;
+
   dateString = '2018-07-05T19:05:03+02:00';
 
   time =  {
@@ -47,9 +49,9 @@ export class PipesDemoComponent {
 
   friends = ['Bob', 'Jane', 'John', 'Mary'];
 
-  numbers = [];
+  numbers: number[] = [];
 
-  constructor(@Inject(LOCALE_ID) localeId) {
+  constructor(@Inject(LOCALE_ID) localeId: string) {
 
     this.deciPipe  = new DecimalPipe(localeId);
 
@@ -64,7 +66,7 @@ export class PipesDemoComponent {
     console.log(this.deciPipe.transform(33.3));
   }
 
-  dontSort(a, b) {
+  dontSort(a: string, b: string) {
     return 0;
   }
 

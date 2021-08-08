@@ -25,12 +25,12 @@ import {ButtonChooserComponent} from './button-chooser/button-chooser.component'
     ShowErrorComponent,
     ReactiveFormComponent,
     TemplateDrivenFormComponent,
-    GeneratedFormComponent ,
+    GeneratedFormComponent,
     FirstFormComponent,
     FirstFormOneWayComponent,
     FirstFormTwoWayComponent,
     RegisterFormComponent,
-  ButtonChooserComponent],
+    ButtonChooserComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

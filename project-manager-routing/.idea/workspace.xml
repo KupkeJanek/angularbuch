@@ -6,8 +6,121 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdbac39c-ca9f-4c1f-a6ab-869c9354b12e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../project-manager-modular/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-modular/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project-manager-reactive/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-reactive/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project-manager-http/src/app/app.tokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/components/directory/directory.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/components/directory/directory.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/components/music-library/music-library.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/components/music-library/music-library.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/components/music-library/music-library.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/components/music-library/music-library.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/components/search-bar/search-bar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/components/search-bar/search-bar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/components/tabs/tabs.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/components/tabs/tabs.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/components/user-badge/user-badge.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/components/user-badge/user-badge.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/components/video-library/video-library.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/components/video-library/video-library.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/components/video-library/video-library.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/components/video-library/video-library.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/low-level-injection/low-level-injection.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/low-level-injection/low-level-injection.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/services/global-search-service/global-search.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/services/global-search-service/global-search.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/services/music-search-service/albums.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/services/music-search-service/albums.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/services/music-search-service/music-search.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/services/music-search-service/music-search.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/services/search-service/search.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/services/search-service/search.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/services/user-service/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/services/user-service/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/services/user-service/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/services/user-service/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/services/video-service/video-search.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/services/video-service/video-search.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/src/app/services/video-service/videos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/src/app/services/video-service/videos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dependency_injection/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dependency_injection/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../formulare/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../formulare/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../formulare/src/app/first-form-interfaces/first-form-interfaces.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../formulare/src/app/first-form-interfaces/first-form-interfaces.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../formulare/src/app/first-form/first-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../formulare/src/app/first-form/first-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../formulare/src/app/generated-form/generated-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../formulare/src/app/generated-form/generated-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../formulare/src/app/models/app-validators.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../formulare/src/app/models/app-validators.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../formulare/src/app/reactive-form/reactive-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../formulare/src/app/reactive-form/reactive-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../formulare/src/app/reactive-form/reactive-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../formulare/src/app/reactive-form/reactive-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../formulare/src/app/services/login-service/login-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../formulare/src/app/services/login-service/login-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../formulare/src/app/show-error/show-error.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../formulare/src/app/show-error/show-error.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../formulare/src/app/template-driven-form/template-driven-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../formulare/src/app/template-driven-form/template-driven-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/projects-server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/projects-server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/jsonp-example/jsonp-example.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/jsonp-example/jsonp-example.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/jsonp-example/jsonp-example.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/jsonp-example/jsonp-example.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/models/app-validators.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/models/app-validators.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/models/model-interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/models/model-interfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/services/login-service/login-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/services/login-service/login-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/settings/settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/settings/settings.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/show-error/show-error.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/show-error/show-error.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/tasks/edit-task/edit-task.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/tasks/edit-task/edit-task.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/tasks/task-list/task-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/tasks/task-list/task-item.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/tasks/task-list/task-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/tasks/task-list/task-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/src/app/tasks/task-overview/task-overview.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/src/app/tasks/task-overview/task-overview.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-http/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-http/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress.json" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-modular/cypress.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/fixtures/example.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/fixtures/profile.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/fixtures/users.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/integration/create-task.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-modular/cypress/integration/create-task.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/integration/hello-cypress.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-modular/cypress/integration/hello-cypress.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/integration/task-list.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-modular/cypress/integration/task-list.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/create-task.spec.ts/Create Task -- should create new tasks (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/create-task.spec.ts/Create Task -- should display the correct title (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/dashboard.spec.ts/Dashboard -- should automatically redirect to the dashboard (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/dashboard.spec.ts/Dashboard -- should show the dashboard header (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/edit-task.spec.ts/Create Task -- should create new tasks (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/edit-task.spec.ts/Create Task -- should display the correct title (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/edit-task.spec.ts/Create Task -- should leave the page when accepting window.confirm (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/edit-task.spec.ts/Create Task -- should stay on the page when discarding window.confirm (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/task-list.spec.ts/Task-List -- should allow searching for tasks (advanced) (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/task-list.spec.ts/Task-List -- should allow searching for tasks (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/task-list.spec.ts/Task-List -- should display a message when the list is empty (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/task-list.spec.ts/Task-List -- should display the task list (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/screenshots/task-list.spec.ts/Task-List -- should save the searchTerm in the form-component (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/support/commands.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/support/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/videos/create-task.spec.ts.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-modular/cypress/videos/create-task.spec.ts.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/videos/dashboard.spec.ts.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-modular/cypress/videos/dashboard.spec.ts.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/videos/edit-task.spec.ts.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/videos/hello-cypress.spec.ts.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-modular/cypress/videos/hello-cypress.spec.ts.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/cypress/videos/task-list.spec.ts.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-modular/cypress/videos/task-list.spec.ts.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-manager-modular/projects-server/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/../project-manager-modular/projects-server/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/app-validators.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/app-validators.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/login-service/login-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/login-service/login-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/task-service/task-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/task-service/task-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/settings.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/show-error/show-error.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/show-error/show-error.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/tasks/edit-task/edit-task.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/tasks/edit-task/edit-task.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/tasks/edit-task/edit-task.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/tasks/edit-task/edit-task.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/tasks/task-item/task-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/tasks/task-item/task-item.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/tasks/task-list/task-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/tasks/task-list/task-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/tasks/task-overview/task-overview.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/tasks/task-overview/task-overview.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/tasks/tasks.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/tasks/tasks.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/tslint.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/app/blog/blog-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/app/blog/blog-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/app/blog/blog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/app/blog/blog.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/app/blog/blog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/app/blog/blog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/app/change-detection-demo/change-detection-demo-optimized.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/app/change-detection-demo/change-detection-demo-optimized.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/app/change-detection-demo/change-detection-demo-optimized.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/app/change-detection-demo/change-detection-demo-optimized.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/app/change-detection-demo/change-detection-demo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/app/change-detection-demo/change-detection-demo.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/app/change-detection-demo/change-detection-demo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/app/change-detection-demo/change-detection-demo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/app/dynamic-components-demo/dynamic-components-demo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/app/dynamic-components-demo/dynamic-components-demo.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/app/dynamic-components-demo/dynamic-components-demo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/app/dynamic-components-demo/dynamic-components-demo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sprachkern/src/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../sprachkern/src/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../standard_direktiven/src/app/pipes-demo/pipes-demo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../standard_direktiven/src/app/pipes-demo/pipes-demo.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../standard_direktiven/src/app/pipes-demo/pipes-demo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../standard_direktiven/src/app/pipes-demo/pipes-demo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../standard_direktiven/src/app/pipes/centimeter.pipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../standard_direktiven/src/app/pipes/centimeter.pipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../standard_direktiven/src/app/pipes/count.pipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../standard_direktiven/src/app/pipes/count.pipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../standard_direktiven/src/app/standard-direktiven/standard-direktiven.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../standard_direktiven/src/app/standard-direktiven/standard-direktiven.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../standard_direktiven/src/app/standard-direktiven/standard-direktiven.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../standard_direktiven/src/app/standard-direktiven/standard-direktiven.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../standard_direktiven/src/app/standard-direktiven/standard-direktiven.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../standard_direktiven/src/app/standard-direktiven/standard-direktiven.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../standard_direktiven/src/app/tabs/tabs.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../standard_direktiven/src/app/tabs/tabs.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../standard_direktiven/src/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../standard_direktiven/src/tsconfig.app.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +130,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="JupyterTrust" id="979f963e-089e-41a9-b0e9-5b3535fa86a5" />
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -35,23 +149,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v12.20.1/bin/node" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="E2E Tests (project-manager-e2e)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -83,6 +190,8 @@
       <option name="presentableId" value="Default" />
       <updated>1606921590388</updated>
       <workItem from="1606921591623" duration="645000" />
+      <workItem from="1628059991679" duration="2450000" />
+      <workItem from="1628067394796" duration="11345000" />
     </task>
     <servers />
   </component>
@@ -124,15 +233,26 @@
         <entry key="1" value="TOOL_WINDOW" />
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1119" y="604" width="317" height="199" key="#TSLint" timestamp="1606922236980">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="459" y="162" key="SettingsEditor" timestamp="1628060021065">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1119" y="604" width="317" height="199" key="#TSLint/2560.360.1920.1080/0.0.2560.1400@0.0.2560.1400" timestamp="1606922236980" />
-    <state x="859" y="311" width="840" height="1034" key="search.everywhere.popup" timestamp="1606921784607">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="459" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1628060021065" />
+    <state x="2477" y="256" width="540" height="524" key="StructurePopup" timestamp="1628089364223">
+      <screen x="0" y="0" width="3840" height="1040" />
     </state>
-    <state x="859" y="311" width="840" height="1034" key="search.everywhere.popup/2560.360.1920.1080/0.0.2560.1400@0.0.2560.1400" timestamp="1606921784607" />
+    <state x="2477" y="256" width="540" height="524" key="StructurePopup/0.0.3840.1040@0.0.3840.1040" timestamp="1628089364223" />
+    <state x="1310" y="239" width="2222" height="560" key="find.popup" timestamp="1628088108309">
+      <screen x="0" y="0" width="3840" height="1040" />
+    </state>
+    <state x="655" y="239" width="1111" height="560" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1628061185698" />
+    <state x="1310" y="239" width="2222" height="560" key="find.popup/0.0.3840.1040@0.0.3840.1040" timestamp="1628088108309" />
+    <state x="1246" y="228" width="1344" height="678" key="search.everywhere.popup" timestamp="1628168710207">
+      <screen x="0" y="0" width="3840" height="1040" />
+    </state>
+    <state x="623" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1628138799306" />
+    <state x="1246" y="228" width="1344" height="678" key="search.everywhere.popup/0.0.3840.1040@0.0.3840.1040" timestamp="1628168710207" />
   </component>
 </project>

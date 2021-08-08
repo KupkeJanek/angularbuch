@@ -1,33 +1,38 @@
-import {Component, Input} from '@angular/core';
-import {NgForm, FormGroup} from '@angular/forms';
+import { Component, Input, OnInit, Optional} from '@angular/core';
+import {FormGroup, FormGroupDirective, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'show-error',
   template: `
     <div *ngIf="errorMessages" class="alert alert-danger">
-        <div *ngFor="let errorMessage of errorMessages">
-            {{errorMessage}}
-        </div>
-    </div>` })
-export class ShowErrorComponent {
+      <div *ngFor="let errorMessage of errorMessages">
+        {{errorMessage}}
+      </div>
+    </div>`
+})
+export class ShowErrorComponent implements OnInit {
 
-  @Input('path') controlPath;
+  @Input('path') path = '';
   @Input('text') displayName = '';
 
-  private form: FormGroup;
+  private form!: FormGroup;
 
-  constructor(ngForm: NgForm) {
-    this.form = ngForm.form;
+  constructor(@Optional() private ngForm: NgForm,
+              @Optional() private formGroup: FormGroupDirective) {
   }
 
-  get errorMessages(): string[] {
-    const control = this.form.get(this.controlPath);
+  ngOnInit() {
+    this.form = this.ngForm ? this.ngForm.form : this.formGroup.form;
+  }
+
+  get errorMessages(): string[] | null {
+
+    const control = this.form.get(this.path);
     const messages = [];
     if (!control || !(control.touched) || !control.errors) {
       return null;
     }
     for (const code in control.errors) {
-      // Berechnung der lesbaren Fehlermeldungen
       if (control.errors.hasOwnProperty(code)) {
         const error = control.errors[code];
         let message = '';
@@ -42,7 +47,7 @@ export class ShowErrorComponent {
             message = `${this.displayName} darf maximal ${error.requiredLength} Zeichen enthalten`;
             break;
           case 'invalidEMail':
-            message = `Bitte geben Sie eine gültige E-Mail Adresse an`;
+            message = `Bitte geben Sie eine gültige E-Mail-Adresse an`;
             break;
           case 'userNotFound':
             message = `Der eingetragene Benutzer existiert nicht.`;

@@ -10,7 +10,7 @@ import {User} from '../services/login-service/login-service';
 })
 export class SettingsComponent implements OnInit, OnDestroy {
 
-  originalTitle: string;
+  originalTitle = '';
 
   readOnly = true;
 

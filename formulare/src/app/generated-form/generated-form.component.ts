@@ -28,7 +28,7 @@ export class GeneratedFormComponent implements OnInit {
     if (question.required) {
       validators.push(Validators.required);
     }
-    return new FormControl('', validators);
+    return new FormControl('', {validators: validators});
   }
 
   saveForm(formValue: any) {

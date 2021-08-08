@@ -100,7 +100,7 @@ export class UserExistsValidatorDirective {
   constructor(private userService: UserService) {
   }
 
-  validate(control: AbstractControl): Observable<any> {
+  validate(control: AbstractControl): Observable<{[key: string]: any} | null> {
     console.log('Validating User');
     return this.userService.checkUserExists(control.value).pipe(
       map(userExists => !userExists ? {userNotFound: true} : null));

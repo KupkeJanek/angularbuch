@@ -115,7 +115,7 @@ export class ChangeDetectionMainOptimizedComponent implements OnInit {
     this.contactAddress = selected.address;
   }
 
-  editContact() {
+  updateSelectedContact() {
     if (this.selectedContact) {
       this.contacts = this.contacts.map((entry) => {
         if (entry !== this.selectedContact) {

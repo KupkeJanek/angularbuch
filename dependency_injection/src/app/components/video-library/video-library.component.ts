@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {SearchService} from '../../services/search-service/search.service';
+import { Item, SearchService } from '../../services/search-service/search.service';
 import {VideoSearchService} from '../../services/video-service/video-search.service';
 
 @Component({
@@ -8,4 +8,8 @@ import {VideoSearchService} from '../../services/video-service/video-search.serv
   viewProviders: [{provide: SearchService, useClass: VideoSearchService }]
 })
 export class VideoLibraryComponent  {
+  items: Item[];
+  constructor(private searchService: SearchService) {
+    this.items = this.searchService.getAll();
+  }
 }

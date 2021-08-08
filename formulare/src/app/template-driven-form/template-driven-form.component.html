@@ -10,17 +10,17 @@
            required minlength="5" maxlength="100"
            #title="ngModel"/>
     <div *ngIf="!title.valid && title.touched" class="alert alert-danger">
-      <div *ngIf="title.control.hasError('required')">
+      <div *ngIf="title.hasError('required')">
         Der Titel ist erforderlich
       </div>
-      <div *ngIf="title.control.hasError('minlength')">
+      <div *ngIf="title.hasError('minlength')">
         Der Titel muss mindestens
-        {{ title.control.getError('minlength').requiredLength }}
+        {{ title.getError('minlength').requiredLength }}
         Zeichen enthalten
       </div>
-      <div *ngIf="title.control.hasError('maxlength')">
+      <div *ngIf="title.hasError('maxlength')">
         Der Titel darf maximal
-        {{ title.control.getError('maxlength').requiredLength }}
+        {{ title.getError('maxlength').requiredLength }}
         Zeichen enthalten
       </div>
     </div>
@@ -136,7 +136,7 @@
       <pjm-show-error path="assignee.email"></pjm-show-error>
     </div>
 
-    <div *ngIf="form.form.hasError('assigneeRequired')"
+    <div *ngIf="form.hasError('assigneeRequired')"
          class="alert alert-danger">
       Der Task befindet sich nicht mehr im Backlog. <br>
       Bitte geben Sie einen Zuständigen an.

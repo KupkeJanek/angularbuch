@@ -7,18 +7,18 @@ import {
 import {LoginService} from './services/login-service/login-service';
 import {Title} from '@angular/platform-browser';
 import {AUTH_ENABLED} from './app.tokens';
-import {filter} from 'rxjs/internal/operators';
+import {filter, tap} from 'rxjs/internal/operators';
 
 @Component({
-  selector: 'ch-root',
+  selector: 'pjm-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
 
-  defaultTitle: string;
+  defaultTitle = '';
 
-  constructor(@Optional() @Inject(AUTH_ENABLED) public authEnabled,
+  constructor(@Optional() @Inject(AUTH_ENABLED) public authEnabled: boolean,
               public loginService: LoginService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.defaultTitle = this.titleService.getTitle();
     this.router.events.pipe(
+      tap(console.log),
       filter(event => event instanceof NavigationEnd))
       .subscribe(event => {
         this.setBrowserTitle();

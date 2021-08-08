@@ -32,12 +32,12 @@ export class TaskService {
 
 
   getTask(id: number | string): Task {
-    const task = this.tasks.filter(_task => _task.id.toString() === id.toString())[0];
+    const task = this.tasks.filter(_task => _task.id?.toString() === id.toString())[0];
     return <Task>(Object.assign({}, task));
   }
 
   getTaskAsync(id: number | string): Observable<Task> {
-    const task = this.tasks.filter(t => t.id.toString() === id.toString())[0];
+    const task = this.tasks.filter(t => t.id?.toString() === id.toString())[0];
     return of((task));
   }
 

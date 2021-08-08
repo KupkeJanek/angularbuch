@@ -12,11 +12,9 @@ import {TaskService} from '../../services/task-service/task.service';
 })
 export class TaskOverviewComponent {
 
-  id: string;
-
   model = model;
 
-  private task: Task;
+  private task: Task | undefined;
 
   constructor(private route: ActivatedRoute,
               private taskService: TaskService) {

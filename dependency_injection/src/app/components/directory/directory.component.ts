@@ -11,7 +11,7 @@ import {Component, Input, Optional, SkipSelf, OnInit} from '@angular/core';
   `
 })
 export class DirectoryComponent implements OnInit {
-  @Input() name: string;
+  @Input() name = '';
   constructor(@Optional() @SkipSelf() private parent: DirectoryComponent) {
   }
   ngOnInit() {

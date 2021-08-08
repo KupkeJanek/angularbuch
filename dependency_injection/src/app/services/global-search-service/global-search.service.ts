@@ -9,7 +9,7 @@ export class GlobalSearchService implements SearchService {
     return [];
   }
 
-  search(keyword): any[] {
+  search(keyword: string): any[] {
     return [];
   }
 }

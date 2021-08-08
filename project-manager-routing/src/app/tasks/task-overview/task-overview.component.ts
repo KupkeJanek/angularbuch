@@ -14,7 +14,7 @@ export class TaskOverviewComponent implements OnInit {
 
   model = model;
 
-  private task: Task;
+  private task: Task | undefined;
 
   constructor(private route: ActivatedRoute,
               private taskService: TaskService) { }

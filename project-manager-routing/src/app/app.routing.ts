@@ -35,7 +35,7 @@ export const appRoutes: Routes = [
   {path: '**', component: NotFoundComponent}, // immer als letztes konfigurieren - erste Route die matched wird angesteuert
 ];
 
-export const appRouting = RouterModule.forRoot(appRoutes);
+export const appRouting = RouterModule.forRoot(appRoutes, {useHash: true});
 
 export const routingComponents = [DashboardComponent, SettingsComponent, AboutComponent, LoginComponent, ChatComponent, NotFoundComponent,
                                  ...tasksRoutingComponents];

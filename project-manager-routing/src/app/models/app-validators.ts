@@ -1,48 +1,53 @@
-import {Directive} from '@angular/core';
+import {Directive, forwardRef} from '@angular/core';
 import {
-  FormGroup,
+  FormControl,
   AbstractControl,
   NG_VALIDATORS,
+  NG_ASYNC_VALIDATORS
 } from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
-export function ifNotBacklogThenAssignee(controlGroup: FormGroup): {[key: string]: boolean} {
-  const assigneeName = controlGroup.get('assignee.name');
-  const state = controlGroup.get('state');
-  if (!assigneeName || !state) {
-    return;
-  }
-  if ((state.value && state.value !== 'BACKLOG') &&
-      (!assigneeName.value || assigneeName.value === '')) {
-    return {'assigneeRequired': true};
-  }
-  return null;
-}
-
-export function asyncIfNotBacklogThenAssignee(control): Promise<any> {
+export function asyncIfNotBacklogThenAssignee(control: AbstractControl): Promise<any> {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(ifNotBacklogThenAssignee(control));
+      resolve(ifNotBacklogThanAssignee(control));
     }, 500);
   });
   return promise;
 }
 
-@Directive({
-  selector: '[ifNotBacklogThenAssignee]',
-  providers: [
-    {provide: NG_VALIDATORS,
-     useExisting: IfNotBacklogThenAssigneeValidatorDirective, multi: true}]
-})
-export class IfNotBacklogThenAssigneeValidatorDirective {
+export function ifNotBacklogThanAssignee(formGroup: AbstractControl): {[key: string]: any} | null {
+  const nameControl = formGroup.get('assignee.name');
+  const stateControl = formGroup.get('state');
+  if (!nameControl || !stateControl) {
+    return null;
+  }
+  if (stateControl.value !== 'BACKLOG' &&
+    (!nameControl.value || nameControl.value === '')) {
+    return {'assigneeRequired': true};
+  }
+  return null;
+}
 
-  validate(formGroup: FormGroup): {[key: string]: any} {
+@Directive({
+  selector: '[pjmIfNotBacklogThanAssignee]',
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: IfNotBacklogThanAssigneeValidatorDirective, multi: true
+    }]
+})
+export class IfNotBacklogThanAssigneeValidatorDirective {
+
+  public validate(formGroup: AbstractControl): {[key: string]: any} | null {
     const nameControl = formGroup.get('assignee.name');
     const stateControl = formGroup.get('state');
-    if (!nameControl || !stateControl ||
-        stateControl.value === 'BACKLOG') {
+    if (!nameControl || !stateControl) {
       return null;
     }
-    if (!nameControl.value || nameControl.value === '') {
+    if (stateControl.value !== 'BACKLOG' &&
+      (!nameControl.value || nameControl.value === '')) {
       return {'assigneeRequired': true};
     }
     return null;
@@ -50,14 +55,15 @@ export class IfNotBacklogThenAssigneeValidatorDirective {
 }
 
 @Directive({
-  selector: '[emailValidator]',
+  selector: '[pjmEmailValidator]',
   providers: [{
     provide: NG_VALIDATORS,
-    useExisting: EmailValidatorDirective, multi: true
+    useClass: EmailValidatorDirective,
+    multi: true
   }]
 })
 export class EmailValidatorDirective {
-  validate(control: AbstractControl): {[key: string]: any} {
+  validate(control: AbstractControl): {[key: string]: any} | null {
     const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     if (!control.value || control.value === '' || re.test(control.value)) {
       return null;
@@ -67,7 +73,11 @@ export class EmailValidatorDirective {
   }
 }
 
-export function emailValidator(control): {[key: string]: any} {
+export function emailValidator(control: AbstractControl): {[key: string]: any} | null {
+  return new EmailValidatorDirective().validate(control);
+}
+
+export function emailValidator2(control: AbstractControl): {[key: string]: any} | null {
   const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
   if (!control.value || control.value === '' || re.test(control.value)) {
     return null;
@@ -77,4 +87,5 @@ export function emailValidator(control): {[key: string]: any} {
 }
 
 
-export const APPLICATION_VALIDATORS = [IfNotBacklogThenAssigneeValidatorDirective, EmailValidatorDirective];
+export const APPLICATION_VALIDATORS = [IfNotBacklogThanAssigneeValidatorDirective,
+  EmailValidatorDirective];

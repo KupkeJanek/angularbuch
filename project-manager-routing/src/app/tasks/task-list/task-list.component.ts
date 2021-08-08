@@ -14,9 +14,9 @@ import {Router, ActivatedRoute} from '@angular/router';
 })
 export class TaskListComponent implements OnInit {
 
-  selectedTaskId: string | number = null;
+  selectedTaskId: string | number | null = null;
 
-  tasks: Task[];
+  tasks!: Task[];
 
   searchTerm = new FormControl();
 
@@ -29,7 +29,7 @@ export class TaskListComponent implements OnInit {
   ngOnInit() {
 
     this.route.queryParams.subscribe((params) => {
-      const query = decodeURI(params['query'] || '');     this.searchTerm.setValue(query);
+      const query = decodeURI(params['query'] || '');
       this.searchTerm.setValue(query);
       this.tasks = this.taskService.findTasks(query);
     });
@@ -53,6 +53,7 @@ export class TaskListComponent implements OnInit {
      */
 
     // Statisches Auslesen von Parametern über Snapshots
+    /*
     const query = this.route.snapshot.queryParams['query'];
     this.tasks = this.taskService.findTasks(query);
 
@@ -63,9 +64,10 @@ export class TaskListComponent implements OnInit {
         this.selectTask(value);
       }
     }
+     */
   }
 
-  deleteTask(task) {
+  deleteTask(task: Task) {
     this.taskService.deleteTask(task);
     this.findTasks(this.searchTerm.value);
   }

@@ -1,4 +1,4 @@
-export default [{
+export const videos = [{
   'Title': 'The Shawshank Redemption',
   'Year': '1994',
   'Type': 'movie',

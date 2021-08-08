@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
-import {Title} from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -10,11 +10,11 @@ import {Title} from '@angular/platform-browser';
 })
 export class DashboardComponent {
 
-  title: string;
+  title: string | undefined;
   constructor(r: ActivatedRoute, private router: Router, private titleService: Title) {
   }
 
-  originalTitle: string;
+  originalTitle!: string;
 
   ngOnInit() {
     this.originalTitle = this.titleService.getTitle();

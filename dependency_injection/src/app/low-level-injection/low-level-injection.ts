@@ -1,15 +1,19 @@
 import {ReflectiveInjector, Inject} from '@angular/core';
-import {RANDOM_VALUE} from './app-tokens-ts';
+import {RANDOM_VALUE} from './random-value-token';
 
+interface LoginData {
+  username: string;
+  password: string;
+}
 
 class LoginService {
-  login(loginData) {
+  login(loginData: LoginData) {
     console.log('Executing login with data', loginData);
   }
 }
 
 class OAuthLoginService {
-  login(loginData) {
+  login(loginData: LoginData) {
     console.log('Executing oauth-login with data', loginData);
   }
 }
@@ -19,15 +23,15 @@ class LoginComponent {
   loginService: LoginService;
   greeting: string;
 
-  constructor(@Inject(LoginService) loginService,
-              @Inject('greeting') greeting,
-              @Inject(RANDOM_VALUE) randomValue) {
+  constructor(@Inject(LoginService) loginService: LoginService,
+              @Inject('greeting') greeting: string,
+              @Inject(RANDOM_VALUE) randomValue: number) {
     this.loginService = loginService;
     this.greeting = greeting;
     console.log(`Der zufällige Wert lautet ${randomValue}`);
   }
 
-  submit(loginData) {
+  submit(loginData: LoginData) {
     this.loginService.login(loginData);
     alert(this.greeting + ' ' + loginData.username);
   }
@@ -54,7 +58,7 @@ export function executeInjection() {
     {provide: LoginService, useFactory: getLoginService,
                              deps: ['ENABLE_OAUTH']
     },
-    //{provide: LoginService, useClass: OAuthLoginService},
+    // {provide: LoginService, useClass: OAuthLoginService},
     {provide: 'currentLoginService', useExisting: LoginService},
 
     {provide: RANDOM_VALUE, useFactory: generateRandomValue}

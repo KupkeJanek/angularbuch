@@ -41,7 +41,6 @@ import { AwesomeUploaderComponent } from './awesome-uploader/awesome-uploader.co
 @NgModule({
   imports: [BrowserModule, FormsModule, PanelModule, TabsModule],
   bootstrap: [AppComponent],
-  entryComponents: [CircleComponent, DynamicDialogComponent, SquareComponent],
   declarations: [PanelDemoComponent,
     AppComponent,
     BLOG_COMPONENTS,

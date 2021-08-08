@@ -16,21 +16,18 @@ import {catchError} from 'rxjs/internal/operators';
 })
 export class TaskListComponent implements OnInit {
 
-  selectedTaskId: string | number = null;
+  selectedTaskId: string | number | null = null;
 
-  private tasks$: Observable<Task[]>;
+  private tasks$!: Observable<Task[]>;
 
-  private tasks: Task[];
+  private tasks: Task[] = [];
 
   private searchTerm = new FormControl();
 
-  private error: string;
-
-  private errorHandler = (error) => {
+  private errorHandler = (error: any) => {
     console.log('Es ist ein Fehler aufgetreten', error);
     return of([]);
-  };
-
+  }
 
   constructor(private taskService: TaskService,
               private router: Router,
@@ -77,7 +74,7 @@ export class TaskListComponent implements OnInit {
     this.taskService.loadTasksWithFullResponse().subscribe(response => {
       const totalCount = response.headers.get('X-Total-Count');
       console.log(`Anzahl aller Tasks: ${totalCount}`);
-      this.tasks = response.body;
+      this.tasks = response.body as Task[];
     });
 
 

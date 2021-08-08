@@ -10,8 +10,8 @@ import {Title} from '@angular/platform-browser';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-  title: string;
-  originalTitle: string;
+  title: string | undefined;
+  originalTitle = '';
 
   constructor(r: ActivatedRoute, private router: Router, private titleService: Title) {
   }

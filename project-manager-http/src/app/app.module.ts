@@ -9,6 +9,7 @@ import {appRouting, routingComponents, routingProviders} from './app.routing';
 import {ShowErrorComponent} from './show-error/show-error.component';
 import {APPLICATION_VALIDATORS} from './models/app-validators';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
+import {AUTH_ENABLED} from './app.tokens';
 
 @NgModule({
   imports: [
@@ -22,7 +23,9 @@ import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
   providers: [LoginService,
     Title,
     TaskService,
-    routingProviders
+    routingProviders,
+    {provide: AUTH_ENABLED, useValue: true}
+
   ],
   declarations: [AppComponent,
     routingComponents,

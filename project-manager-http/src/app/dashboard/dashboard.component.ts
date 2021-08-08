@@ -10,12 +10,12 @@ import {Title} from '@angular/platform-browser';
 })
 export class DashboardComponent {
 
-  title: string;
+  title: string | undefined;
 
   constructor(private titleService: Title) {
   }
 
-  originalTitle: string;
+  originalTitle!: string;
 
   ngOnInit() {
     this.originalTitle = this.titleService.getTitle();

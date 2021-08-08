@@ -20,13 +20,15 @@ class Contact {
 export class ContactEntryComponent implements OnChanges, AfterViewChecked {
   @Input() contact: Contact;
   @Output('onSelect') selectEmitter = new EventEmitter();
+
+  checkCount = 0;
+
   selectEntry() {
     this.selectEmitter.emit(this.contact);
   }
   ngOnChanges(changes: SimpleChanges) {
-    console.log('Contact changed', changes['contact'].currentValue);
+    console.log('Contact changed', changes.contact.currentValue);
   }
-  checkCount = 0;
   ngAfterViewChecked() {
     console.log(`Contact ${this.contact.name} checked ${this.checkCount++} times`);
   }
@@ -77,7 +79,7 @@ export class ChangeDetectionMainComponent {
     this.contactAddress = selected.address;
   }
 
-  editContact() {
+  updateSelectedContact() {
     if (this.selectedContact) {
       this.selectedContact.name = this.contactName;
       this.selectedContact.address = this.contactAddress;

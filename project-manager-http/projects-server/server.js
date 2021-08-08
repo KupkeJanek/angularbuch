@@ -1,10 +1,10 @@
-var jsonServer = require('json-server');
-var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
-var bodyParser = require('body-parser');
+const jsonServer = require('json-server');
+const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
+const bodyParser = require('body-parser');
 
 
 // Returns an Express server
-var server = jsonServer.create();
+const server = jsonServer.create();
 server.set('superSecret', "mpwctmwprtwptwcwetr"); // secret variable
 
 // Set default middlewares (logger, static, cors and no-cache)
@@ -12,18 +12,18 @@ server.use(jsonServer.defaults())
 server.use(bodyParser.urlencoded({extended: false}));
 server.use(bodyParser.json());
 
-var http = require('http').Server(server);
+const http = require('http').Server(server);
 
-var db = 'db.json';
-var secured = false;
+let db = 'db.json';
+let secured = false;
 
-var args = process.argv.slice(2);
+const args = process.argv.slice(2);
 args.forEach(function (val, index, array) {
   if (val) {
-    var splitted = val.split("=");
+    const splitted = val.split("=");
     if (splitted.length == 2){
-      var key = splitted[0];
-      var value = splitted[1];
+      const key = splitted[0];
+      const value = splitted[1];
       if (key == 'db') {
         db = value;
       }
@@ -34,17 +34,17 @@ args.forEach(function (val, index, array) {
   }
 });
 
-var router = jsonServer.router(db);
+const router = jsonServer.router(db);
 
 server.use('/api', router);
 
-var io = require('socket.io')(3001);
-var _socketMap = {};
+const io = require('socket.io')(3001);
+const _socketMap = {};
 io.on('connection', function (socket) {
   _socketMap[socket.id] = socket;
   socket.on('broadcast_task', function (data) {
-    for (var socketKey in _socketMap) {
-      var broadcastTo = _socketMap[socketKey];
+    for (const socketKey in _socketMap) {
+      const broadcastTo = _socketMap[socketKey];
       if (socket.id !== broadcastTo.id) {
         broadcastTo.emit('task_saved', data)
       }
@@ -62,13 +62,13 @@ server.listen(3000);
 if (secured) {
 
   server.post('/auth', function (req, res) {
-    var password = req.body.password;
-    var user = {
+    const password = req.body.password;
+    const user = {
       name: req.body.name,
       passowrd: req.body.password
     };
     if (password === "s3cret") {
-      var token = jwt.sign(user, server.get('superSecret'), {
+      const token = jwt.sign(user, server.get('superSecret'), {
         expiresInMinutes: 1440 // expires in 24 hours
       });
 
@@ -87,7 +87,7 @@ if (secured) {
     res.header('Access-Control-Expose-Headers', 'Content-Type, Location,Content-Length');
 
     // check header or url parameters or post parameters for token
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
+    const token = req.body.token || req.query.token || req.headers['x-access-token'];
 
     // decode token
     if (token) {

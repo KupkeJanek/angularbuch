@@ -1,12 +1,12 @@
-import {Inject, Optional} from '@angular/core'
+import {Inject, Optional} from '@angular/core';
 
 const CURRENT_USER = 'currentUser';
 
 export class LoginService {
 
   USERS = [
-    {name: 'admin', password: 'admin', rights: ['edit_tasks', 'change_settings'] },
-    {name: 'user', password: 'secret', rights: ['edit_tasks'] }
+    {name: 'admin', password: 'admin', rights: ['edit_tasks', 'change_settings']},
+    {name: 'user', password: 'secret', rights: ['edit_tasks']}
   ];
 
   constructor(@Optional() @Inject('AUTH_ENABLED') @Optional() private authEnabled = false) {

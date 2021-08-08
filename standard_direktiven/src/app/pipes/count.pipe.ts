@@ -5,12 +5,12 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class CountPipe implements PipeTransform {
   transform(value: any) {
-    if (!this.checkInput(value)) {
+    if (!this.isValidInput(value)) {
       return 0;
     }
     return value.length;
   }
-  private checkInput(obj: any): boolean {
+  private isValidInput(obj: any): boolean {
     return obj && (typeof obj === 'string' || Array.isArray(obj) );
   }
 }

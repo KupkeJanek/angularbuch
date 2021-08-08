@@ -11,7 +11,7 @@ import {NgForm, FormGroup} from '@angular/forms';
     </div>` })
 export class ShowErrorComponent {
 
-  @Input('path') controlPath: string;
+  @Input('path') controlPath = '';
   @Input('text') displayName = '';
 
   private form: FormGroup;

@@ -20,9 +20,9 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   task: Task = createInitialTask();
   saved = false;
 
-  @ViewChild(NgForm) form: NgForm;
+  @ViewChild(NgForm) form!: NgForm;
 
-  subscription: Subscription;
+  subscription!: Subscription;
 
   constructor(
               private route: ActivatedRoute,

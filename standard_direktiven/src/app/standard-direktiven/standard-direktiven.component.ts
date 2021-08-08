@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 class Message {
   cssClasses: string[] = [];
@@ -24,8 +24,9 @@ interface Player {
   templateUrl: 'standard-direktiven.component.html',
   styleUrls: ['standard-direktiven.component.css'],
 })
-export class StandardDirektivenComponent {
+export class StandardDirektivenComponent implements OnInit {
 
+  isAlert = false;
 
   // NgIf
   showDiv = true;
@@ -37,15 +38,16 @@ export class StandardDirektivenComponent {
   myVariable = 1;
 
   // NgClass
-  message = {};
+  message: any = {
+  };
 
   // NgStyle
   fontStyle = 'italic';
   fontSize = 12;
 
   // NgFor
-  friends = [];
-  cities = [];
+  friends: any[] = [];
+  cities: any[] = [];
   players = [
     {name: 'John', score: 20},
     {name: 'Mary', score: 80},
@@ -74,13 +76,11 @@ export class StandardDirektivenComponent {
   }
 
   refreshPlayers() {
-    const newPlayers = [];
-    for (const player of this.players) {
+    this.players = this.players.map(player => {
       const inc = Math.random() > 0.4;
       const newScore = inc ? player.score + 1 : player.score - 1;
-      newPlayers.push({name: player.name, score: newScore});
-    }
-    this.players = newPlayers;
+      return {name: player.name, score: newScore};
+    });
   }
   ngOnInit() {
     window.setInterval(() => {
@@ -100,7 +100,7 @@ export class StandardDirektivenComponent {
     return this.bordered;
   }
 
-  addFriend(friend) {
+  addFriend(friend: string) {
     this.friends.push(friend);
   }
 }

@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
 
   defaultTitle = 'title';
 
-  numberInProgress: number;
-  numberInProgress$: Observable<number>;
+  numberInProgress!: number;
+  numberInProgress$!: Observable<number>;
 
   constructor(@Optional() @Inject(AUTH_ENABLED) public authEnabled: boolean,
               public loginService: LoginService,

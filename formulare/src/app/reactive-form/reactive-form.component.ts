@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
-import {FormGroup, FormArray, FormControl, FormBuilder, Validators, NgControl, AbstractControl} from '@angular/forms';
-import {Task, createInitialTask, Tag} from '../models/model-interfaces';
+import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import * as model from '../models/model-interfaces';
-import {ifNotBacklogThanAssignee,  emailValidator, UserExistsValidatorDirective} from '../models/app-validators';
+import {createInitialTask, Tag, Task} from '../models/model-interfaces';
+import {emailValidator, ifNotBacklogThanAssignee, UserExistsValidatorDirective} from '../models/app-validators';
 import {TaskService} from '../services/task-service/task.service';
 import {UserService} from '../services/user.service';
 import {map} from 'rxjs/operators';
@@ -24,57 +24,62 @@ export class ReactiveFormComponent {
               private userService: UserService,
               fb: FormBuilder) {
     this.taskForm = fb.group({
-      title: ['', [Validators.required, Validators.minLength(5)]],
-      description: ['', Validators.maxLength(2000)],
+      title: ['', {
+        validators: [Validators.required, Validators.minLength(5)]
+      }],
+      description: ['', {
+        validators: Validators.maxLength(2000)
+      }],
       favorite: [false],
       state: ['BACKLOG'],
       tags: fb.array([
         this.createTagControl()
       ]),
       assignee: fb.group({
-        name: ['', null, this.userExistsValidatorReused],
-        email: ['', emailValidator],
+        name: ['', {
+          asyncValidators: this.userExistsValidatorReused,
+          updateOn: 'blur'
+        }],
+        email: ['', {validators: emailValidator}],
       })
-    }, {validator: ifNotBacklogThanAssignee});
+    }, {validator: ifNotBacklogThanAssignee, updateOn: 'blur'});
 
-      this.taskForm = new FormGroup(this.taskForm.controls, {
-        validators: this.taskForm.validator,
-        updateOn: 'blur'
-      }); // Workaround für das Setzen der updateOn-Option
-
-
-      this.taskForm.valueChanges.subscribe((value) => {
+    this.taskForm.valueChanges.subscribe((value) => {
       Object.assign(this.task, value);
     });
 
     this.tagsArray = <FormArray>this.taskForm.controls['tags'];
 
 
-this.taskForm2 = new FormGroup({
-  title: new FormControl('', {validators: Validators.required}),
-  description: new FormControl(''),
-  favorite: new FormControl(false),
-  state: new FormControl('BACKLOG'),
-  tags: new FormArray([
-    new FormGroup({
-      label: new FormControl('')
-    })
-  ]),
-  assignee: new FormGroup({
-    name: new FormControl('', {
-      asyncValidators: this.userExistsValidatorReused,
-      updateOn: 'blur'
-    }),
-    email: new FormControl('', {
-      validators: emailValidator
-    })
-  }),
-}, {validators: ifNotBacklogThanAssignee, /* updateOn: 'submit' */} );
+    this.taskForm2 = new FormGroup({
+      title: new FormControl('', {
+        validators: [Validators.required, Validators.minLength(5)]
+      }),
+      description: new FormControl('', {
+        validators: [Validators.maxLength(2000)]
+      }),
+      favorite: new FormControl(false),
+      state: new FormControl('BACKLOG'),
+      tags: new FormArray([
+        new FormGroup({
+          label: new FormControl('')
+        })
+      ]),
+      assignee: new FormGroup({
+        name: new FormControl('', {
+          asyncValidators: this.userExistsValidatorReused,
+          updateOn: 'blur'
+        }),
+        email: new FormControl('', {
+          validators: emailValidator
+        })
+      }),
+    }, {validators: ifNotBacklogThanAssignee, /* updateOn: 'submit' */});
   }
 
   private createTagControl(): FormGroup {
     return new FormGroup({
-      label: new FormControl('', Validators.minLength(3))
+      label: new FormControl('', {validators: Validators.minLength(3)})
     });
   }
 
@@ -96,20 +101,18 @@ this.taskForm2 = new FormGroup({
 
   loadTask(id: number) {
     const task = this.taskService.getTask(id);
-    if (task.tags) {
-      this.adjustTagsArray(task.tags);
-    }
+    this.adjustTagsArray(task.tags);
     this.taskForm.patchValue(task);
     this.task = task;
     return false;
   }
 
-  private adjustTagsArray(tags: Tag[]) {
+  private adjustTagsArray(tags: Tag[] | undefined) {
     const tagCount = tags ? tags.length : 0;
     while (tagCount > this.tagsArray.controls.length) {
       this.addTag();
     }
-    while (tagCount <  this.tagsArray.controls.length) {
+    while (tagCount < this.tagsArray.controls.length) {
       this.removeTag(0);
     }
   }
@@ -119,12 +122,12 @@ this.taskForm2 = new FormGroup({
       map(checkResult => {
         return (checkResult === false) ? {userNotFound: true} : null;
       }));
-  }
+  };
 
   userExistsValidatorReused = (control: AbstractControl) => {
     const validator = new UserExistsValidatorDirective(this.userService);
     return validator.validate(control);
-  }
+  };
 
 }
 

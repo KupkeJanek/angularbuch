@@ -1,5 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {UserService} from '../../services/user-service/user.service';
+import { User } from '../../services/user-service/user';
 
 
 @Component({
@@ -8,7 +9,7 @@ import {UserService} from '../../services/user-service/user.service';
   styleUrls: ['user-badge.component.css'],
 })
 export class UserBadgeComponent {
-  user: any;
+  user: User;
   constructor(userService: UserService) {
     this.user = userService.getLoggedInUser();
   }

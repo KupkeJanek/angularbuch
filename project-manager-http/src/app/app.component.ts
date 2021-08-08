@@ -11,9 +11,9 @@ import {filter} from 'rxjs/internal/operators';
 })
 export class AppComponent implements OnInit {
 
-  defaultTitle: string;
+  defaultTitle!: string;
 
-  constructor(@Optional() @Inject('AUTH_ENABLED') public authEnabled,
+  constructor(@Optional() @Inject('AUTH_ENABLED') public authEnabled: boolean,
               private loginService: LoginService,
               private activatedRoute: ActivatedRoute,
               private router: Router,

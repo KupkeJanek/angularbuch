@@ -20,6 +20,7 @@ export class FirstFormComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
+    console.log('AVIEW', this.ngForm.form)
     setTimeout(() => {
       console.log(this.ngForm.form);
     }, 500);

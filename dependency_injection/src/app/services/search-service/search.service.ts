@@ -1,4 +1,9 @@
+export interface Item {
+  [key: string]: string;
+
+}
+
 export abstract class SearchService {
-  abstract getAll(): any[];
-  abstract search(keyword: string): any[];
+  abstract getAll(): Item[];
+  abstract search(keyword: string): Item[];
 }

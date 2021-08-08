@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {SearchService} from '../search-service/search.service';
-import videos from './videos';
+import { Injectable } from '@angular/core';
+import { SearchService } from '../search-service/search.service';
+import { videos } from './videos';
 
 @Injectable()
 export class VideoSearchService implements SearchService {
@@ -15,7 +15,7 @@ export class VideoSearchService implements SearchService {
     return this.videos;
   }
 
-  search(keyword): any[] {
+  search(keyword: string): any[] {
     return this.videos.filter((video) => video.Title.includes(keyword));
   }
 

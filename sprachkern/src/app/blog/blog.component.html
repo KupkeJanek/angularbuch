@@ -3,7 +3,7 @@
   <ch-blog-list [entries]="entries"></ch-blog-list>
 
   <h2>Neuen Blog-Eintrag anlegen</h2>
-  <ch-blog-form (entryCreated)="entries.push($event)"></ch-blog-form>
+  <ch-blog-form (entryCreated)="saveEntry($event)"></ch-blog-form>
 </div>
 
 
@@ -26,7 +26,7 @@
 </ch-blog-list>
 
 <h2>Neuen Blog-Eintrag anlegen</h2>
-<ch-blog-form (entryCreated)="entries.push($event)" #form>
+<ch-blog-form (entryCreated)="saveEntry($event)" #form>
   <ng-template>
     <div class="custom-form">
       <form>

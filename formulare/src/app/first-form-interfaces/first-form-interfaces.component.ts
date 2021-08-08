@@ -16,7 +16,7 @@ export class FirstFormInterfacesComponent {
     };
   }
 
-  saveTask(value: any) {
+  saveTask(value: Task) {
     this.task = value;
     console.log(this.task);
   }

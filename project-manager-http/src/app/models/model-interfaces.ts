@@ -7,8 +7,8 @@ export interface User {
   email?: string;
 }
 
-export class Task {
-  id: number;
+export interface Task {
+  id?: number;
   title?: string;
   description?: string;
   tags?: Tag[];
@@ -21,7 +21,6 @@ export const states = ['BACKLOG', 'IN_PROGRESS', 'TEST', 'COMPLETED'];
 
 export function createInitialTask(): Task {
   return {
-    id: null,
     assignee: {},
     tags: [],
     state: states[0]

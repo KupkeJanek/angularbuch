@@ -1,13 +1,20 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
-  Observable, Observer, Subscriber, Subscription, Subject, BehaviorSubject, interval, fromEvent,
-  timer, merge, range, from, of
+  BehaviorSubject,
+  from,
+  fromEvent,
+  interval,
+  merge,
+  Observable,
+  Observer,
+  of,
+  range,
+  Subject,
+  Subscriber,
+  Subscription,
+  timer
 } from 'rxjs';
-import {
-  bufferCount, bufferTime, delay, filter, map, mergeMap, retry, retryWhen, take,
-  tap
-} from 'rxjs/operators';
-import { FormControl } from '@angular/forms';
+import { bufferCount, bufferTime, delay, filter, map, mergeMap, retry, retryWhen, take, tap } from 'rxjs/operators';
 
 @Component({
   templateUrl: 'rxdemo.component.html',
@@ -23,18 +30,29 @@ export class RxDemoComponent implements OnInit, OnDestroy {
   filteredIntervalOutput: any[] = [];
   bufferedIntervalOutput: any[] = [];
 
-  rangeObservable: Observable<number>;
+  rangeObservable!: Observable<number>;
 
   behaviorSubject = new BehaviorSubject('initial');
   behaviorSubjectOutput: string[] = [];
 
   bufferedCountOutput: any[] = [];
-  subscription: Subscription;
+  subscription!: Subscription;
   endlessCounter = 0;
 
   // Subjects:
   subject = new Subject();
   subjectOutput: string[] = [];
+
+  dateSubscription!: Subscription;
+  currentDate!: Date;
+  currentTime$!: Observable<Date>;
+  randomValuesSub!: Subscription;
+  randomValue = 0;
+
+
+  sub1!: Subscription;
+  sub2!: Subscription;
+
 
   constructor() {
 
@@ -209,17 +227,6 @@ export class RxDemoComponent implements OnInit, OnDestroy {
       clearInterval(int);
     };
   });
-
-
-  dateSubscription: Subscription;
-  currentDate: Date;
-  currentTime$: Observable<Date>;
-  randomValuesSub: Subscription;
-  randomValue: number;
-
-
-  sub1: Subscription;
-  sub2: Subscription;
 
   ngOnInit() {
     this.currentTime$ = timer(0, 1000).pipe(map(() => new Date()));

@@ -10,6 +10,7 @@
     "experimentalDecorators": true,
     "target": "es2015",
     "module": "es2020",
+    "strict": true,
     "typeRoots": [
       "node_modules/@types"
     ],

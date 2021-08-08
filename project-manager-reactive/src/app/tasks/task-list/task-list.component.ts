@@ -17,7 +17,7 @@ export class TaskListComponent implements OnInit {
 
   selectedTaskId: string | number | null = null;
 
-  tasks$: Observable<Task[]>;
+  tasks$!: Observable<Task[]>;
 
   searchTerm = new FormControl();
 

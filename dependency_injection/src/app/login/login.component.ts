@@ -1,6 +1,6 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {LoginService} from '../login.service';
-import {RANDOM_VALUE} from '../low-level-injection/app-tokens-ts';
+import { Component, Inject } from '@angular/core';
+import { LoginService } from '../login.service';
+import { RANDOM_VALUE } from '../low-level-injection/random-value-token';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +8,7 @@ import {RANDOM_VALUE} from '../low-level-injection/app-tokens-ts';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private loginService: LoginService, @Inject(RANDOM_VALUE) randomValue) {
+  constructor(private loginService: LoginService, @Inject(RANDOM_VALUE) randomValue: number) {
       console.log(`Der zufällige Wert lautet ${randomValue}`);
   }
   submit() {

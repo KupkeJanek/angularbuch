@@ -147,7 +147,7 @@ export class DynamicComponentsDemoComponent implements AfterViewInit {
     }
   }
 
-  changeGeoComponent() {
+  toggleGeoComponent() {
    this.geoComponent = this.geoComponent === CircleComponent ? SquareComponent
                                                              : CircleComponent;
   }

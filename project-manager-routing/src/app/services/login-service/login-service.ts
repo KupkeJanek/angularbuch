@@ -1,5 +1,5 @@
 import {Inject, Injectable, Optional} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {NEVER, Observable, of} from 'rxjs';
 import {AUTH_ENABLED} from '../../app.tokens';
 
 const CURRENT_USER = 'currentUser';
@@ -36,7 +36,7 @@ export class LoginService {
   constructor(@Optional() @Inject(AUTH_ENABLED) private authEnabled = false) {
   }
 
-  login(userName, password) {
+  login(userName: string, password: string) {
     const [user] = this.USERS.filter(user_ => user_.userName === userName);
     if (user && user.password === password) {
       localStorage.setItem(CURRENT_USER, JSON.stringify(user));
@@ -49,7 +49,7 @@ export class LoginService {
     if (userString) {
       return of(User.create(JSON.parse(userString)));
     }
-    return null;
+    return NEVER;
   }
 
   logout() {

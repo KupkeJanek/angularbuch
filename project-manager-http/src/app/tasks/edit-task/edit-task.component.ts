@@ -23,9 +23,9 @@ export class EditTaskComponent implements OnInit, OnDestroy {
 
   saved = false;
 
-  @ViewChild(NgForm) form: NgForm;
+  @ViewChild(NgForm) form!: NgForm;
 
-  subscription: Subscription;
+  subscription!: Subscription;
 
   constructor(private route: ActivatedRoute,
               private taskService: TaskService,
@@ -63,12 +63,12 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   }
 
   addTag() {
-    this.task.tags.push({label: ''});
+    this.task.tags?.push({label: ''});
     return false;
   }
 
   removeTag(i: number) {
-    this.task.tags.splice(i, 1);
+    this.task.tags?.splice(i, 1);
     return false;
   }
 

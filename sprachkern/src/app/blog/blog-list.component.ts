@@ -1,4 +1,4 @@
-import {Component, Input, TemplateRef, ContentChild} from '@angular/core';
+import {Component, Input, TemplateRef, ContentChild, AfterContentInit} from '@angular/core';
 
 @Component({
   selector: 'ch-blog-entry',
@@ -24,7 +24,7 @@ export class BlogEntryComponent {
   templateUrl: 'blog-list.component.html',
   styleUrls: ['blog-list.component.css'],
 })
-export class BlogListComponent {
+export class BlogListComponent implements AfterContentInit {
     @Input() entries: any[];
     @ContentChild('entryTemplate') entryTemplate: TemplateRef<any>;
     @ContentChild('additionalMarkup') additionalMarkup: TemplateRef<any>;
