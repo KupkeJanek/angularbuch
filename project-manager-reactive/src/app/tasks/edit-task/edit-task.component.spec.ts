@@ -44,8 +44,8 @@ describe('EditTask Component', () => {
 
   it('should load the correct task in Edit-Mode', fakeAsync(() => {
     const fixture = TestBed.createComponent(EditTaskComponent);
-    const route = TestBed.get(ActivatedRoute);
-    (<any>route.params).next({id: '42'});
+    const route = TestBed.inject(ActivatedRoute);
+    (<BehaviorSubject<any>>route.params).next({id: '42'});
 
     const element = fixture.nativeElement;
 
@@ -72,14 +72,14 @@ describe('EditTask Component', () => {
         spy.and.returnValue(new BehaviorSubject(fakeTask));
 
         const fixture = TestBed.createComponent(TestComponent);
-        const router = TestBed.get(Router);
+        const router = TestBed.inject(Router);
 
         router.navigateByUrl('edit/42');
 
         fixture.whenStable().then(() => {
             fixture.detectChanges();
-            expect(spy).toHaveBeenCalledWith('42');
             tick();
+            expect(spy).toHaveBeenCalledWith('42');
             const titleInput = fixture.nativeElement.querySelector('#title');
             expect(titleInput.value).toBe(fakeTask.title);
         });
@@ -88,7 +88,7 @@ describe('EditTask Component', () => {
 
   it('should work without passing URL-Parameter', fakeAsync(() => {
     const fixture = TestBed.createComponent(TestComponent);
-    const router = TestBed.get(Router);
+    const router = TestBed.inject(Router);
     router.navigateByUrl('new');
     const spy = spyOn(taskService, 'getTask');
     fixture.whenStable().then(() => {

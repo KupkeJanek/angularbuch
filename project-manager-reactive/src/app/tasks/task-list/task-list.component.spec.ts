@@ -2,7 +2,7 @@ import {TaskService} from '../../services/task-service/task.service';
 
 import {RouterTestingModule} from '@angular/router/testing';
 
-import {BehaviorSubject} from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 
 import {TestBed, inject, fakeAsync, tick} from '@angular/core/testing';
 import {TaskItemComponent} from './task-item.component';
@@ -36,7 +36,7 @@ describe('TaskList Component', () => {
     const element = fixture.nativeElement;
 
     const selectSpy = spyOn(taskService, 'selectTasks');
-    selectSpy.and.returnValue(new BehaviorSubject<Task[]>([
+    selectSpy.and.returnValue(of([
       {id: 1, title: 'Task1', description: 'Hello Karma'},
       {id: 2, title: 'Task2', description: 'Hello Jasmine'}
     ]));

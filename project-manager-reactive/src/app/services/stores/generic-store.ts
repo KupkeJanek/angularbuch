@@ -1,4 +1,4 @@
-import {BehaviorSubject} from "rxjs";
+import { BehaviorSubject } from 'rxjs';
 import { Action } from './action';
 
 export const LOAD = 'LOAD';
@@ -8,6 +8,7 @@ export const REMOVE = 'REMOVE';
 
 
 type Id = string | number;
+
 interface Identifiable {
   id?: Id;
 }

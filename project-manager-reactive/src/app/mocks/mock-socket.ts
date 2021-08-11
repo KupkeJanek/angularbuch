@@ -1,5 +1,7 @@
+import { Action } from '../services/stores/action';
+
 export class MockSocket {
-  emit(action: any, data: any) {
+  emit(action: string, data: any) {
   }
   addEventListener(l: any) {
 

@@ -22,9 +22,9 @@ describe('Task-Service', () => {
         {provide: SOCKET_IO, useValue: mockIO},
       ]
     });
-    taskService = TestBed.get(TaskService);
-    taskStore = TestBed.get(TaskStore);
-    httpTestingController = TestBed.get(HttpTestingController);
+    taskService = TestBed.inject(TaskService);
+    taskStore = TestBed.inject(TaskStore);
+    httpTestingController = TestBed.inject(HttpTestingController);
   });
 
   const saveTask = (task: Task, expectedUrl?: string, expectedMethod?: string) => {
@@ -41,7 +41,7 @@ describe('Task-Service', () => {
     const task = {title: 'Task 1'};
     taskService.saveTask(task).subscribe();
 
-    const request = httpTestingController.expectOne({
+    httpTestingController.expectOne({
       url: 'http://localhost:3000/api/tasks/',
       method: 'POST'
     });

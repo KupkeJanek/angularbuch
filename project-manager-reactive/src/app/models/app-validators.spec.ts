@@ -12,7 +12,7 @@ describe('EMail-Validator', () => {
     const result = validator.validate(control);
     expect(result).toBe(null);
   });
-  fit('should not accept invalid email addresses', () => {
+  it('should not accept invalid email addresses', () => {
     const control = <any> {value: 'foobar.com'};
     const result = validator.validate(control);
     expect(result?.invalidEMail).toBeTruthy();

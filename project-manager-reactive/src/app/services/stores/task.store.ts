@@ -1,12 +1,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import {Task} from '../../models/model-interfaces';
 import {Injectable} from '@angular/core';
-import { Action } from './action';
-
-export const LOAD = 'LOAD';
-export const ADD = 'ADD';
-export const EDIT = 'EDIT';
-export const REMOVE = 'REMOVE';
+import { Action, ADD, EDIT, LOAD, REMOVE } from './action';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +15,11 @@ export class TaskStore {
   }
 
   dispatch(action: Action) {
-    this.tasks = this._reduce(this.tasks, action);
+    this.tasks = this.reduce(this.tasks, action);
     this.items$.next(this.tasks);
   }
 
-  _reduce(tasks: Task[], action: Action) {
+  private reduce(tasks: Task[], action: Action) {
     switch (action.type) {
       case LOAD:
         return [...action.data];

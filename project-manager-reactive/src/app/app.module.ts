@@ -17,9 +17,9 @@ import {TaskItemComponent} from './tasks/task-list/task-item.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-export function socketIoFactory() {
+export function socketIoFactory(): SocketIOClientStatic {
   if (environment.e2eMode) {
-    return mockIO;
+    return mockIO as SocketIOClientStatic;
   }
   return io;
 }

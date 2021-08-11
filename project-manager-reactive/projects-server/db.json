@@ -3,7 +3,7 @@
   "tasks": [
     {
       "id": 3,
-      "title": "Ersten Prototyp mit Angular 2.0 entwickeln",
+      "title": "Ersten Prototyp mit Angular entwickeln",
       "description": "Der Prototyp soll zeigen, wie Routing und HTTP-Anbindung umgesetzt werden können.",
       "tags": [],
       "state": "IN_PROGRESS",

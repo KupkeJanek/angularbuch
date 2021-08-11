@@ -7,17 +7,17 @@ export class MockTaskService {
   }
 
   findTasks(query: string) {
-    return new BehaviorSubject<Task[]>([]);
+    return of([]);
   }
 
   saveTask(task: Task) {
   }
 
   deleteTask(task: Task) {
-    return new BehaviorSubject<Task>({});
+    return of({});
   }
 
   getTask(id: number | string) {
-    return new BehaviorSubject<Task>({});
+    return of({});
   }
 }

@@ -5,8 +5,8 @@ import { FormControl } from '@angular/forms';
 import { Task } from '../../models/model-interfaces';
 import { TaskService } from '../../services/task-service/task.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { merge, Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map, mergeMap, switchMap, tap } from 'rxjs/operators';
+import { merge, Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, mergeMap, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'task-list',
@@ -18,6 +18,8 @@ export class TaskListComponent implements OnInit {
   selectedTaskId: string | number | null = null;
 
   tasks$!: Observable<Task[]>;
+
+  destroyed$ = new Subject<void>();
 
   searchTerm = new FormControl();
 
@@ -34,7 +36,9 @@ export class TaskListComponent implements OnInit {
       mergeMap(query => this.taskService.findTasks(query)),
       tap(tasks => console.log('Tasks:', tasks)));
 */
-    this.tasks$ = this.taskService.selectTasks();
+    this.tasks$ = this.taskService.selectTasks().pipe(
+      takeUntil(this.destroyed$)
+    );
 
     const paramsStream = this.route.queryParams
       .pipe(
@@ -49,6 +53,10 @@ export class TaskListComponent implements OnInit {
       distinctUntilChanged(),
       switchMap(query => this.taskService.findTasks(query)))
     .subscribe();
+  }
+
+  ngOnDestroy() {
+    this.destroyed$.next();
   }
 
 
