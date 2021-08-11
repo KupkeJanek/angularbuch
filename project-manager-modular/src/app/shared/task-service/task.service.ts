@@ -5,6 +5,7 @@ import {SOCKET_IO} from '../../app.tokens';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {tap} from 'rxjs/internal/operators';
 import {Task} from '../models/model-interfaces';
+import {SharedModule} from '../shared-module';
 
 const BASE_URL = `http://localhost:3000/api/tasks/`;
 
@@ -24,7 +25,7 @@ export class TaskService {
 
   constructor(private http: HttpClient, private taskStore: TaskStore,
               @Inject(SOCKET_IO) socketIO) {
-
+    console.log('craeta')
     this.tasks$ = taskStore.items$;
     this.socket = socketIO(WEB_SOCKET_URL);
     fromEvent(this.socket, 'task_saved')

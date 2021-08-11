@@ -8,7 +8,8 @@ import {debounceTime, switchMap, tap} from 'rxjs/operators';
 import {distinctUntilChanged, map} from 'rxjs/internal/operators';
 import {TaskService} from '../../shared/task-service/task.service';
 import {Task} from '../../shared/models/model-interfaces';
-import {AbstractCacheService} from '../../shared/cache/abstract-cache.service';
+import {SuperSecretCalculationService} from '../../super-secret-calculation.service';
+import {AbstractCacheService} from '../../cache/abstract-cache.service';
 
 @Component({
   selector: 'pjm-task-list',
@@ -27,6 +28,7 @@ export class TaskListComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private cacheService: AbstractCacheService,
+              private secretService: SuperSecretCalculationService,
               private location: Location) {
   }
 

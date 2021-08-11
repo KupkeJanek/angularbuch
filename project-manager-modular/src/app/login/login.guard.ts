@@ -25,7 +25,7 @@ export class LoginGuard implements CanActivate, CanLoad {
   }
 
   canLoad(route: Route): Observable<boolean> | boolean {
-    const redirect = encodeURI(route.path);
+    const redirect = encodeURI(route.path || '');
     return this.checkLogin(redirect);
   }
 }

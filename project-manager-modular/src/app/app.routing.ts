@@ -3,13 +3,13 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {SettingsComponent} from './settings/settings.component';
 import {AboutComponent} from './about/about.component';
-import {LoginComponent} from './login/index';
+import {LoginComponent, LoginGuard} from './login/index';
 import {NotFoundComponent} from './not-found/not-found.component';
 // import {TasksModule} from './tasks/tasks.module';
 
-// function loadTasksModule() {
-//  return TasksModule;
-// }
+//function loadTasksModule() {
+// return TasksModule;
+//}
 
 export const appRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent, data: {title: 'Startseite'}},
@@ -21,8 +21,12 @@ export const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
 
 
-  {path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then((m) => m.TasksModule)},
-//  {path: 'tasks', loadChildren: loadTasksModule, canLoad: [LoginGuard]},
+  {
+    path: 'tasks',
+    loadChildren: () => import('./tasks/tasks.module').then((m) => m.TasksModule),
+    canLoad: [LoginGuard]
+  },
+  // {path: 'tasks', loadChildren: loadTasksModule, canLoad: [LoginGuard]},
 
   /** Redirect Konfigurationen **/
   {path: 'tasks/*', redirectTo: '/tasks'},
@@ -32,6 +36,7 @@ export const appRoutes: Routes = [
 ];
 
 export const appRouting = RouterModule.forRoot(appRoutes, {
+
   preloadingStrategy: PreloadAllModules
 });
 

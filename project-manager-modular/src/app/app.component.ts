@@ -1,12 +1,12 @@
 import {Component, Inject, OnInit, Optional} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router,} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {LoginService} from './services/login-service/login-service';
 import {Title} from '@angular/platform-browser';
 import {AUTH_ENABLED} from './app.tokens';
 import {filter} from 'rxjs/internal/operators';
 import {TaskService} from './shared/task-service/task.service';
 import {Task} from './shared/models/model-interfaces';
-import {AbstractCacheService} from './shared/cache/abstract-cache.service';
+import {AbstractCacheService} from './cache/abstract-cache.service';
 
 @Component({
   selector: 'ch-root',
@@ -15,11 +15,11 @@ import {AbstractCacheService} from './shared/cache/abstract-cache.service';
 })
 export class AppComponent implements OnInit {
 
-  defaultTitle: string;
+  defaultTitle = '';
 
-  numberInProgress: number;
+  numberInProgress = 0;
 
-  constructor(@Optional() @Inject(AUTH_ENABLED) public authEnabled,
+  constructor(@Optional() @Inject(AUTH_ENABLED) public authEnabled: boolean,
               private loginService: LoginService,
               private activatedRoute: ActivatedRoute,
               private router: Router,

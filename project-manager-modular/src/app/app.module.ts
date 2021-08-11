@@ -8,6 +8,7 @@ import { AUTH_ENABLED, SOCKET_IO } from "./app.tokens";
 import { mockIO } from "./mocks/mock-socket";
 import { LoginService } from "./services/login-service/login-service";
 import { SharedModule } from "./shared/shared-module";
+import {CacheModule} from './cache/cache.module';
 
 
 export function socketIoFactory() {
@@ -20,7 +21,7 @@ export function socketIoFactory() {
 const enableAuthentication = !environment.e2eMode;
 
 @NgModule({
-  imports: [BrowserModule, SharedModule.forRoot(), appRouting],
+  imports: [BrowserModule, SharedModule, CacheModule.forRoot('session-storage'), appRouting],
   providers: [
     LoginService,
     Title,

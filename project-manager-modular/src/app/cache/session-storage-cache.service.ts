@@ -1,6 +1,6 @@
 import {AbstractCacheService} from './abstract-cache.service';
 
-export class InMemoryCacheService implements AbstractCacheService {
+export class SessionStorageCacheService implements AbstractCacheService {
   private data: { [s: string]: any; } = {};
 
   put(key: string, value: any) {
