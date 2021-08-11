@@ -1,4 +1,5 @@
 import {
+  AbstractControl,
   FormControl, FormsModule, ReactiveFormsModule
 } from '@angular/forms';
 import {TestBed, ComponentFixture} from '@angular/core/testing';
@@ -14,20 +15,20 @@ beforeEach(() => {
   });
 });
 
-describe('Model Driven Form', () => {
+describe('Reactive Form', () => {
   it('should validate the title directly', () => {
 
     const fixture = TestBed.createComponent(ReactiveFormComponent);
     const form = fixture.componentInstance.taskForm;
 
-    const titleControl = form.get('title');
-    expect(titleControl.errors['required']).toBeTruthy(); // Cannot read property 'errors' of undefined
+    const titleControl: AbstractControl = form.get('title') as AbstractControl;
+    expect(titleControl.errors?.required).toBeTruthy(); // Cannot read property 'errors' of undefined
 
     titleControl.setValue('Task');
-    expect(titleControl.errors['required']).toBeUndefined();
+    expect(titleControl.errors?.required).toBeUndefined();
     const minError = {requiredLength: 5, actualLength: 4};
 
-    expect(titleControl.errors['minlength']).toEqual(minError);
+    expect(titleControl.errors?.minlength).toEqual(minError);
     titleControl.setValue('Task 1');
     expect(titleControl.errors).toBeNull();
   });

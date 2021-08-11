@@ -10,14 +10,13 @@ beforeEach(() => {
 describe('TimePicker Component', () => {
 
   it('should change hour-values when clicking buttons', () => {
-
     const fixture = TestBed.createComponent(TimePickerComponent);
     const timePicker: TimePickerComponent = fixture.componentInstance;
     const element = fixture.nativeElement;
-    const shadowRoot = fixture.nativeElement.shadowRoot;
+    const shadowRoot = element.shadowRoot;
 
-    (<any>timePicker).timeString = '12:20:23';
-    timePicker.ngOnChanges(null);
+    timePicker.timeString = '12:20:23';
+    timePicker.ngOnChanges({});
     fixture.detectChanges();
     let input = shadowRoot.querySelector('#hours > input');
     expect(input.value).toBe('12');
@@ -33,7 +32,7 @@ describe('TimePicker Component', () => {
 
     const timePicker: TimePickerComponent = fixture.componentInstance;
     (<any>timePicker).timeString = '12:20:23';
-    timePicker.ngOnChanges(null);
+    timePicker.ngOnChanges({});
     fixture.detectChanges();
     const [incButton, decButton] = fixture.nativeElement.shadowRoot
       .querySelectorAll('#hours > button');

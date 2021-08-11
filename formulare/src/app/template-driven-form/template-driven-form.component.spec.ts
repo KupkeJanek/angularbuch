@@ -1,5 +1,5 @@
 
-import {FormsModule} from '@angular/forms';
+import {AbstractControl, FormsModule} from '@angular/forms';
 import {TestBed, fakeAsync, tick, async, discardPeriodicTasks, waitForAsync} from '@angular/core/testing';
 import {TemplateDrivenFormComponent} from './template-driven-form.component';
 import {TaskService} from '../services/task-service/task.service';
@@ -29,13 +29,13 @@ describe('Template driven form', () => {
 
       const form = fixture.componentInstance.ngForm.form;
 
-      const titleControl = form.get('title');
-      expect(titleControl.errors['required']).toBeTruthy();
+      const titleControl = form.get('title') as AbstractControl;
+      expect(titleControl.errors?.required).toBeTruthy();
 
       titleControl.setValue('Task');
-      expect(titleControl.errors['required']).toBeUndefined();
+      expect(titleControl.errors?.required).toBeUndefined();
       const minError = {requiredLength: 5, actualLength: 4};
-      expect(titleControl.errors['minlength']).toEqual(minError);
+      expect(titleControl.errors?.minlength).toEqual(minError);
 
       titleControl.setValue('Task 1');
       expect(titleControl.errors).toBeNull();
@@ -68,7 +68,7 @@ describe('Template driven form', () => {
     });
   }));
 
-  xit('should show no error for valid email adresses', waitForAsync(() => {
+  it('should show no error for valid email adresses', waitForAsync(() => {
     const fixture = TestBed.createComponent(TemplateDrivenFormComponent);
     fixture.autoDetectChanges(true);
     fixture.whenStable().then(() => {
