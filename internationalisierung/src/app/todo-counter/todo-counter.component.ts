@@ -23,6 +23,11 @@ export class TodoCountLocalization extends NgLocalization {
 export class TodoCounterComponent {
   @Input() count: number;
 
+  ngOnInit() {
+    const m = $localize `Hallo Welt!`;
+    console.log(m)
+  }
+
   todoTextsMapping = {
     "=0" : "Alle Aufgaben erledigt",
     "=1" : "Eine Aufgabe",
