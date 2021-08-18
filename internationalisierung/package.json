@@ -15,8 +15,8 @@
     "copy-index": "copyfiles -f src/static/index.html dist/internationalisierung",
     "build-all": "ng build --localize &&  npm run copy-index",
     "build-all2": "npm run build-de && npm run build-fr && npm run copy-index",
-
-    "start-dist": "live-server dist/internationalisierung"
+    "start-dist": "live-server dist/internationalisierung",
+    "translate": "ng extract-i18n"
   },
   "private": true,
   "dependencies": {

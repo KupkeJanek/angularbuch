@@ -6,6 +6,18 @@
         <source>Hallo Welt!</source>
         <target>Bonjour monde!</target>
       </trans-unit>
+
+      <trans-unit id="c7b922066dbcbb975e2b0b0e2f01705e682adeda" datatype="html">
+        <source>Hallo Welt!</source>
+        <target>Bonjour monde!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/translation-techniques/translation-techniques.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+
+
+
       <trans-unit id="4210189910609779169" datatype="html">
         <source>Hallo <x id="INTERPOLATION"/></source>
         <target>Bonjour <x id="INTERPOLATION"/></target>
