@@ -32,6 +32,7 @@ export class AppComponent {
   }
 
   animationDone(event: AnimationEvent) {
+    console.log(event)
     this.routerAnimationEventsService.dispatchEvent(event);
   }
 }
