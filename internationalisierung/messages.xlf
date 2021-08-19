@@ -2,13 +2,6 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="de" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="3776425930e551d61c574dc19171e93c2d7b51c3" datatype="html">
-        <source><x id="START_TAG_CH_GENDER" ctype="x-ch_gender" equiv-text="&lt;ch-gender&gt;"/><x id="CLOSE_TAG_CH_GENDER" ctype="x-ch_gender" equiv-text="&lt;/ch-gender&gt;"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">14,12</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="41224bc572165d5fd290541bc8dd0d7e7223596e" datatype="html">
         <source>Übersetzungstechniken</source>
         <context-group purpose="location">
@@ -18,8 +11,15 @@
         <note priority="1" from="description">the title of the first tab</note>
         <note priority="1" from="meaning">navigation header</note>
       </trans-unit>
-      <trans-unit id="e309ec16b6c93f3c304b0adf5e1c8c2d143d37ae" datatype="html">
-        <source><x id="START_TAG_CH_PLURALIZATION" ctype="x-ch_pluralization" equiv-text="&lt;ch-pluralization&gt;"/><x id="CLOSE_TAG_CH_PLURALIZATION" ctype="x-ch_pluralization" equiv-text="&lt;/ch-pluralization&gt;"/></source>
+      <trans-unit id="5a5d7f54193a06511cb38efb0786224ba770cd91" datatype="html">
+        <source>Pluralisierung</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e2857fb0fe90e705059224649dadebc1f4eaa2b4" datatype="html">
+        <source>Geschlechter spezifische Texte</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.ts</context>
           <context context-type="linenumber">16</context>
@@ -95,53 +95,72 @@
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="2448946013517819470" datatype="html">
+        <source>Alle Aufgaben erledigt</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pluralization/pluralization.component.ts</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo-counter/todo-counter.component.ts</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8910866857603643246" datatype="html">
+        <source>Eine Aufgabe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pluralization/pluralization.component.ts</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo-counter/todo-counter.component.ts</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7591201742508562380" datatype="html">
+        <source># Aufgaben</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pluralization/pluralization.component.ts</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/todo-counter/todo-counter.component.ts</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="ea78fc48c238720be4b92debe1524a68ba21c079" datatype="html">
         <source>Aufgabe hinzufügen...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pluralization/pluralization.component.ts</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="edbee34d1b44a0462cdfc9cf772c4debdbe7d675" datatype="html">
-        <source>Mehr als 10 Aufgaben</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/todo-counter/todo-counter.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1bd5b1f24256c1006d7c610e5d5937ffcf78347e" datatype="html">
-        <source>Alle Aufgaben erledigt</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/todo-counter/todo-counter.component.ts</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="674c265f389f9e07861444ab0a2262b41e78b488" datatype="html">
-        <source>Eine Aufgabe</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/todo-counter/todo-counter.component.ts</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="df059d9ba26e92e3bc5f030c6b89bb79cc9d4562" datatype="html">
+      <trans-unit id="570297687449152109" datatype="html">
         <source>Einige Aufgaben</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/todo-counter/todo-counter.component.ts</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">38,39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="fa11ac12876f454786bf88d183d7a959670381fc" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{count}}"/> Aufgaben</source>
+      <trans-unit id="4201209168093674298" datatype="html">
+        <source>Mehr als 10 Aufgaben</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/todo-counter/todo-counter.component.ts</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">39,40</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8c14d9880bd9cc9b42fea4198130033b96591448" datatype="html">
-        <source>GREETING<x id="INTERPOLATION" equiv-text="{{user}}"/></source>
+      <trans-unit id="strong-greeting" datatype="html">
+        <source>Hallo <x id="INTERPOLATION" equiv-text="{{user}}"/> 111!!11!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/translation-techniques/translation-techniques.component.html</context>
-          <context context-type="linenumber">12,5</context>
+          <context context-type="linenumber">15,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c96a6328fce50d923bb43a9bf99ed8bd17fa5f7b" datatype="html">
+        <source>Hallo<x id="INTERPOLATION" equiv-text="{{user}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/translation-techniques/translation-techniques.component.html</context>
+          <context context-type="linenumber">15,8</context>
         </context-group>
         <note priority="1" from="description">The greeting the user sees on the main page</note>
         <note priority="1" from="meaning">User greeting</note>
@@ -150,22 +169,36 @@
         <source><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Ich bin ein Text der über<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>mehrere Paragraphen verteilt ist<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/translation-techniques/translation-techniques.component.html</context>
-          <context context-type="linenumber">12,8</context>
+          <context context-type="linenumber">15,11</context>
         </context-group>
         <note priority="1" from="description">example for parallel nodes</note>
+      </trans-unit>
+      <trans-unit id="3534703141501726971" datatype="html">
+        <source>Wie geht es dir heute</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/translation-techniques/translation-techniques.component.ts</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="480498122346607126" datatype="html">
+        <source>Wie geht es dir heute <x id="PH" equiv-text="this.user"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/translation-techniques/translation-techniques.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="c7b922066dbcbb975e2b0b0e2f01705e682adeda" datatype="html">
         <source>Hallo Welt!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/translation-techniques/translation-techniques.component.ts</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="54964f8d75edf0d588a266357b3afbdd9711df16" datatype="html">
         <source>Hallo <x id="INTERPOLATION" equiv-text="{{user}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/translation-techniques/translation-techniques.component.ts</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
     </body>

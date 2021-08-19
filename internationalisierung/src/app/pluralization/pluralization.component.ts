@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './pluralization.component.html',
   styleUrls: ['./pluralization.component.css']
 })
-export class PluralizationComponent implements OnInit {
+export class PluralizationComponent {
 
   todos: string[] = [
     "Aufräumen",
@@ -16,18 +16,13 @@ export class PluralizationComponent implements OnInit {
   ];
 
   todoTextsMapping = {
-    "=0" : "Alle Aufgaben erledigt",
-    "=1" : "Eine Aufgabe",
-    "other" : "# Aufgaben"
+    "=0" : $localize `Alle Aufgaben erledigt`,
+    "=1" : $localize `Eine Aufgabe`,
+    "other" : $localize `# Aufgaben`
   };
 
   completeTodo(todo: string) {
     this.todos = this.todos.filter(todo_ =>  todo_ !== todo);
-  }
-
-  constructor() { }
-
-  ngOnInit() {
   }
 
 }

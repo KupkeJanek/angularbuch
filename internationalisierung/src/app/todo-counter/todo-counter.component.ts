@@ -21,15 +21,25 @@ export class TodoCountLocalization extends NgLocalization {
   providers: [{provide: NgLocalization, useClass: TodoCountLocalization}]
 })
 export class TodoCounterComponent {
-  @Input() count: number;
+  @Input() count!: number;
 
-  todoTextsMapping = {
+  todoTextsMapping2 = {
     "=0" : "Alle Aufgaben erledigt",
     "=1" : "Eine Aufgabe",
     "other" : "# Aufgaben",
     "few" : "Einige Aufgaben",
     "many" : "Mehr als 10 Aufgaben",
   };
+
+
+  todoTextsMapping = {
+    "=0" :  $localize `Alle Aufgaben erledigt`,
+    "=1" : $localize `Eine Aufgabe`,
+    "few" : $localize `Einige Aufgaben`,
+    "many" : $localize `Mehr als 10 Aufgaben`,
+    "other" : $localize `# Aufgaben`,
+  };
+
 
 }
 

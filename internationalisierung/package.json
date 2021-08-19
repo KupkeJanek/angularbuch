@@ -16,7 +16,7 @@
     "build-all": "ng build --localize &&  npm run copy-index",
     "build-all2": "npm run build-de && npm run build-fr && npm run copy-index",
     "start-dist": "live-server dist/internationalisierung",
-    "translate": "ng extract-i18n"
+    "translate": "ng extract-i18n --ouput-path=src/assets/locales"
   },
   "private": true,
   "dependencies": {

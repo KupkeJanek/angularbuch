@@ -32,7 +32,7 @@
     <div *ngIf="registered">
       <p class="bg-success">
         {{user.gender | i18nSelect: registrationMessages}} {{user.lastName}}.
-        Vielen Dank für Ihre Registrierung!
+        <span i18n>Vielen Dank für Ihre Registrierung!</span>
       </p>
 
       <p class="bg-success">

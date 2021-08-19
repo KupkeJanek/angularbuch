@@ -16,8 +16,8 @@ export class GenderComponent{
   };
 
   registrationMessages = {
-    "male": "Sehr geehrter Herr",
-    "female": "Sehr geehrte Frau",
+    "male": $localize `Sehr geehrter Herr`,
+    "female": $localize `Sehr geehrte Frau`,
   };
 
   constructor() { }

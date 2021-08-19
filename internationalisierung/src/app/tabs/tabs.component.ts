@@ -8,7 +8,7 @@ import {Component, ContentChildren, Input, QueryList, AfterContentInit} from '@a
 })
 export class TabComponent {
   active: boolean;
-  @Input() title;
+  @Input() title = '';
   constructor() {
     this.active = false;
   }
@@ -20,13 +20,13 @@ export class TabComponent {
   templateUrl: 'tabs.component.html'})
 export class TabsComponent implements AfterContentInit {
 
-  @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
+  @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
 
   ngAfterContentInit() {
     this.tabs.first.active = true;
   }
 
-  activate(tab_) {
+  activate(tab_: TabComponent) {
     for (let tab of this.tabs.toArray()) {
       tab.active = false;
     }
