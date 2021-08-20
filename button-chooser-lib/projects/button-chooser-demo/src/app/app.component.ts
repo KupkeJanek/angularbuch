@@ -9,8 +9,8 @@ export class AppComponent {
 
   choices = ['Mono-Repo', 'NPM Library'];
 
-  answer: string;
-  answerFromWebComponent: string;
+  answer?: string;
+  answerFromWebComponent?: string;
 
   constructor() { }
 

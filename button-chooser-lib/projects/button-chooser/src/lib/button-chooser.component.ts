@@ -14,7 +14,6 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   selector: 'ch-button-chooser',
   templateUrl: './button-chooser.component.html',
   styleUrls: ['./button-chooser.component.css'],
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -27,15 +26,15 @@ export class ButtonChooserComponent implements ControlValueAccessor  {
 
   constructor(private cd: ChangeDetectorRef) {}
 
-  @Input() choices: string[];
+  @Input() choices: string[] = [];
 
-  @Input() value: any;
+  @Input() value: string = '';
   @Output() valueChanged = new EventEmitter<any>();
 
   private propagateChange = Function.prototype;
   private propagateTouched = Function.prototype;
 
-  public writeValue(value: any) {
+  public writeValue(value: string) {
       this.value = value;
   }
 

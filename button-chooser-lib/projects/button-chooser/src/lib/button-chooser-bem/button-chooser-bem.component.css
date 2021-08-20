@@ -10,17 +10,21 @@
 }
 
 
-button  {
-    background: var(--button-chooser-primary-color,#0fc50f);
+.button-chooser {
+    width: 100%;
+    display: flex;
+}
+
+.button-chooser__button {
+    background: #0fc50f;
     color: white;
     width: 95%;
     margin: 10px 10px 0px 0px ;
 }
 
-.active {
-    background: var(--button-chooser-active-color,#0b960b);
+.button-chooser__button--active {
+    background: #0b960b
 }
-
 
 .btn {
     display: inline-block;

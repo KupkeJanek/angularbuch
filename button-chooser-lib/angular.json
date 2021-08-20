@@ -4,22 +4,25 @@
   "newProjectRoot": "projects",
   "projects": {
     "button-chooser": {
+      "projectType": "library",
       "root": "projects/button-chooser",
       "sourceRoot": "projects/button-chooser/src",
-      "projectType": "library",
-      "prefix": "ch",
+      "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/button-chooser/tsconfig.lib.json",
             "project": "projects/button-chooser/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/button-chooser/ng-package.prod.json"
+              "tsConfig": "projects/button-chooser/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/button-chooser/tsconfig.lib.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -27,18 +30,6 @@
             "main": "projects/button-chooser/src/test.ts",
             "tsConfig": "projects/button-chooser/tsconfig.spec.json",
             "karmaConfig": "projects/button-chooser/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/button-chooser/tsconfig.lib.json",
-              "projects/button-chooser/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }

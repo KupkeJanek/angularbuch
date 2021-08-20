@@ -6,9 +6,9 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 })
 export class ButtonChooserBridgeComponent implements OnChanges {
 
-    @Input() choices;
+    @Input() choices: string[] = [];
     @Input() choicesString = '';
-    @Input() value: string = null;
+    @Input() value: string  = '';
 
     @Output() valueChanged = new EventEmitter();
 

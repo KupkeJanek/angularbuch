@@ -2,6 +2,12 @@ div {
   padding-top: 8px;
 }
 
+.yellow-form {
+  --button-chooser-primary-color: rgb(156, 1, 156);
+  --button-chooser-active-color: rgb(104, 4, 104) ;
+}
+
+
 ::ng-deep .blue-form .button-chooser__button {
   background: blue;
 }

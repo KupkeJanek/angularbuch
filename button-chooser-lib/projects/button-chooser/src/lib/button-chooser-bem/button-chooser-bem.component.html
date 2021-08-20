@@ -1,0 +1,10 @@
+<div class="button-chooser">
+    <span *ngFor="let choice of choices" class="button-chooser__column">
+      <button class="btn button-chooser__button"
+              [ngClass]="{'button-chooser__button--active': value===choice, 'active': value===choice}"
+              (click)="changeValue(choice)">
+        {{choice}}
+      </button>
+    </span>
+  </div>
+  
