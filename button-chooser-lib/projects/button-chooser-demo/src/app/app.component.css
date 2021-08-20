@@ -2,7 +2,7 @@ div {
   padding-top: 8px;
 }
 
-.yellow-form {
+.purple-form {
   --button-chooser-primary-color: rgb(156, 1, 156);
   --button-chooser-active-color: rgb(104, 4, 104) ;
 }
