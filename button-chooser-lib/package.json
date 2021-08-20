@@ -9,7 +9,11 @@
     "build:webcomponent": "ng build button-chooser-webcomponent --configuration production --single-bundle",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall:bak": "ngcc",
+    "postinstall": "ngcc",
+    "build:button-chooser-demo:externals": "ng build --extra-webpack-config projects/button-chooser-demo///webpack.externals.js --prod --project button-chooser-demo --single-bundle",
+    "build:button-chooser-webcomponent:externals": "ng build --extra-webpack-config projects/button-chooser-webcomponent///webpack.externals.js --prod --project button-chooser-webcomponent --single-bundle"
   },
   "private": true,
   "dependencies": {
@@ -24,7 +28,7 @@
     "@angular/router": "~12.2.2",
     "@webcomponents/custom-elements": "^1.5.0",
     "core-js": "^3.6.5",
-    "document-register-element": "^1.7.2",
+    "document-register-element": "1.8.1",
     "rxjs": "^6.6.3",
     "socket.io-client": "^2.3.0",
     "tsickle": "^0.39.1",
