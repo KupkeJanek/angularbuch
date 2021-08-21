@@ -12,8 +12,7 @@
     "e2e": "ng e2e",
     "postinstall:bak": "ngcc",
     "postinstall": "ngcc",
-    "build:button-chooser-demo:externals": "ng build --extra-webpack-config projects/button-chooser-demo///webpack.externals.js --prod --project button-chooser-demo --single-bundle",
-    "build:button-chooser-webcomponent:externals": "ng build --extra-webpack-config projects/button-chooser-webcomponent///webpack.externals.js --prod --project button-chooser-webcomponent --single-bundle"
+    "build:button-chooser-webcomponent:externals": "ng build --extra-webpack-config projects/button-chooser-webcomponent///webpack.externals.js --project button-chooser-webcomponent --single-bundle"
   },
   "private": true,
   "dependencies": {
