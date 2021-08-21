@@ -1,4 +1,5 @@
-import {Inject, Injectable} from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+
 import {BehaviorSubject, fromEvent, Observable} from 'rxjs';
 import {ADD, EDIT, LOAD, REMOVE, TaskStore} from '../stores/index';
 import {SOCKET_IO} from '../../app.tokens';
@@ -6,6 +7,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {tap} from 'rxjs/internal/operators';
 import {Task} from '../models/model-interfaces';
 import {SharedModule} from '../shared-module';
+import { isPlatformBrowser } from '@angular/common';
 
 const BASE_URL = `http://localhost:3000/api/tasks/`;
 
@@ -16,7 +18,7 @@ const WEB_SOCKET_URL = 'http://localhost:3001';
 })
 export class TaskService {
 
-  socket: SocketIOClient.Socket;
+  socket?: SocketIOClient.Socket;
 
   tasks$: Observable<Task[]>;
 
@@ -24,14 +26,16 @@ export class TaskService {
 
 
   constructor(private http: HttpClient, private taskStore: TaskStore,
-              @Inject(SOCKET_IO) socketIO) {
-    console.log('craeta')
+              @Inject(SOCKET_IO) socketIO: any, @Inject(PLATFORM_ID) private platformId: Object ) {
+    console.log('create')
     this.tasks$ = taskStore.items$;
-    this.socket = socketIO(WEB_SOCKET_URL);
-    fromEvent(this.socket, 'task_saved')
-      .subscribe((action) => {
-        this.taskStore.dispatch(action);
-      });
+    if (isPlatformBrowser(platformId))  {
+      this.socket = socketIO(WEB_SOCKET_URL);
+      fromEvent(this.socket!, 'task_saved')
+        .subscribe((action) => {
+          this.taskStore.dispatch(action);
+        });
+    }
   }
 
   findTasks(query = '', sort = 'id', order = 'ASC') {
@@ -55,7 +59,7 @@ export class TaskService {
 
   saveTask(task: Task) {
     const method = task.id ? 'PUT' : 'POST';
-    return this.http.request(method, BASE_URL + (task.id || ''), {
+    return this.http.request<Task>(method, BASE_URL + (task.id || ''), {
       body: task
     }).pipe(
       tap(savedTask => {
@@ -63,7 +67,7 @@ export class TaskService {
         const actionType = task.id ? EDIT : ADD;
         const action = {type: actionType, data: savedTask};
         this.taskStore.dispatch(action);
-        this.socket.emit('broadcast_task', action);
+        this.socket?.emit('broadcast_task', action);
       }));
   }
 

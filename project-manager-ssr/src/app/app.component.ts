@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   numberInProgress = 0;
 
   constructor(@Optional() @Inject(AUTH_ENABLED) public authEnabled: boolean,
-              private loginService: LoginService,
+              public loginService: LoginService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
               private taskService: TaskService,

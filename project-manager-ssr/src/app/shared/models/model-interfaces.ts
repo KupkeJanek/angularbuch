@@ -14,7 +14,7 @@ export interface Task {
   tags?: Tag[];
   favorite?: boolean;
   state?: string;
-  assignee?: User;
+  assignee: User;
 }
 
 export const states = ['BACKLOG', 'IN_PROGRESS', 'TEST', 'COMPLETED'];

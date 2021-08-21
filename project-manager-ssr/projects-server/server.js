@@ -1,6 +1,7 @@
 var jsonServer = require('json-server');
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var bodyParser = require('body-parser');
+var path = require('path');
 
 
 // Returns an Express server
@@ -13,8 +14,8 @@ server.use(bodyParser.urlencoded({extended: false}));
 server.use(bodyParser.json());
 
 var http = require('http').Server(server);
+let db = path.join(__dirname, 'db.json');
 
-var db = 'db.json';
 var secured = false;
 
 var args = process.argv.slice(2);
@@ -57,7 +58,11 @@ router.render = function (req, res, next) {
   res.jsonp(res.locals.data);
 };
 
-server.listen(3000);
+let port = 3000;
+server.listen(port, () => {
+  console.log(`Node Express server listening on http://localhost:${port}`);
+});
+
 
 if (secured) {
 

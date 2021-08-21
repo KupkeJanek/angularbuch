@@ -18,9 +18,9 @@ import {AbstractCacheService} from '../../cache/abstract-cache.service';
 })
 export class TaskListComponent implements OnInit {
 
-  selectedTaskId: string | number = null;
+  selectedTaskId: string | number | undefined = undefined;
 
-  tasks$: Observable<Task[]>;
+  tasks$!: Observable<Task[]>;
 
   searchTerm = new FormControl();
 
@@ -56,7 +56,7 @@ export class TaskListComponent implements OnInit {
   }
 
 
-  deleteTask(task) {
+  deleteTask(task: Task) {
     this.taskService.deleteTask(task).subscribe();
   }
 

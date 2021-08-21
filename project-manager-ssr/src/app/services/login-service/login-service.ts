@@ -1,8 +1,9 @@
-import {Inject, Optional} from '@angular/core';
+import {Inject, Injectable, Optional} from '@angular/core';
 import {AUTH_ENABLED} from '../../app.tokens';
 
 const CURRENT_USER = 'currentUser';
 
+@Injectable()
 export class LoginService {
 
   USERS = [
@@ -19,6 +20,7 @@ export class LoginService {
       localStorage.setItem(CURRENT_USER, JSON.stringify(user));
       return true;
     }
+    return false;
   }
 
   logout() {

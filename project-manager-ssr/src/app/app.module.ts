@@ -12,16 +12,13 @@ import {CacheModule} from './cache/cache.module';
 
 
 export function socketIoFactory() {
-  if (environment.e2eMode) {
-    return mockIO;
-  }
   return io;
 }
 
-const enableAuthentication = !environment.e2eMode;
+const enableAuthentication = false;
 
 @NgModule({
-  imports: [BrowserModule, SharedModule, CacheModule.forRoot('session-storage'), appRouting],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), SharedModule, CacheModule.forRoot('session-storage'), appRouting],
   providers: [
     LoginService,
     Title,

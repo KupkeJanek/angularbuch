@@ -12,8 +12,8 @@ import {Task} from '../../shared/models/model-interfaces';
 })
 export class TaskItemComponent {
 
-  selected: boolean;
-  task: Task;
+  selected: boolean = false;
+  task!: Task;
 
   checkCounter = 0;
 
