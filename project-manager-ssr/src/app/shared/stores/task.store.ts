@@ -1,6 +1,7 @@
 import {BehaviorSubject} from 'rxjs';
 import {Task} from '../models/model-interfaces';
 import {Injectable} from '@angular/core';
+import {SharedModule} from '../shared-module';
 
 export const LOAD = 'LOAD';
 export const ADD = 'ADD';

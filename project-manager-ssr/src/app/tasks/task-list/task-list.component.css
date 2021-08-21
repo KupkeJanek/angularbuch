@@ -6,3 +6,9 @@
 .task-list {
   width: 525px;
 }
+
+.no-tasks {
+  
+  font-size: large;
+
+}

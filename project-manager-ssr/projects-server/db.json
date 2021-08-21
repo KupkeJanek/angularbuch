@@ -1,11 +1,11 @@
 {
   "tasks": [
-     {
+    {
       "id": 1,
       "title": "Neues Entwickler-Team zusammenstellen",
       "description": "Das ist wirklich sehr dringend. Bitte so schnell wie möglich darum kümmern...",
       "tags": [],
-      "state": "BACKLOG",
+      "state": "IN_PROGRESS",
       "assignee": {
         "name": "Christoph Höller",
         "email": ""
