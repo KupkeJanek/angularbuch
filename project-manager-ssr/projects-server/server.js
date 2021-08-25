@@ -58,7 +58,7 @@ router.render = function (req, res, next) {
   res.jsonp(res.locals.data);
 };
 
-let port = 3000;
+const port = process.env.PORT || 3000;
 server.listen(port, () => {
   console.log(`Node Express server listening on http://localhost:${port}`);
 });

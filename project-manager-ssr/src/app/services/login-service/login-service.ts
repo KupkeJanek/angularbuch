@@ -1,5 +1,6 @@
-import {Inject, Injectable, Optional} from '@angular/core';
-import {AUTH_ENABLED} from '../../app.tokens';
+import { Inject, Injectable, Optional } from '@angular/core';
+import { ServerSideStorage } from 'src/app/cache/server-side-storage';
+import { AUTH_ENABLED } from '../../app.tokens';
 
 const CURRENT_USER = 'currentUser';
 
@@ -7,15 +8,25 @@ const CURRENT_USER = 'currentUser';
 export class LoginService {
 
   USERS = [
-    {name: 'admin', password: 'admin', rights: ['edit_tasks', 'change_settings']},
-    {name: 'user', password: 'secret', rights: ['edit_tasks']}
+    { name: 'admin', password: 'admin', rights: ['edit_tasks', 'change_settings'] },
+    { name: 'user', password: 'secret', rights: ['edit_tasks'] }
   ];
 
+  storage: Storage | ServerSideStorage;
+
   constructor(@Optional() @Inject(AUTH_ENABLED) public authEnabled = false) {
+
+    if (typeof localStorage === "undefined" || localStorage === null) {
+      console.log('using ServerSideStorage');
+      this.storage = new ServerSideStorage();
+    } else {
+      this.storage = localStorage;
+    }
+
   }
 
   login(name: string, password: string) {
-    const [user] = this.USERS.filter(u => u.name === name);
+    const user = this.USERS.find(u => u.name === name);
     if (user && user.password === password) {
       localStorage.setItem(CURRENT_USER, JSON.stringify(user));
       return true;

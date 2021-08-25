@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {Title} from '@angular/platform-browser';
+import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router,} from '@angular/router';
 import {Location} from '@angular/common';
 import {NgForm} from '@angular/forms';
@@ -28,17 +28,26 @@ export class EditTaskComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private taskService: TaskService,
     private router: Router,
-    private titleService: Title,
+    private title: Title, private meta: Meta,
     private location: Location) {
   }
 
   ngOnInit() {
-    this.subscription = this.route.params.pipe(
+    this.route.params.pipe(
       map(params => params['id']),
       filter(id => id !== undefined),
       mergeMap(id => this.taskService.getTask(id)))
       .subscribe(task => {
         this.task = task;
+
+        this.title.setTitle(task.title);
+        this.meta.addTag({name: 'description', 
+                          content: task.description});
+        this.meta.addTag({name: 'twitter:title', content: task.title});
+        this.meta.addTag({name: 'twitter:description', 
+                          content: task.description});
+
+
       });
   }
 

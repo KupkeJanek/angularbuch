@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { BrowserModule, Title } from "@angular/platform-browser";
+import { BrowserModule, BrowserTransferStateModule, Title } from "@angular/platform-browser";
 import * as io from "socket.io-client";
 import { environment } from "../environments/environment";
 import { AppComponent } from "./app.component";
@@ -8,7 +8,7 @@ import { AUTH_ENABLED, SOCKET_IO } from "./app.tokens";
 import { mockIO } from "./mocks/mock-socket";
 import { LoginService } from "./services/login-service/login-service";
 import { SharedModule } from "./shared/shared-module";
-import {CacheModule} from './cache/cache.module';
+import { CacheModule } from './cache/cache.module';
 
 
 export function socketIoFactory() {
@@ -18,7 +18,7 @@ export function socketIoFactory() {
 const enableAuthentication = false;
 
 @NgModule({
-  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), SharedModule, CacheModule.forRoot('session-storage'), appRouting],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), BrowserTransferStateModule, SharedModule, CacheModule.forRoot('session-storage'), appRouting],
   providers: [
     LoginService,
     Title,
@@ -28,4 +28,4 @@ const enableAuthentication = false;
   declarations: [AppComponent, routingComponents],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
