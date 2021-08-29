@@ -14,10 +14,10 @@ function logChangeDetection(entry: string) {
              <span>Text: {{text}}</span>`,
 })
 export class ViewChildComponent implements OnChanges, OnInit, AfterViewChecked, AfterContentChecked {
-  @Input() public text: string;
-  @Input() public greeting: Greeting;
+  @Input() public text?: string;
+  @Input() public greeting?: Greeting;
 
-  private previousGreetingText = '';
+  private previousGreetingText?: string;
 
   constructor() {
     console.log('Text: ', this.text);
@@ -43,7 +43,7 @@ export class ViewChildComponent implements OnChanges, OnInit, AfterViewChecked, 
   }
 
   ngDoCheck() {
-    if (this.greeting.text !== this.previousGreetingText) {
+    if (this.greeting && this.greeting.text !== this.previousGreetingText) {
       this.previousGreetingText = this.greeting.text;
       console.log('New greeting text: ', this.greeting.text);
     }
@@ -74,8 +74,8 @@ export class ContentChildComponent implements AfterViewChecked, AfterContentChec
              <ng-content></ng-content>`
 })
 export class LifecycleMainComponent implements AfterContentInit, AfterViewInit, OnDestroy, AfterViewChecked, AfterContentChecked, OnInit {
-  @ViewChild(ViewChildComponent) viewChild: ViewChildComponent;
-  @ContentChild(ContentChildComponent) contentChild: ContentChildComponent;
+  @ViewChild(ViewChildComponent) viewChild?: ViewChildComponent;
+  @ContentChild(ContentChildComponent) contentChild?: ContentChildComponent;
 
   text = 'Hello Lifecycle';
 

@@ -8,7 +8,7 @@ import {ChangeDetectorRef} from '@angular/core';
   styleUrls: ['log-viewer.component.css']
 })
 export class LogViewerComponent implements OnInit {
-  @Input('logs') logs: string[];
+  @Input('logs') logs: string[] = [];
   autoRefresh = false;
   constructor(private changeDetector: ChangeDetectorRef) {
   }

@@ -14,15 +14,15 @@ class Contact {
   selector: 'ch-contact-entry-optimized',
   template: `
       <div class='contact-entry' (click)='selectEntry()'>
-          <b>Name:</b> {{contact.name}} <br>
-          <b>Anschrift:</b> {{contact.address}}<br>
+          <b>Name:</b> {{contact?.name}} <br>
+          <b>Anschrift:</b> {{contact?.address}}<br>
       </div>
   `,
   styleUrls: ['change-detection-demo.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactEntryOptimizedComponent implements OnChanges, AfterViewChecked {
-  @Input() contact: Contact;
+  @Input() contact?: Contact;
   @Output('onSelect') selectEmitter = new EventEmitter();
   checkCount = 0;
 
@@ -35,7 +35,7 @@ export class ContactEntryOptimizedComponent implements OnChanges, AfterViewCheck
   }
 
   ngAfterViewChecked() {
-    console.log(`Contact ${this.contact.name} checked ${this.checkCount++} times`);
+    console.log(`Contact ${this.contact?.name} checked ${this.checkCount++} times`);
   }
 }
 
@@ -46,13 +46,13 @@ export class ContactEntryOptimizedComponent implements OnChanges, AfterViewCheck
 })
 export class ContactCounterComponent implements OnInit {
   count = 0;
-  @Input() contacts: Observable<Contact[]>;
+  @Input() contacts?: Observable<Contact[]>;
 
   constructor(private changeDetector: ChangeDetectorRef) {
   }
 
   ngOnInit() {
-    this.contacts.subscribe((contacts) => {
+    this.contacts?.subscribe((contacts) => {
       this.count = contacts.length;
       this.changeDetector.markForCheck();
     });
@@ -72,7 +72,7 @@ export class ContactCounterComponent implements OnInit {
 })
 export class ContactListOptimizedComponent {
 
-  @Input() contacts: Contact[];
+  @Input() contacts: Contact[] = [];
   @Output('onSelect') selectEmitter = new EventEmitter();
 
   contactSelected(selected: Contact) {
@@ -92,10 +92,10 @@ export class ChangeDetectionMainOptimizedComponent implements OnInit {
     new Contact('Richard Roe', '456 Fifth Avenue, Otherville'),
   ];
 
-  contactName: string;
-  contactAddress: string;
+  contactName = '';
+  contactAddress = '';
 
-  selectedContact: Contact;
+  selectedContact?: Contact;
   contactsObservable = new ReplaySubject<Contact[]>();
   logs: string[] = [];
 
@@ -121,7 +121,7 @@ export class ChangeDetectionMainOptimizedComponent implements OnInit {
         if (entry !== this.selectedContact) {
           return entry;
         }
-        return new Contact(this.contactName, this.contactAddress);
+        return new Contact(this.selectedContact.name, this.selectedContact.address);
       });
     }
     console.log('Contact sucessfully saved');

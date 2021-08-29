@@ -7,7 +7,7 @@ declare var jQuery: any;
 })
 export class SliderDirective implements OnChanges {
   sliderRef: any;
-  @Input() value: number;
+  @Input() value?: number;
   @Output() valueChange = new EventEmitter();
 
   constructor(private elementRef: ElementRef) {

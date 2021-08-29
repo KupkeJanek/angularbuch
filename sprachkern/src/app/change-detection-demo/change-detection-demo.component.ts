@@ -11,26 +11,26 @@ class Contact {
   selector: 'ch-contact-entry',
   template: `
   <div class='contact-entry' (click)='selectEntry()'>
-    <b>Name:</b> {{contact.name}} <br>
-    <b>Anschrift:</b> {{contact.address}}<br>
+    <b>Name:</b> {{contact?.name}} <br>
+    <b>Anschrift:</b> {{contact?.address}}<br>
   </div>
   `,
   styleUrls: ['change-detection-demo.component.css'],
 })
 export class ContactEntryComponent implements OnChanges, AfterViewChecked {
-  @Input() contact: Contact;
-  @Output('onSelect') selectEmitter = new EventEmitter();
+  @Input() contact?: Contact;
+  @Output() onSelect = new EventEmitter<Contact>();
 
   checkCount = 0;
 
   selectEntry() {
-    this.selectEmitter.emit(this.contact);
+    this.onSelect.emit(this.contact);
   }
   ngOnChanges(changes: SimpleChanges) {
-    console.log('Contact changed', changes.contact.currentValue);
+    console.log('Contact changed', changes.contact?.currentValue);
   }
   ngAfterViewChecked() {
-    console.log(`Contact ${this.contact.name} checked ${this.checkCount++} times`);
+    console.log(`Contact ${this.contact?.name} checked ${this.checkCount++} times`);
   }
 }
 
@@ -46,7 +46,7 @@ export class ContactEntryComponent implements OnChanges, AfterViewChecked {
 })
 export class ContactListComponent {
 
-  @Input() contacts: Contact[];
+  @Input() contacts: Contact[] = [];
   @Output('onSelect') selectEmitter = new EventEmitter();
 
   contactSelected(selected: Contact) {
@@ -66,10 +66,10 @@ export class ChangeDetectionMainComponent {
     new Contact('Richard Roe', '456 Fifth Avenue, Otherville'),
   ];
 
-  contactName: string;
-  contactAddress: string;
+  contactName = '';
+  contactAddress = '';
 
-  selectedContact: Contact | null;
+  selectedContact?: Contact;
 
   constructor() {}
 
@@ -84,7 +84,7 @@ export class ChangeDetectionMainComponent {
       this.selectedContact.name = this.contactName;
       this.selectedContact.address = this.contactAddress;
     }
-    this.selectedContact = null;
+    this.selectedContact = undefined;
     console.log('Contact successfully saved');
   }
   createContact() {

@@ -11,7 +11,7 @@ import {BlogEntry} from './blog-entry';
 export class BlogFormComponent {
 
   @Output() entryCreated = new EventEmitter();
-  @ContentChild(TemplateRef) customTemplate: TemplateRef<any>;
+  @ContentChild(TemplateRef) customTemplate?: TemplateRef<any>;
 
   createBlogEntry(title: string, image: string, text: string) {
     // in einer echten Anwendung würde hier ein HTTP-Service angesprochen

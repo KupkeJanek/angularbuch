@@ -23,7 +23,7 @@ export class PanelComponent {
   open = true;
   @Input() title = '';
   @Output() panelToggled = new EventEmitter<PanelComponent>();
-  @ContentChild(PanelHeaderDirective) panelHeader: PanelHeaderDirective;
+  @ContentChild(PanelHeaderDirective) panelHeader?: PanelHeaderDirective;
 
   togglePanel() {
     this.open = !this.open;
@@ -31,7 +31,7 @@ export class PanelComponent {
   }
 
   hasHeader() {
-    return this.panelHeader != null;
+    return this.panelHeader !== undefined;
   }
 }
 

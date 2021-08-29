@@ -20,10 +20,11 @@ export class TimePickerComponent implements OnChanges {
     seconds: 59
   };
 
-  @Input('time') timeString: string = '';
+  @Input('time') timeString?: string = '';
   @Output('timeChange') changeEvent: EventEmitter<any> = new EventEmitter<string>();
 
   constructor() {
+    console.log(this.timeString); //undefined
     this.reset();
   }
 
@@ -44,12 +45,12 @@ export class TimePickerComponent implements OnChanges {
 
   /*ngOnInit() bei einmaliger Initialisierung*/
   ngOnChanges(changes: SimpleChanges) {
-    const parts = this.timeString.split(':');
-    if (parts.length === 3) {
+    const timeParts = this.timeString?.split(':');
+    if (timeParts?.length === 3) {
       this.time = {
-        hours: Math.min(parseInt(parts[0], 10), this.maxValues.hours),
-        minutes: Math.min(parseInt(parts[1], 10), this.maxValues.minutes),
-        seconds: Math.min(parseInt(parts[2], 10), this.maxValues.seconds)
+        hours: Math.min(parseInt(timeParts[0], 10), this.maxValues.hours),
+        minutes: Math.min(parseInt(timeParts[1], 10), this.maxValues.minutes),
+        seconds: Math.min(parseInt(timeParts[2], 10), this.maxValues.seconds)
       };
     }
   }

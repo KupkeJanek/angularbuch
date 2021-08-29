@@ -1,4 +1,5 @@
 import {Component, Input, TemplateRef, ContentChild, AfterContentInit} from '@angular/core';
+import { BlogEntry } from './blog-entry';
 
 @Component({
   selector: 'ch-blog-entry',
@@ -24,12 +25,9 @@ export class BlogEntryComponent {
   templateUrl: 'blog-list.component.html',
   styleUrls: ['blog-list.component.css'],
 })
-export class BlogListComponent implements AfterContentInit {
-    @Input() entries: any[];
-    @ContentChild('entryTemplate') entryTemplate: TemplateRef<any>;
-    @ContentChild('additionalMarkup') additionalMarkup: TemplateRef<any>;
-    hasCustomTemplate: boolean;
-    ngAfterContentInit() {
-        this.hasCustomTemplate = this.entryTemplate != null;
-    }
+export class BlogListComponent {
+    @Input() entries: BlogEntry[] = [];
+    @ContentChild('entryTemplate') entryTemplate?: TemplateRef<any>;
+    @ContentChild('additionalMarkup') additionalMarkup?: TemplateRef<any>;
+
 }

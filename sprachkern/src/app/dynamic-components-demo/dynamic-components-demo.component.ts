@@ -78,10 +78,10 @@ export class DynamicDialogComponent  {
   styleUrls: ['./dynamic-components-demo.component.css']
 })
 export class DynamicComponentsDemoComponent implements AfterViewInit {
-  @ViewChild('container', {read: ViewContainerRef, static: true}) container: ViewContainerRef;
+  @ViewChild('container', {read: ViewContainerRef, static: true}) container!: ViewContainerRef;
 
-  @ViewChild('todoContainer', {read: ViewContainerRef, static: false}) todoContainer: ViewContainerRef;
-  @ViewChild('todoTemplate') todoTemplate: TemplateRef<any>;
+  @ViewChild('todoContainer', {read: ViewContainerRef, static: false}) todoContainer?: ViewContainerRef;
+  @ViewChild('todoTemplate') todoTemplate!: TemplateRef<any>;
 
   circleComponent = CircleComponent;
   geoComponent: any = CircleComponent;
@@ -114,16 +114,16 @@ export class DynamicComponentsDemoComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.container?.createComponent(this.circleFactory);
+      this.container.createComponent(this.circleFactory);
       this.container.createComponent(this.circleFactory);
       this.addCircle('white');
 
       this.moveCircle(1, 0);
 
       const circleRef = this.addCircle('gray');
-      this.container.move(circleRef.hostView, 1);
+      this.container?.move(circleRef.hostView, 1);
 
-      this.container.remove(this.container.length - 1); // letzten Kreis löschen
+      this.container?.remove(this.container.length - 1); // letzten Kreis löschen
 
       this.todoContainer?.createEmbeddedView(this.todoTemplate, {
         todoParam: {

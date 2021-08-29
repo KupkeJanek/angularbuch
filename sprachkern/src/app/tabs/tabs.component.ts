@@ -20,14 +20,14 @@ export class TabComponent {
   templateUrl: 'tabs.component.html'})
 export class TabsComponent implements AfterContentInit {
 
-  @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
+  @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
 
   ngAfterContentInit() {
     this.tabs.first.active = true;
   }
 
   activate(component: TabComponent) {
-    for (const tab of this.tabs.toArray()) {
+    for (const tab of this.tabs) {
       tab.active = false;
     }
     component.active = true;

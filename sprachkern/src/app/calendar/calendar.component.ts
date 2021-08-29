@@ -10,10 +10,10 @@ import {Time} from '../time-picker/time.model';
 export class CalendarComponent implements AfterViewInit {
   calendarEntry: any;
 
-   @ViewChildren(TimePickerComponent) timePickers: QueryList<TimePickerComponent>;
+   @ViewChildren(TimePickerComponent) timePickers!: QueryList<TimePickerComponent>;
 
   //@ViewChild(TimePickerComponent) timePicker: TimePickerComponent;
-  @ViewChild('timepicker') timePicker: TimePickerComponent;
+  @ViewChild('timepicker') timePicker!: TimePickerComponent;
 
   constructor() {
     this.calendarEntry = {
@@ -22,6 +22,7 @@ export class CalendarComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    console.log(this.timePickers);
     console.log('Ausgewählte Zeit: ' + this.timePicker.getTime());
   }
 

@@ -18,4 +18,4 @@
   </div>
 </div>
 
-<ng-template [ngTemplateOutlet]="customTemplate"></ng-template>
+<ng-template *ngIf="customTemplate" [ngTemplateOutlet]="customTemplate"></ng-template>
