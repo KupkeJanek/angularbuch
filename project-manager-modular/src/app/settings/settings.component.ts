@@ -11,7 +11,7 @@ export class SettingsComponent {
 
   originalTitle: string;
 
-  user = {};
+  user: any = {};
 
   constructor(private activatedRoute: ActivatedRoute,
               private titleService: Title) {

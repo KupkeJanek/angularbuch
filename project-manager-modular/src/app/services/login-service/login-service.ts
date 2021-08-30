@@ -1,8 +1,9 @@
-import {Inject, Optional} from '@angular/core';
+import {Inject, Injectable, Optional} from '@angular/core';
 import {AUTH_ENABLED} from '../../app.tokens';
 
 const CURRENT_USER = 'currentUser';
 
+@Injectable()
 export class LoginService {
 
   USERS = [
