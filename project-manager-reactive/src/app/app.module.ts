@@ -24,7 +24,7 @@ export function socketIoFactory(): SocketIOClientStatic {
   return io;
 }
 
-const enableAuthentication = !environment.e2eMode;
+const enableAuthentication = false;
 
 @NgModule({
   imports: [BrowserModule,
