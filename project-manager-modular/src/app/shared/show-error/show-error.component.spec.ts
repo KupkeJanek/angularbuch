@@ -27,7 +27,7 @@ describe('ShowError Component', () => {
   });
 
 
-  const fixture: ComponentFixture<ShowErrorComponent>;
+  let fixture: ComponentFixture<ShowErrorComponent>;
 
   it('should display "required" error for touched controls', (done) => {
     fixture = TestBed.createComponent(ShowErrorComponent);
@@ -41,7 +41,7 @@ describe('ShowError Component', () => {
         }
       });
       (<any>showErrorCmp).displayName = 'Vorname';
-      fixture.detectChanges(); //Change-Detection auslösen
+      fixture.detectChanges(); // Change-Detection auslösen
       expect(element.querySelector('.alert-danger').textContent)
         .toContain('Vorname ist ein Pflichtfeld');
       done();

@@ -1,6 +1,6 @@
 import {EmailValidatorDirective} from './app-validators';
 
-const validator = null;
+let validator = null;
 beforeEach(() => {
   validator = new EmailValidatorDirective();
 });

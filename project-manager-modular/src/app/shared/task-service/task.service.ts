@@ -6,8 +6,9 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {tap} from 'rxjs/internal/operators';
 import {Task} from '../models/model-interfaces';
 import {SharedModule} from '../shared-module';
+import {ApplicationConfigService} from '../../services/application-config/application-config.service';
 
-const BASE_URL = `http://localhost:3000/api/tasks/`;
+// const BASE_URL = `http://localhost:3000/api/tasks/`;
 
 const WEB_SOCKET_URL = 'http://localhost:3001';
 
@@ -22,12 +23,16 @@ export class TaskService {
 
   tasksChanged = new BehaviorSubject({});
 
+  private baseUrl: string;
 
   constructor(private http: HttpClient, private taskStore: TaskStore,
+              private applicationConfigService: ApplicationConfigService,
               @Inject(SOCKET_IO) socketIO) {
-    console.log('craeta')
+
+    const appConfig = this.applicationConfigService.getApplicationConfig();
+    this.baseUrl = `${appConfig.apiBaseUrl}/tasks`;
+    this.socket = socketIO(appConfig.websocketUrl);
     this.tasks$ = taskStore.items$;
-    this.socket = socketIO(WEB_SOCKET_URL);
     fromEvent(this.socket, 'task_saved')
       .subscribe((action) => {
         this.taskStore.dispatch(action);
@@ -40,7 +45,7 @@ export class TaskService {
       .append('_sort', sort)
       .append('_order', order);
 
-    this.http.get(BASE_URL, {params: searchParams}).pipe(
+    this.http.get(`${this.baseUrl}`, {params: searchParams}).pipe(
       tap((tasks) => {
         this.taskStore.dispatch({type: LOAD, data: tasks});
       })).subscribe();
@@ -49,13 +54,13 @@ export class TaskService {
   }
 
   getTask(id: number | string): Observable<Task> {
-    return this.http.get<Task>(BASE_URL + id);
+    return this.http.get<Task>(`${this.baseUrl}/${id}`);
   }
 
 
   saveTask(task: Task) {
     const method = task.id ? 'PUT' : 'POST';
-    return this.http.request(method, BASE_URL + (task.id || ''), {
+    return this.http.request(method, `${this.baseUrl}/` + (task.id || ''), {
       body: task
     }).pipe(
       tap(savedTask => {
@@ -68,7 +73,7 @@ export class TaskService {
   }
 
   deleteTask(task: Task) {
-    return this.http.delete(BASE_URL + task.id).pipe(
+    return this.http.delete(`${this.baseUrl}/${task.id}`).pipe(
       tap(_ => {
         this.taskStore.dispatch({type: REMOVE, data: task});
       }));

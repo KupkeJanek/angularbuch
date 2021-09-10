@@ -13,7 +13,12 @@
     "e2e": "concurrently \"node projects-server/server.js db=projects-server/test.json\" \"ng e2e\" ",
     "cypress": "concurrently \"node projects-server/server.js db=projects-server/test.json\"  \"ng serve\" \"cypress open\" ",
     "cypress:ci": "concurrently \"node projects-server/server.js db=projects-server/test.json\" \"cypress run\" ",
-    "postinstall": "npm run install-server"
+    "postinstall": "npm run install-server",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox",
+    "docker:build": "docker build -t project-manager .",
+    "docker:run": "docker run -p 8091:80 -d --name pjm --env PJM_API_BASE_URL=http://127.0.0.1:3000/api --env  PJM_WEBSOCKET_URL=http://127.0.0.1:3001 project-manager",
+    "docker:stop": "docker stop pjm && docker rm pjm",
+    "docker:restart": "npm run docker:stop && npm run docker:run"
   },
   "private": true,
   "dependencies": {
@@ -39,12 +44,11 @@
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~14.10.2",
     "@types/socket.io-client": "^1.4.26",
-    "codelyzer": "^6.0.0",
+    "puppeteer": "^10.2.0",
     "concurrently": "^5.3.0",
-    "cypress": "^7.3.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~5.1.0",
+    "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.3",
     "karma-jasmine": "~4.0.0",

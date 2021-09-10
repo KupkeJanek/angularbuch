@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserModule, Title } from "@angular/platform-browser";
 import * as io from "socket.io-client";
 import { environment } from "../environments/environment";
@@ -9,6 +9,7 @@ import { mockIO } from "./mocks/mock-socket";
 import { LoginService } from "./services/login-service/login-service";
 import { SharedModule } from "./shared/shared-module";
 import {CacheModule} from './cache/cache.module';
+import {ApplicationConfigService} from './services/application-config/application-config.service';
 
 
 export function socketIoFactory() {
@@ -16,6 +17,10 @@ export function socketIoFactory() {
     return mockIO;
   }
   return io;
+}
+
+export function initializeApplication(applicationConfigService: ApplicationConfigService) {
+  return () => applicationConfigService.loadConfig();
 }
 
 const enableAuthentication = !environment.e2eMode;
@@ -27,6 +32,12 @@ const enableAuthentication = !environment.e2eMode;
     Title,
     { provide: AUTH_ENABLED, useValue: enableAuthentication },
     { provide: SOCKET_IO, useFactory: socketIoFactory },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApplication,
+      multi: true,
+      deps: [ApplicationConfigService]
+    },
   ],
   declarations: [AppComponent, routingComponents],
   bootstrap: [AppComponent],

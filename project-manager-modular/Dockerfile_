@@ -1,0 +1,5 @@
+FROM nginx
+
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY dist/project-manager /usr/share/nginx/html
