@@ -12,7 +12,11 @@
     "install-server": "npm install --prefix ./projects-server ./projects-server",
     "cypress": "concurrently \"node projects-server/server.js db=projects-server/test.json\"  \"ng serve\" \"cypress open\" ",
     "cypress:ci": "concurrently \"node projects-server/server.js db=projects-server/test.json\" \"cypress run\" ",
-    "postinstall": "npm run install-server"
+    "postinstall": "npm run install-server",
+    "e2e": "concurrently \"node projects-server/server.js db=projects-server/test.json\"  \"ng e2e\"",
+    "cypress:open": "concurrently \"node projects-server/server.js db=projects-server/test.json\"  \"ng serve\" \"cypress open\"",
+    "cypress:open-mobile": "concurrently \"node projects-server/server.js db=projects-server/test.json\"  \"ng serve\" \"cypress open --config-file=cypress.mobile.json\"",
+    "cypress:run": "concurrently \"node projects-server/server.js db=projects-server/test.json\" \"cypress run\" "
   },
   "private": true,
   "dependencies": {
@@ -35,6 +39,7 @@
     "@angular/cli": "~12.2.5",
     "@angular/compiler-cli": "~12.2.5",
     "@angular/language-service": "~12.2.5",
+    "@cypress/schematic": "^1.5.1",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~14.10.2",
@@ -51,6 +56,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~9.0.0",
     "tslint": "~6.1.3",
-    "typescript": "~4.3.5"
+    "typescript": "~4.3.5",
+    "cypress": "8.3.1"
   }
 }
