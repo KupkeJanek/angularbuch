@@ -6,6 +6,10 @@
 **/out-tsc
 **/.idea
 
+**/cypress/screenshots
+**/cypress/videos
+**/reporter
+
 # dependencies
 **/node_modules
 
