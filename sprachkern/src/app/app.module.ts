@@ -37,6 +37,7 @@ import {TabsModule} from './tabs/tabs.module';
 import { ComponentOutletDemoComponent } from './component-outlet-demo/component-outlet-demo.component';
 import { StylingDemoComponent } from './styling-demo/styling-demo.component';
 import { AwesomeUploaderComponent } from './awesome-uploader/awesome-uploader.component';
+import {ColoredCircleComponent} from './circle/colored-circle.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, PanelModule, TabsModule],
@@ -62,13 +63,14 @@ import { AwesomeUploaderComponent } from './awesome-uploader/awesome-uploader.co
     ChangeDetectionMainComponent,
     ChangeDetectionMainOptimizedComponent,
     CircleComponent,
-      SquareComponent,
+    SquareComponent,
     DynamicDialogComponent,
     DynamicComponentsDemoComponent,
     RepeaterDirective,
     ComponentOutletDemoComponent,
     StylingDemoComponent,
-    AwesomeUploaderComponent
+    AwesomeUploaderComponent,
+    ColoredCircleComponent,
   ], exports: [
     TimePickerComponent
   ]})

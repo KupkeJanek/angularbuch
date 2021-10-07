@@ -5,8 +5,8 @@ import {AccordionDirective} from './accordion.directive';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [ PanelComponent, PanelHeaderDirective, AccordionDirective],
-  exports: [ PanelComponent, PanelHeaderDirective, AccordionDirective],
+  declarations: [PanelComponent, PanelHeaderDirective, AccordionDirective],
+  exports: [PanelComponent, PanelHeaderDirective, AccordionDirective],
 })
 export class PanelModule {
 }
