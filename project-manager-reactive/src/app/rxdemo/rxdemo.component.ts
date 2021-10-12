@@ -14,13 +14,16 @@ import {
   Subscription,
   timer
 } from 'rxjs';
-import { bufferCount, bufferTime, delay, filter, map, mergeMap, retry, retryWhen, take, tap } from 'rxjs/operators';
+import { bufferCount, bufferTime, delay, filter, map, mergeMap, retry, retryWhen, take, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   templateUrl: 'rxdemo.component.html',
   styleUrls: ['rxdemo.component.css'],
 })
 export class RxDemoComponent implements OnInit, OnDestroy {
+
+  destroyed$ = new Subject<void>();
+
 
   outputFirstObservable: any[] = [];
 
@@ -53,6 +56,8 @@ export class RxDemoComponent implements OnInit, OnDestroy {
 
   sub1!: Subscription;
   sub2!: Subscription;
+
+  destroyed$ = new Subject<void>();
 
   constructor() {
 
@@ -228,9 +233,6 @@ export class RxDemoComponent implements OnInit, OnDestroy {
       console.log(`Subscription 2: ${value}`);
     });
 
-
-
-
   }
 
   randomValues$ = new Observable((observer: Observer<number>) => {
@@ -244,35 +246,49 @@ export class RxDemoComponent implements OnInit, OnDestroy {
     };
   });
 
-  ngOnInit() {
-    this.currentTime$ = timer(0, 1000).pipe(map(() => new Date()));
+ngOnInit() {
 
-    this.dateSubscription = timer(0, 1000)
-      .pipe(map(() => new Date()))
-      .subscribe(value => {
-        this.currentDate = value;
+  timer(0, 1000)
+    .pipe(
+      map(() => new Date()),
+      takeUntil(this.destroyed$)
+    )
+    .subscribe(value => {
+      this.currentDate = value;
+    });
+
+
+  this.currentTime$ = timer(0, 1000).pipe(map(() => new Date()));
+
+  this.dateSubscription = timer(0, 1000)
+    .pipe(map(() => new Date()))
+    .subscribe(value => {
+      this.currentDate = value;
+    });
+
+
+
+  this.sub1 = this.randomValues$.subscribe((value) => {
+    console.log(`Subscription 1: ${value}`);
+  });
+
+  this.sub2 = this.randomValues$.subscribe((value) => {
+    console.log(`Subscription 2: ${value}`);
+  });
+
+  const square = document.getElementById('square');
+  if (square) {
+    fromEvent(square, '')
+      .subscribe((e: any) => {
+        console.log(`X: ${e.x},Y: ${e.y}`);
       });
-
-    this.sub1 = this.randomValues$.subscribe((value) => {
-      console.log(`Subscription 1: ${value}`);
-    });
-
-    this.sub2 = this.randomValues$.subscribe((value) => {
-      console.log(`Subscription 2: ${value}`);
-    });
-
-    const square = document.getElementById('square');
-    if (square) {
-      fromEvent(square, '')
-        .subscribe((e: any) => {
-          console.log(`X: ${e.x},Y: ${e.y}`);
-        });
-    }
   }
+}
 
-  ngOnDestroy() {
-    this.dateSubscription.unsubscribe();
-  }
+ngOnDestroy() {
+  this.destroyed$.next();
+  this.dateSubscription.unsubscribe();
+}
 
   createOutputSubscriber(output: string[]) {
     return Subscriber.create((value) => {

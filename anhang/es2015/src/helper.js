@@ -1,5 +1,5 @@
 
-const originalConsole = console;
+var originalConsole = window.console;
 const console = {};
 console.log = function (...args){
     let text = '';
