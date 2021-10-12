@@ -9,7 +9,7 @@ function containsAll(array) {
     return true;
 }
 
-function containsAll(array, ...elements) {
+function containsAll2(array, ...elements) {
     for (let i = 0; i < elements.length; i++) {
         if (array.indexOf(elements[i]) === -1){
             return false;
