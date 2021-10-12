@@ -14,13 +14,9 @@ const currentUser = {
 const {firstName, address: {city: usersCity}} = currentUser;
 console.log('Hello ' + firstName + '! How is it going in ' + usersCity); // Hello John! How is it going in New York
 
-const {firstName1, lastName1} = currentUser;
-console.log('Hello ' + firstName1 + ' ' + lastName1); // Hello John Doe
-
-
 const {firstName: first, lastName: last} = currentUser;
 
-console.log('Hello ' + first + ' ' + last); // Hello John Doe
+console.log('Hey ' + first + ' ' + last); // Hello John Doe
 
 console.log('Hello ' + first + '! How is it going in ' + usersCity); // Hello John Doe
 
