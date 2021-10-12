@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
 
 *,
 *::before,
@@ -23,11 +24,11 @@ router-outlet + * {
   margin: 0 auto;
 }
 
-@import "theme";
+@import "./theme";
 
-@include mat-core();
-@include angular-material-theme($theme);
+@include mat.core();
+@include mat.all-component-themes($theme);
 
 .dark-theme {
-  @include angular-material-theme($dark-theme);
+  @include mat.all-component-themes($dark-theme);
 }

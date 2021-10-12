@@ -1,16 +1,17 @@
 // Plus imports for other components in your app.
+@use '~@angular/material' as mat;
 // Import der Theming Funktionen
 @import "~@angular/material/theming";
 
 // Definition der Farbpaletten
-$primary-palette: mat-palette($mat-deep-orange);
-$accent-palette: mat-palette($mat-cyan);
-$warn-palette: mat-palette($mat-red);
+$primary-palette: mat.define-palette(mat.$deep-orange-palette);
+$accent-palette: mat.define-palette(mat.$cyan-palette);
+$warn-palette: mat.define-palette(mat.$red-palette);
 
 // Erzeugen der Theme Objekte
-$theme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
-$dark-theme: mat-dark-theme($primary-palette, $accent-palette, $warn-palette);
+$theme: mat.define-light-theme($primary-palette, $accent-palette, $warn-palette);
+$dark-theme: mat.define-dark-theme($primary-palette, $accent-palette, $warn-palette);
 
 // Erzeugen $primary Variable zur einfachen
 // Verwendung der Primärfarbe in Variant 500
-$primary: mat-color($primary-palette);
+$primary: mat.get-color-from-palette($primary-palette);

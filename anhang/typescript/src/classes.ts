@@ -20,7 +20,7 @@ namespace ClassDescription {
 
   class RectanglePerf {
 
-    private _area: number;
+    private _area!: number;
 
     constructor(private _width: number, private _height: number) {
       this.calculateArea();
@@ -28,21 +28,21 @@ namespace ClassDescription {
     protected calculateArea() {
       this._area = this._width * this._height;
     }
-    set width(w) {
+    set width(w: number) {
       this._width = w;
       this.calculateArea();
     }
-    get width() {
+    get width(): number {
       return this._width;
     }
-    set height(h) {
+    set height(h: number) {
       this._height = h;
       this.calculateArea();
     }
-    get height() {
+    get height(): number {
       return this._height;
     }
-    get area() {
+    get area(): number {
       return this._area;
     }
   }
@@ -62,7 +62,7 @@ namespace ClassDescription {
 
 
   class CuboidPerf extends RectanglePerf {
-    private _volume: number;
+    private _volume = 0;
     constructor(_width: number, _height: number, private _depth: number) {
       super(_width, _height);
       this.calculateVolume();
@@ -126,12 +126,26 @@ namespace ClassDescription {
 
   let animals = [dog, duck];
   for(let animal of animals) {
+
     animal.sayHello();
   }
 
 
+class User {
+  avatarUrl?: string;  
+  constructor(
+    private firstName: string, 
+    private lastName: string
+  ) {}        
+}
 
+function safePrintLength(str: string) {
+  console.log(str.length);
+}
 
+const john = new User('John', 'Doe');
+
+safePrintLength(john.avatarUrl);
 
 
 }

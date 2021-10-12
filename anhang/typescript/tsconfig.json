@@ -11,9 +11,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strictNullChecks": true,
+    "strictPropertyInitialization": true,
     "removeComments": false,
     "noImplicitAny": true,
     "noEmitOnError": true,
+    "strict": true,
     "outDir": "dist",
     "typeRoots": [
          "../node_modules/@types"

@@ -82,12 +82,15 @@ namespace Simpconstypes {
   }
 
   class Upload {
-    progress: number;
+    progress = 0;
     status: Status = Status.Initialized;
   }
 
 
   function printUploadStatus(status: Status) {
+    if (status === 'INITIALIZED') {
+      console.log('Der Upload wurde initialisiert')
+    }
     switch (status) {
         case Status.Initialized:
           console.log('Der Upload wurde initialisiert');
@@ -109,9 +112,9 @@ namespace Simpconstypes {
     console.log(uploadStatus)
 
   updateUploadStatus(42, Status.Started);
-  function updateUploadStatus(id: number, status: Status) {
-    const body = {status: status}; // { status: 'STARTED'}
-    this.http.put(`${BASE_URL}/${id}`, {status: status})
+  function updateUploadStatus(id: number, newStatus: Status) {
+    const body = {status: newStatus}; // { status: 'STARTED'}
+  //  this.http.put(`${BASE_URL}/${id}`, {status: status})
   }
 
 
@@ -158,7 +161,7 @@ namespace Simpconstypes {
   let myNumber: number;
   let myObject1: object;
   myObject1 = Object.assign({}, {baz: 'qux'});
-  myNumber =  Object.assign({},  {baz: 'qux'});
+//  myNumber =  Object.assign({},  {baz: 'qux'});
 
     Object.create
 

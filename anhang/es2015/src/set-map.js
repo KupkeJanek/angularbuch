@@ -48,7 +48,7 @@ for (const entry of map) {
   console.log(logEntry); // Key: 1, Value: value for 1 ...
 }
 
-map.forEach((value, key, map) => {
+map.forEach((value, key) => {
   console.log(`Key: ${key}, Value: ${value}`);
 });
 
