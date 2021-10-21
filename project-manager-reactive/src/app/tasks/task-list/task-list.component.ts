@@ -42,7 +42,7 @@ export class TaskListComponent implements OnInit {
 
     const paramsStream = this.route.queryParams
       .pipe(
-        map(params => decodeURI(params['query'] || '')),
+        map(params => decodeURI(params.query ?? '')),
         tap(query => this.searchTerm.setValue(query)));
 
     const searchTermStream = this.searchTerm.valueChanges.pipe(

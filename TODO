@@ -1,14 +1,18 @@
 
 Todo:
-  [] Docker Zusammenfassung 
-  [] Cypress Zusammenfassung 
-  [] Storybook Zusammenfassung 
+  [x] Docker Zusammenfassung 
+  [x] Cypress Zusammenfassung 
+  [x] Storybook Zusammenfassung 
   [+] takeUntilDestroy beschreiben 
   [+] Material überarbeiten 
   [+] TypeScript überarbeiten 
   [+] ECMAScript überarbeiten 
-  [] Übergänge schreiben
+  [x] Übergänge schreiben
   
+  [+] Elements zu Docker Überleitung
+  [x] SSR zu Storybook Überleitung
+
+  [x] SSR über Umgebungsvariablen deployen
   
 Optional:
   [] ES2019-ES2021 Features forstellen
@@ -16,4 +20,16 @@ Optional:
 Nach Ng 13 Release:
   [] ComponentFactoryResolver ausbauen
   
+
+  Reihenfolge
+
+  15 NgModule
+  [+] 16 i18n Referenzen ersetzen   (vorher 17)
+  [x] 17 Animationen Referenzen ersetzen (vorher 18)
+  [x] 18 Material Referenzen ersetzen (vorher 19)
+  [x] 19 Libraries Referenzen ersetzen (vorher 20)
+  [x] 20 Elemenents Referenzen ersetzen (vorher 21)
+  21 Docker
+  22 SSR
+  23 Storybook
 

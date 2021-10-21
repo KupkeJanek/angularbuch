@@ -6,8 +6,8 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  checkUserExists(name: string): Observable<boolean> {
-    const result = name == null || name.toLowerCase() !== 'johnny incognito';
+  checkUserExists(name?: string): Observable<boolean> {
+    const result = !name || name.toLowerCase() !== 'johnny incognito';
     return of(result).pipe(delay(250));
   }
 }

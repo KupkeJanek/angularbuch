@@ -5,6 +5,7 @@ import {FormControl} from '@angular/forms';
 import {Task} from '../../models/model-interfaces';
 import {TaskService} from '../../services/task-service/task-service';
 import {Router, ActivatedRoute} from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'task-list',
@@ -29,7 +30,7 @@ export class TaskListComponent implements OnInit {
   ngOnInit() {
 
     this.route.queryParams.subscribe((params) => {
-      const query = decodeURI(params['query'] || '');
+      const query = decodeURI(params.query ?? '');
       this.searchTerm.setValue(query);
       this.tasks = this.taskService.findTasks(query);
     });

@@ -47,8 +47,7 @@ export class IfNotBacklogThanAssigneeValidatorDirective {
     if (!nameControl || !stateControl) {
       return null;
     }
-    if (stateControl.value !== 'BACKLOG' &&
-      (!nameControl.value || nameControl.value === '')) {
+    if (stateControl.value !== 'BACKLOG' && !nameControl.value) {
       return {'assigneeRequired': true};
     }
     return null;

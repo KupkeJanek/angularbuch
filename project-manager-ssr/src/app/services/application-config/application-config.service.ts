@@ -12,9 +12,8 @@ export class ApplicationConfigService {
   }
 
   loadConfig() {
-    console.log(this.host)
-
-    return this.http.get<ApplicationConfig>((this.host ?? '') + '/assets/config/config.json').pipe(
+    const url = `${this.host ?? ''}/assets/config/config.json`;
+    return this.http.get<ApplicationConfig>(url).pipe(
       tap(config => this.applicationConfig = config),
     );
   }

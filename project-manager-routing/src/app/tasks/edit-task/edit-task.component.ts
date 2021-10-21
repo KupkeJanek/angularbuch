@@ -1,12 +1,13 @@
 import {ViewChild, Component, OnInit, OnDestroy} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import { Router, ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute, Params} from '@angular/router';
 import {Location} from '@angular/common';
 import {NgForm} from '@angular/forms';
 import {Task, createInitialTask} from '../../models/model-interfaces';
 import {TaskService} from '../../services/task-service/task-service';
 import {Subscription} from 'rxjs';
 import * as model from '../../models/model-interfaces';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'edit-task',
@@ -14,7 +15,7 @@ import * as model from '../../models/model-interfaces';
   styleUrls: ['./edit-task.component.css'],
   providers: [TaskService]
 })
-export class EditTaskComponent implements OnInit, OnDestroy {
+export class EditTaskComponent implements OnInit {
 
   model = model;
 
@@ -23,8 +24,6 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   saved = false;
 
   @ViewChild(NgForm) form!: NgForm;
-
-  subscription!: Subscription;
 
   constructor(
               private route: ActivatedRoute,
@@ -35,20 +34,17 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription = this.route.params
-      .subscribe(params => {
-        const id = (params['id'] || '');
-        this.task = id ? this.taskService.getTask(id) : createInitialTask();
-      });
+    this.route.params.pipe(
+      filter(params => params.id)
+    )
+    .subscribe(params => {
+      this.task = this.taskService.getTask(params.id);
+    });
 
 //   //Statische Alternative:
 //    const id = this.route.snapshot.params['id'];
 //    this.task = this.taskService.getTask(id);
 
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   addTag() {

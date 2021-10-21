@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Task} from '../../models/model-interfaces';
 import {TaskService} from '../../services/task-service/task-service';
 import * as model from '../../models/model-interfaces';
+import { filter } from 'rxjs/operators';
 
 
 @Component({
@@ -20,8 +21,9 @@ export class TaskOverviewComponent implements OnInit {
               private taskService: TaskService) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.task = this.taskService.getTask(params['id']);
+    this.route.params.pipe(filter(params => params.id))
+    .subscribe(params => {
+      this.task = this.taskService.getTask(params.id);
     });
   }
 }
