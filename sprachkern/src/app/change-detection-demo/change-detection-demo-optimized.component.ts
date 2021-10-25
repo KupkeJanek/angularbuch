@@ -121,7 +121,7 @@ export class ChangeDetectionMainOptimizedComponent implements OnInit {
         if (entry !== this.selectedContact) {
           return entry;
         }
-        return new Contact(this.selectedContact.name, this.selectedContact.address);
+        return new Contact(this.contactName, this.contactAddress);
       });
     }
     console.log('Contact sucessfully saved');

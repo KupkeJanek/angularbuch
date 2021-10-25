@@ -1,9 +1,6 @@
 import {
   AfterViewInit,
-  Component,
-  ComponentFactory,
-  ComponentFactoryResolver, ElementRef,
-  Injector,
+  Component, Injector,
   Input,
   OnDestroy, TemplateRef,
   ViewChild,
@@ -89,13 +86,10 @@ export class DynamicComponentsDemoComponent implements AfterViewInit {
 
   repeatCnt = 4;
 
-  circleFactory: ComponentFactory<CircleComponent>;
-
   dialogInjector: Injector;
   dialogComponent = DynamicDialogComponent;
 
-  constructor(private resolver: ComponentFactoryResolver, private injector: Injector) {
-    this.circleFactory = this.resolver.resolveComponentFactory(CircleComponent);
+  constructor(private injector: Injector) {
 
       const dialogConfig: DialogConfig = {
         title: 'Eintrag löschen',
@@ -114,8 +108,8 @@ export class DynamicComponentsDemoComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.container.createComponent(this.circleFactory);
-      this.container.createComponent(this.circleFactory);
+      this.container.createComponent(CircleComponent);
+      this.container.createComponent(CircleComponent);
       this.addCircle('white');
 
       this.moveCircle(1, 0);
@@ -135,7 +129,7 @@ export class DynamicComponentsDemoComponent implements AfterViewInit {
   }
 
   addCircle(color: string) {
-    const circleRef = this.container.createComponent(this.circleFactory, 0);
+    const circleRef = this.container.createComponent(CircleComponent, {index: 0});
     circleRef.instance.color = color;
     return circleRef;
   }

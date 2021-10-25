@@ -1,7 +1,7 @@
 import { AppModule } from '../app.module';
 import { TimePickerComponent } from './time-picker.component';
 import { moduleMetadata } from '@storybook/angular';
-import { Story, Meta } from '@storybook/angular/types-6-0';
+import { Story, Meta } from '@storybook/angular';
 
 export const TimePickerDecorators = moduleMetadata({
   imports: [
