@@ -18,7 +18,10 @@ Optional:
   [] ES2019-ES2021 Features forstellen
   
 Nach Ng 13 Release:
-  [] ComponentFactoryResolver ausbauen
+  [+] ComponentFactoryResolver ausbauen
+  [] routerLinkActive Direktive beschreiben (isActiveChange zusätzliche Direktive???)
+  [] FormControlStatus hinzufügen
+  [+] Storybook in eigenes Projekt rausziehen
   
 
   Reihenfolge
