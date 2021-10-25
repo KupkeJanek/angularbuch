@@ -1,0 +1,53 @@
+import {ColoredCircleComponent} from "./colored-circle.component";
+import {Meta, Story, ArgsTable, Canvas} from "@storybook/addon-docs";
+
+<Meta
+    title={"Components/Colored Circle (MDX)"}
+    component={ColoredCircleComponent}
+    args={{
+        radius: 60
+    }}
+    argTypes={{
+        fill: {
+            name: 'Fill Color (fill)',
+            description: 'The color that the circle is filled with ',
+            control: 'color'
+        },
+    }}/>
+
+export const Template = (args) => <ColoredCircleComponent {...args} />
+
+# Einführung
+
+Die `ColoredCircleComponent` ermöglicht Ihnen das Zeichen von Kreisen auf Ihrer Oberfläche.
+
+## Default
+
+Im Default-Fall wird ein schwarzer Kreis ohne Füllung gezeichnet:
+
+
+<Story name="Default">
+    {Template.bind({})}
+</Story>
+
+<ArgsTable story="Default" />
+
+## Mit Füllung
+ Möchten Sie dem Kreis eine Hintergrundfarbe geben, so können Sie dies über das `fill`-Input-Binding erreichen.
+<Story name="Filled" args={{
+    fill: 'blue',
+}}>
+    {Template.bind({})}
+</Story>
+
+
+## Mit Hintergrund
+Das Setzen eines Hintergrund-Bildes erfolgt über das Input-Binding `imageUrl`.
+<Canvas>
+<Story name="WithImage" args={{
+    imageUrl: 'http://lorempixel.com/200/200/cats',
+}}>
+    {Template.bind({})}
+</Story>
+</Canvas>
+

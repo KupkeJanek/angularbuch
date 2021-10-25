@@ -1,0 +1,39 @@
+import {Meta, Description, Story} from '@storybook/addon-docs';
+import Changelog from "../../Changelog.md";
+
+import Logo from '../assets/anguar-logo.png';
+
+<Meta
+    title={"Documentation/Introduction"}
+/>
+
+<style>{`
+.logo {
+ height: 60px;
+ width: 60px;
+}
+`}</style>
+
+<div className="logo">
+    <img src={Logo} alt="plugin" />
+</div>
+
+# Meine Komponentenbibliothek
+
+In diesem Beispielprojekt lernen Sie die Kernkonzepte von Angular kennen. Die folgende Liste gibt einen Überblick über die
+vorgestellten Themen:
+
+## Input / Output Bindings
+
+Hier lernen Sie, am Beispiel der `ColoredCircleComponent` wie Sie Schnittstellen zu Komponenten definieren.
+Source-Code: <code>src/app/colored-circle/colored-circle.component.ts</code>
+### Vorschau:
+<Story id="components-colored-circle--with-image"/>
+
+## Der Lifecycle einer Angular-Komponente
+
+Sie lernen die einzelnen Phasen des Komponenten-Lebenzyklus inklusive der entsprechenden Lifecycle-Hooks kennen.
+
+Source-Code: <code>src/app/lifecycle-demo/lifecycle-demo.component.ts</code>
+
+<Description markdown={Changelog} />;
