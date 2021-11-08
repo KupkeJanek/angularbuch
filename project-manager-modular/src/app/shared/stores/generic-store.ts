@@ -13,15 +13,15 @@ interface Identifiable {
 }
 
 export class Store<T extends Identifiable> {
-  items_ = [];
+  items_: any[] = [];
   items$ = new BehaviorSubject<T[]>([]);
 
-  dispatch(action) {
+  dispatch(action: any) {
     this.items_ = this._reduce(this.items_, action);
     this.items$.next(this.items_);
   }
 
-  _reduce(items: T[], action) {
+  _reduce(items: T[], action: any) {
     switch (action.type) {
       case LOAD:
         return [...action.data];

@@ -9,7 +9,7 @@ import {Title} from '@angular/platform-browser';
 })
 export class SettingsComponent {
 
-  originalTitle: string;
+  originalTitle = '';
 
   user: any = {};
 

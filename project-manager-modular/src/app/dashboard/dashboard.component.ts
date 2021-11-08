@@ -10,12 +10,12 @@ import {Title} from '@angular/platform-browser';
 })
 export class DashboardComponent {
 
-  title: string;
+  title = '';
+  originalTitle = '';
 
   constructor(r: ActivatedRoute, private router: Router, private titleService: Title) {
   }
 
-  originalTitle: string;
 
   ngOnInit() {
     this.originalTitle = this.titleService.getTitle();

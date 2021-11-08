@@ -27,7 +27,7 @@ export class TaskService {
 
   constructor(private http: HttpClient, private taskStore: TaskStore,
               private applicationConfigService: ApplicationConfigService,
-              @Inject(SOCKET_IO) socketIO) {
+              @Inject(SOCKET_IO) socketIO: any) {
 
     const appConfig = this.applicationConfigService.getApplicationConfig();
     this.baseUrl = `${appConfig.apiBaseUrl}/tasks`;
@@ -58,9 +58,9 @@ export class TaskService {
   }
 
 
-  saveTask(task: Task) {
+  saveTask(task: Task): Observable<Task> {
     const method = task.id ? 'PUT' : 'POST';
-    return this.http.request(method, `${this.baseUrl}/` + (task.id || ''), {
+    return this.http.request<Task>(method, `${this.baseUrl}/` + (task.id || ''), {
       body: task
     }).pipe(
       tap(savedTask => {

@@ -9,6 +9,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2015",
+    "strict": true,
     "module": "es2020",
 
     "typeRoots": [

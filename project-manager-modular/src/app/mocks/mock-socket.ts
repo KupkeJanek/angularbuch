@@ -1,5 +1,5 @@
 class MockSocket {
-  emit(action, data) {
+  emit(action: any, data: any) {
   }
 }
 

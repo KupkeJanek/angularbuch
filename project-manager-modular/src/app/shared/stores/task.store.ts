@@ -15,12 +15,12 @@ export class TaskStore {
   private tasks: Task[] = [];
   items$ = new BehaviorSubject<Task[]>([]);
 
-  dispatch(action) {
+  dispatch(action: any) {
     this.tasks = this._reduce(this.tasks, action);
     this.items$.next(this.tasks);
   }
 
-  _reduce(tasks: Task[], action) {
+  _reduce(tasks: Task[], action: any) {
     switch (action.type) {
       case LOAD:
         return [...action.data];

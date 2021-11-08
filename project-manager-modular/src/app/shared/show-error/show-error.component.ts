@@ -12,7 +12,7 @@ import {FormGroup, NgForm} from '@angular/forms';
 })
 export class ShowErrorComponent {
 
-  @Input('path') controlPath;
+  @Input('path') controlPath = '';
   @Input('text') displayName = '';
 
   private form: FormGroup;
@@ -21,7 +21,7 @@ export class ShowErrorComponent {
     this.form = ngForm.form;
   }
 
-  get errorMessages(): string[] {
+  get errorMessages(): string[] | null {
     const control = this.form.get(this.controlPath);
     const messages = [];
     if (!control || !(control.touched) || !control.errors) {

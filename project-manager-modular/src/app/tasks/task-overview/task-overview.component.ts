@@ -10,13 +10,13 @@ import {TaskService} from '../../shared/task-service/task.service';
 })
 export class TaskOverviewComponent {
 
-  id: string;
+  id?: string;
 
   model = model;
 
   showSuccessLabel = false;
 
-  task: Task;
+  task?: Task;
 
   constructor(private route: ActivatedRoute,
               private taskService: TaskService) {
@@ -31,7 +31,7 @@ export class TaskOverviewComponent {
   }
 
   saveTask() {
-    this.taskService.saveTask(this.task)
+    this.taskService.saveTask(this.task!)
       .subscribe(task => {
         this.task = task;
         this.showSuccessLabel = true;

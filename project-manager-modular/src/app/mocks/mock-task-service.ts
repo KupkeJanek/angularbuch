@@ -12,10 +12,10 @@ export class MockTaskService {
   }
 
   deleteTask(task: Task) {
-    return new BehaviorSubject<Task>({});
+    return new BehaviorSubject<Task>({assignee: {}});
   }
 
   getTask(id: number | string) {
-    return new BehaviorSubject<Task>({});
+    return new BehaviorSubject<Task>({assignee: {}});
   }
 }

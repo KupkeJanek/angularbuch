@@ -14,15 +14,13 @@ import {TaskService} from '../../shared/task-service/task.service';
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.css']
 })
-export class EditTaskComponent implements OnInit, OnDestroy {
+export class EditTaskComponent implements OnInit {
 
   model = model;
   task: Task = createInitialTask();
   saved = false;
 
-  @ViewChild(NgForm) form: NgForm;
-
-  subscription: Subscription;
+  @ViewChild(NgForm) form!: NgForm;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +31,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription = this.route.params.pipe(
+    this.route.params.pipe(
       map(params => params['id']),
       filter(id => id !== undefined),
       mergeMap(id => this.taskService.getTask(id)))
@@ -42,17 +40,13 @@ export class EditTaskComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
   addTag() {
-    this.task.tags.push({label: ''});
+    this.task.tags?.push({label: ''});
     return false;
   }
 
   removeTag(i: number) {
-    this.task.tags.splice(i, 1);
+    this.task.tags?.splice(i, 1);
     return false;
   }
 

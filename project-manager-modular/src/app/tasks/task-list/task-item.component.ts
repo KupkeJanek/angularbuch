@@ -12,8 +12,8 @@ import {Task} from '../../shared/models/model-interfaces';
 })
 export class TaskItemComponent {
 
-  selected: boolean;
-  task: Task;
+  selected!: boolean;
+  task!: Task;
 
   checkCounter = 0;
 
@@ -25,7 +25,7 @@ export class TaskItemComponent {
   }
 
   select() {
-    this.taskSelected.emit(this.task.id);
+    this.taskSelected.emit(this.task?.id);
   }
 
   delete() {

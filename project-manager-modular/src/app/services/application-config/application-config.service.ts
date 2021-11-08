@@ -5,7 +5,7 @@ import {ApplicationConfig} from './application-config';
 
 @Injectable({providedIn: 'root'})
 export class ApplicationConfigService {
-  private applicationConfig: ApplicationConfig;
+  private applicationConfig!: ApplicationConfig;
 
   constructor(private http: HttpClient) {
   }
