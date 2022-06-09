@@ -1,20 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {Location} from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { merge, Observable } from 'rxjs';
+import { distinctUntilChanged, map } from 'rxjs/internal/operators';
+import { debounceTime, switchMap, tap } from 'rxjs/operators';
+import { AbstractCacheService } from '../../cache/abstract-cache.service';
+import { Task } from '../../shared/models/model-interfaces';
+import { TaskService } from '../../shared/task-service/task.service';
+import { SuperSecretCalculationService } from '../../super-secret-calculation.service';
+import { TaskItemComponent } from './task-item.component';
 
-import {UntypedFormControl} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
-import {merge, Observable} from 'rxjs';
-import {debounceTime, switchMap, tap} from 'rxjs/operators';
-import {distinctUntilChanged, map} from 'rxjs/internal/operators';
-import {TaskService} from '../../shared/task-service/task.service';
-import {Task} from '../../shared/models/model-interfaces';
-import {SuperSecretCalculationService} from '../../super-secret-calculation.service';
-import {AbstractCacheService} from '../../cache/abstract-cache.service';
 
 @Component({
   selector: 'pjm-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css']
+  styleUrls: ['./task-list.component.css'],
+  standalone: true,
+  imports: [CommonModule,RouterModule, ReactiveFormsModule, TaskItemComponent]
 })
 export class TaskListComponent implements OnInit {
 

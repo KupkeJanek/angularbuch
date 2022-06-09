@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, Component, EventEmitter} from '@angular/core';
-import {Router} from '@angular/router';
-import {Task} from '../../shared/models/model-interfaces';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { Task } from '../../shared/models/model-interfaces';
 
 @Component({
   selector: 'pjm-task-item',
@@ -9,6 +10,8 @@ import {Task} from '../../shared/models/model-interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
   inputs: ['task', 'selected'],
   outputs: ['taskSelected', 'taskDelete'],
+  standalone: true,
+  imports: [CommonModule,RouterModule]
 })
 export class TaskItemComponent {
 
@@ -21,7 +24,7 @@ export class TaskItemComponent {
   taskDelete = new EventEmitter();
 
   constructor(private router: Router) {
-
+    
   }
 
   select() {

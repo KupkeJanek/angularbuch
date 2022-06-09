@@ -5,12 +5,6 @@ import { LoginComponent, LoginGuard } from './login/index';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SettingsComponent } from './settings/settings.component';
 
-// import {TasksModule} from './tasks/tasks.module';
-
-//function loadTasksModule() {
-// return TasksModule;
-//}
-
 export const appRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent, data: {title: 'Startseite'}},
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -23,10 +17,9 @@ export const appRoutes: Routes = [
 
   {
     path: 'tasks',
-    loadChildren: () => import('./tasks/tasks.module').then((m) => m.TasksModule),
+    loadChildren: () => import('./tasks/tasks.routing').then((m) => m.tasksRoutes),
     canLoad: [LoginGuard]
   },
-  // {path: 'tasks', loadChildren: loadTasksModule, canLoad: [LoginGuard]},
 
   /** Redirect Konfigurationen **/
   {path: 'tasks/*', redirectTo: '/tasks'},

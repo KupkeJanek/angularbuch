@@ -1,11 +1,10 @@
-import {RouterModule, Routes} from '@angular/router';
-import {TaskListComponent} from './task-list/task-list.component';
-import {EditTaskComponent} from './edit-task/edit-task.component';
-import {EditTaskGuard} from './edit-task/edit-task.guard';
-import {TaskOverviewComponent} from './task-overview/task-overview.component';
-import {TasksComponent} from './tasks.component';
-import {LoginGuard} from '../login/login.guard';
-import {TaskItemComponent} from './task-list/task-item.component';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginGuard } from '../login/login.guard';
+import { EditTaskComponent } from './edit-task/edit-task.component';
+import { EditTaskGuard } from './edit-task/edit-task.guard';
+import { TaskListComponent } from './task-list/task-list.component';
+import { TaskOverviewComponent } from './task-overview/task-overview.component';
+import { TasksComponent } from './tasks.component';
 
 export const tasksRoutes: Routes = [{
   path: '', canActivate: [LoginGuard], component: TasksComponent,
@@ -31,7 +30,5 @@ export const tasksRoutes: Routes = [{
     component: TaskOverviewComponent,
     outlet: 'right'
   }];
-
-export const tasksRoutingComponents = [TasksComponent, TaskListComponent, TaskItemComponent, EditTaskComponent, TaskOverviewComponent];
 
 export const tasksRouting = RouterModule.forChild(tasksRoutes);

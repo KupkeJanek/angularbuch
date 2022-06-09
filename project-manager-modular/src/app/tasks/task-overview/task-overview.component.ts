@@ -1,12 +1,14 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import * as model from '../../shared/models/model-interfaces';
-import {Task} from '../../shared/models/model-interfaces';
-import {TaskService} from '../../shared/task-service/task.service';
+import { Task } from '../../shared/models/model-interfaces';
+import { TaskService } from '../../shared/task-service/task.service';
 
 @Component({
   templateUrl: './task-overview.component.html',
   styleUrls: ['./task-overview.component.css'],
+  standalone: true,
+  imports: []
 })
 export class TaskOverviewComponent {
 

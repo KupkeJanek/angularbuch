@@ -1,18 +1,20 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {ActivatedRoute, Router,} from '@angular/router';
-import {Location} from '@angular/common';
-import {NgForm} from '@angular/forms';
-import {Subscription} from 'rxjs';
+import { Location } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { filter, map, mergeMap } from 'rxjs/operators';
+import { SharedModule } from 'src/app/shared/shared-module';
 import * as model from '../../shared/models/model-interfaces';
-import {createInitialTask, Task} from '../../shared/models/model-interfaces';
-import {filter, map, mergeMap} from 'rxjs/operators';
-import {TaskService} from '../../shared/task-service/task.service';
+import { createInitialTask, Task } from '../../shared/models/model-interfaces';
+import { TaskService } from '../../shared/task-service/task.service';
 
 
 @Component({
   templateUrl: './edit-task.component.html',
-  styleUrls: ['./edit-task.component.css']
+  styleUrls: ['./edit-task.component.css'],
+  standalone: true,
+  imports: [SharedModule, FormsModule]
 })
 export class EditTaskComponent implements OnInit {
 
