@@ -1,7 +1,8 @@
-import {Component, Input} from '@angular/core';
-import {UntypedFormGroup, NgForm} from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { NgForm, UntypedFormGroup } from '@angular/forms';
 
 @Component({
+  standalone: true,
   selector: 'show-error',
   template: `
     <div *ngIf="errorMessages" class="alert alert-danger">

@@ -1,11 +1,15 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Title} from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { SharedModule } from '../shared/shared-module';
 
 @Component({
   selector: 'settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  styleUrls: ['./settings.component.css'],
+  standalone: true,
+  imports: [SharedModule, FormsModule]
 })
 export class SettingsComponent {
 

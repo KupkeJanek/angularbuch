@@ -1,10 +1,10 @@
-import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent, LoginGuard } from './login/index';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SettingsComponent } from './settings/settings.component';
 
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {SettingsComponent} from './settings/settings.component';
-import {AboutComponent} from './about/about.component';
-import {LoginComponent, LoginGuard} from './login/index';
-import {NotFoundComponent} from './not-found/not-found.component';
 // import {TasksModule} from './tasks/tasks.module';
 
 //function loadTasksModule() {
@@ -36,8 +36,7 @@ export const appRoutes: Routes = [
 ];
 
 export const appRouting = RouterModule.forRoot(appRoutes, {
-
   preloadingStrategy: PreloadAllModules
 });
 
-export const routingComponents = [DashboardComponent, SettingsComponent, AboutComponent, LoginComponent, NotFoundComponent];
+export const routingComponents = [];
