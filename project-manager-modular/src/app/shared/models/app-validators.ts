@@ -1,7 +1,7 @@
 import {Directive} from '@angular/core';
-import {AbstractControl, FormControl, NG_VALIDATORS} from '@angular/forms';
+import {AbstractControl, UntypedFormControl, NG_VALIDATORS} from '@angular/forms';
 
-export function asyncIfNotBacklogThenAssignee(control: FormControl): Promise<any> {
+export function asyncIfNotBacklogThenAssignee(control: UntypedFormControl): Promise<any> {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(ifNotBacklogThanAssignee(control));
@@ -10,7 +10,7 @@ export function asyncIfNotBacklogThenAssignee(control: FormControl): Promise<any
   return promise;
 }
 
-export function ifNotBacklogThanAssignee(formGroup: FormControl): { [key: string]: any } | null {
+export function ifNotBacklogThanAssignee(formGroup: UntypedFormControl): { [key: string]: any } | null {
   const nameControl = formGroup.get('assignee.name');
   const stateControl = formGroup.get('state');
   if (!nameControl || !stateControl) {

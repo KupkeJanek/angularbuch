@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {merge, Observable} from 'rxjs';
 import {debounceTime, switchMap, tap} from 'rxjs/operators';
@@ -22,7 +22,7 @@ export class TaskListComponent implements OnInit {
 
   tasks$!: Observable<Task[]>;
 
-  searchTerm = new FormControl();
+  searchTerm = new UntypedFormControl();
 
   constructor(private taskService: TaskService,
               private router: Router,

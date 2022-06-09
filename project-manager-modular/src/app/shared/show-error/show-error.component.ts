@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FormGroup, NgForm} from '@angular/forms';
+import {UntypedFormGroup, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'show-error',
@@ -15,7 +15,7 @@ export class ShowErrorComponent {
   @Input('path') controlPath = '';
   @Input('text') displayName = '';
 
-  private form: FormGroup;
+  private form: UntypedFormGroup;
 
   constructor(ngForm: NgForm) {
     this.form = ngForm.form;
