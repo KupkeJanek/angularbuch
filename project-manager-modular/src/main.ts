@@ -1,5 +1,6 @@
 import { APP_INITIALIZER, enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication, Title } from '@angular/platform-browser';
+import * as io from "socket.io-client";
 import { AppComponent, appRouting } from './app';
 import { AUTH_ENABLED, SOCKET_IO } from './app/app.tokens';
 import { CacheModule } from './app/cache/cache.module';
