@@ -1,17 +1,19 @@
-import {Component, Inject, OnInit, Optional} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {LoginService} from './services/login-service/login-service';
-import {Title} from '@angular/platform-browser';
-import {AUTH_ENABLED} from './app.tokens';
-import {filter} from 'rxjs/internal/operators';
-import {TaskService} from './shared/task-service/task.service';
-import {Task} from './shared/models/model-interfaces';
-import {AbstractCacheService} from './cache/abstract-cache.service';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
+import { filter } from 'rxjs/internal/operators';
+import { AUTH_ENABLED } from './app.tokens';
+import { AbstractCacheService } from './cache/abstract-cache.service';
+import { LoginService } from './services/login-service/login-service';
+import { Task } from './shared/models/model-interfaces';
+import { TaskService } from './shared/task-service/task.service';
 
 @Component({
   selector: 'ch-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css']
+  styleUrls: ['app.component.css'],
+  standalone: true,
+  imports: [RouterModule]
 })
 export class AppComponent implements OnInit {
 
